@@ -1,5 +1,26 @@
 # Changes
  
+## Changes in 2.1.21
+
+Released 2020-03-09, build f1734a47.
+
+- Fixed error messages when playing audio.
+- Fixed legacy add-on filters not working (reading generation in Japanese Support, etc).
+- The alternate Mac build works properly when macOS is in dark mode now,
+and can be used if you prefer light Anki in macOS dark mode.
+- Prevent UI scale from being decreased below 100%, which caused display problems.
+- Fixed Anki failing to start on some Windows 7 machines that were missing TTS support.
+- Display a more useful message when mpv/mplayer not installed.
+- Don't allow exporting into Anki folder.
+- Fixed display of AnkiMobile drawings in night mode.
+- Fixed interrupting of current audio when autoplay is turned off.
+- Night mode defaults to dark grey instead of black card background.
+- Fixed {{Deck}} showing filtered deck instead of original deck.
+- Fixed an error that could occur with very small learning steps.
+- Fixed a negative version number being shown when add-ons incompatible.
+- Fixed some invalid HTML in the review screen (thanks to BlueGreenMagic)
+- Added back missing fcntl module.
+
 ## Changes in 2.1.20
 
 Released 2020-02-14, build 47a1bf8b.
