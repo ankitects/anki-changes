@@ -66,7 +66,7 @@ Released 2020-03-09, build f1734a47.
 - Fixed error messages when playing audio.
 - Fixed legacy add-on filters not working (reading generation in Japanese Support, etc).
 - The alternate Mac build works properly when macOS is in dark mode now,
-and can be used if you prefer light Anki in macOS dark mode.
+  and can be used if you prefer light Anki in macOS dark mode.
 - Prevent UI scale from being decreased below 100%, which caused display problems.
 - Fixed Anki failing to start on some Windows 7 machines that were missing TTS support.
 - Display a more useful message when mpv/mplayer not installed.
@@ -98,545 +98,531 @@ updated](https://anki.tenderapp.com/discussions/beta-testing/1706-anki-2120-upda
 
 Audio changes:
 
--   Text to speech is now [supported in card
-    templates](https://apps.ankiweb.net/docs/manual.html#text-to-speech).
+- Text to speech is now [supported in card
+  templates](https://apps.ankiweb.net/docs/manual.html#text-to-speech).
 
--   Audio buttons are now shown on the card, and can be turned off in
-    the preferences. They will show for both regular audio and text to
-    speech.
+- Audio buttons are now shown on the card, and can be turned off in
+  the preferences. They will show for both regular audio and text to
+  speech.
 
--   You can [customize the size and
-    colour](https://apps.ankiweb.net/docs/manual.html#audio-replay-buttons).
+- You can [customize the size and
+  colour](https://apps.ankiweb.net/docs/manual.html#audio-replay-buttons).
 
--   Added shortcut keys in the review screen to pause and jump
-    forward/backward 5 seconds.
+- Added shortcut keys in the review screen to pause and jump
+  forward/backward 5 seconds.
 
--   Anki now starts a new copy of mplayer for each audio file on
-    Windows, which avoids the need to create temporary files.
+- Anki now starts a new copy of mplayer for each audio file on
+  Windows, which avoids the need to create temporary files.
 
--   Added an option in the preferences to not interrupt the currently
-    playing audio when answering.
+- Added an option in the preferences to not interrupt the currently
+  playing audio when answering.
 
--   Fix multiple spaces in filenames from getting truncated when pasting
-    sound files.
+- Fix multiple spaces in filenames from getting truncated when pasting
+  sound files.
 
 Night mode:
 
--   The night mode option in the preferences screen now turns the
-    interface dark as well.
+- The night mode option in the preferences screen now turns the
+  interface dark as well.
 
--   On macOS, when the system is in dark mode, Anki will switch to night
-    mode automatically.
+- On macOS, when the system is in dark mode, Anki will switch to night
+  mode automatically.
 
--   Invert LaTeX in night mode (thanks to zjosua).
+- Invert LaTeX in night mode (thanks to zjosua).
 
--   Some of the colours in areas like the graphs could be improved -
-    pull requests with included screenshots of the changes would be
-    appreciated.
+- Some of the colours in areas like the graphs could be improved -
+  pull requests with included screenshots of the changes would be
+  appreciated.
 
 Add-on changes:
 
--   Anki will now check for add-on updates automatically once a day.
+- Anki will now check for add-on updates automatically once a day.
 
--   Disabled add-ons are now included in the check as well.
+- Disabled add-ons are now included in the check as well.
 
--   Add-on authors can specify the minimum and maximum Anki version they
-    support, and add-ons will be automatically disabled when running on
-    an unsupported Anki version.
+- Add-on authors can specify the minimum and maximum Anki version they
+  support, and add-ons will be automatically disabled when running on
+  an unsupported Anki version.
 
--   Add-on authors can now upload different add-on versions for
-    different Anki versions, and Anki will download the correct one.
+- Add-on authors can now upload different add-on versions for
+  different Anki versions, and Anki will download the correct one.
 
--   A new hook system for add-ons - please see
-    [here](https://anki.tenderapp.com/discussions/beta-testing/1704-anki-2120-updates-to-the-hook-system).
+- A new hook system for add-ons - please see
+  [here](https://anki.tenderapp.com/discussions/beta-testing/1704-anki-2120-updates-to-the-hook-system).
 
--   For add-on authors, some more examples using the new hook system are
-    available on the following page, including ported versions of the
-    clickable tags and additional card fields add-ons:
-    <https://github.com/ankitects/anki-addons/tree/master/demos>
+- For add-on authors, some more examples using the new hook system are
+  available on the following page, including ported versions of the
+  clickable tags and additional card fields add-ons:
+  <https://github.com/ankitects/anki-addons/tree/master/demos>
 
 Other changes:
 
--   Added the ability to export selected notes from the Browse screen
-    (thanks to Arthur).
+- Added the ability to export selected notes from the Browse screen
+  (thanks to Arthur).
 
--   Updated to a newer toolkit.
+- Updated to a newer toolkit.
 
--   Emptying a filtered deck in the V2 scheduler no longer unsuspends
-    suspended cards inside it.
+- Emptying a filtered deck in the V2 scheduler no longer unsuspends
+  suspended cards inside it.
 
--   Fix incorrect delay being logged when Hard is used on the first
-    learning step in the V2 scheduler.
+- Fix incorrect delay being logged when Hard is used on the first
+  learning step in the V2 scheduler.
 
--   The editor no longer modifies percent-escaped text outside of image
-    tags.
+- The editor no longer modifies percent-escaped text outside of image
+  tags.
 
--   Fix an extra linebreak being left in a field when an image is
-    attached to an empty field.
+- Fix an extra linebreak being left in a field when an image is
+  attached to an empty field.
 
--   Tweaks to the 'tag updated notes' feature (thanks to Erez)
+- Tweaks to the 'tag updated notes' feature (thanks to Erez)
 
--   Fix cards being sorted in wrong order when added after the note was
-    created (thanks to Arthur)
+- Fix cards being sorted in wrong order when added after the note was
+  created (thanks to Arthur)
 
--   Disabled elastic scrolling in webviews to work around a Qt bug.
+- Disabled elastic scrolling in webviews to work around a Qt bug.
 
--   Don’t filter em/strong tags when pasting.
+- Don’t filter em/strong tags when pasting.
 
--   Fix error when double-clicking the open profile button.
+- Fix error when double-clicking the open profile button.
 
--   Constrain image width in editor to the field width.
+- Constrain image width in editor to the field width.
 
-Changes in 2.1.19
-=================
+# Changes in 2.1.19
 
 Released 2020-01-16, build 3c8690ae.
 
--   Fix formatting and images getting lost when creating cloze
-    deletions.
+- Fix formatting and images getting lost when creating cloze
+  deletions.
 
--   Added an option to the preferences screen to strip formatting by
-    default.
+- Added an option to the preferences screen to strip formatting by
+  default.
 
--   Fix the preview button shortcut key not working.
+- Fix the preview button shortcut key not working.
 
-Changes in 2.1.18
-=================
+# Changes in 2.1.18
 
 Released 2020-01-14, build fb9d59fe.
 
--   Fixed Anki failing to start for some users updating from Anki 2.0.
+- Fixed Anki failing to start for some users updating from Anki 2.0.
 
--   Fixed the alternate Windows build failing to start on Windows 8.
+- Fixed the alternate Windows build failing to start on Windows 8.
 
-Changes in 2.1.17
-=================
+# Changes in 2.1.17
 
 Released 2020-01-11, build c69ccb50.
 
 Linux version repackaged on 2020-01-12 to fix a 'make install' issue.
 
--   Improved the performance of the browse screen’s sidebar for users
-    with many decks/tags.
+- Improved the performance of the browse screen’s sidebar for users
+  with many decks/tags.
 
--   Add-ons that modify the sidebar will break when you update, and will
-    need to be updated by the add-on author.
+- Add-ons that modify the sidebar will break when you update, and will
+  need to be updated by the add-on author.
 
--   Add-ons that alter the audio handling may need to be updated, as
-    code has moved from anki.sound to aqt.sound.
+- Add-ons that alter the audio handling may need to be updated, as
+  code has moved from anki.sound to aqt.sound.
 
--   Changing large note types is significantly faster.
+- Changing large note types is significantly faster.
 
--   Added an option in the preferences screen to adjust the user
-    interface size.
+- Added an option in the preferences screen to adjust the user
+  interface size.
 
--   You can now double-click on an .ankiaddon file to install it (thanks
-    to Glutanimate).
+- You can now double-click on an .ankiaddon file to install it (thanks
+  to Glutanimate).
 
--   Updated GUI libraries for the standard installs and the alternate
-    Windows install.
+- Updated GUI libraries for the standard installs and the alternate
+  Windows install.
 
--   The minimum Python version is now 3.7, and the packaged versions
-    ship with Python 3.8.
+- The minimum Python version is now 3.7, and the packaged versions
+  ship with Python 3.8.
 
--   The alternate Linux build has been dropped - you will need to be on
-    a Linux distro from 2016+ with systemd support to use the packaged
-    version.
+- The alternate Linux build has been dropped - you will need to be on
+  a Linux distro from 2016+ with systemd support to use the packaged
+  version.
 
--   Source tarballs are available from the releases tab of the GitHub
-    repo.
+- Source tarballs are available from the releases tab of the GitHub
+  repo.
 
--   Added an option to tag updated notes when importing (thanks to
-    Erez).
+- Added an option to tag updated notes when importing (thanks to
+  Erez).
 
--   Automatically remove ':' from field names when opening the card
-    templates screen, as it conflicts with the template syntax.
+- Automatically remove ':' from field names when opening the card
+  templates screen, as it conflicts with the template syntax.
 
--   Fix a bug in the handling of MathJax+Cloze (thanks to Michal).
+- Fix a bug in the handling of MathJax+Cloze (thanks to Michal).
 
--   Fixed a regression in the way duplicate deck names were handled.
+- Fixed a regression in the way duplicate deck names were handled.
 
--   Remove help button from some Window titles.
+- Remove help button from some Window titles.
 
-Changes in 2.1.16
-=================
+# Changes in 2.1.16
 
 Released 2019-12-12, build 4bc33e2f.
 
 Due to some minor issues that were found, the website was not updated to
 point to this release.
 
--   Pasting now includes formatting by default.
+- Pasting now includes formatting by default.
 
--   Preserve foreground/background color when pasting.
+- Preserve foreground/background color when pasting.
 
--   Preserve bold/italic/underline when pasting from Google Docs.
+- Preserve bold/italic/underline when pasting from Google Docs.
 
--   When pasting with the shift key, bold/italics/underline is also
-    stripped.
+- When pasting with the shift key, bold/italics/underline is also
+  stripped.
 
--   Ensure learning cards in filtered decks with 'order due' show in
-    template order.
+- Ensure learning cards in filtered decks with 'order due' show in
+  template order.
 
--   Remove the 'experimental' label from the new scheduler.
+- Remove the 'experimental' label from the new scheduler.
 
--   You can now import and export decks with scheduling enabled in the
-    new scheduler.
+- You can now import and export decks with scheduling enabled in the
+  new scheduler.
 
--   Hide empty Default deck in deck picker (thanks to Arthur).
+- Hide empty Default deck in deck picker (thanks to Arthur).
 
--   Add an extra day to the interval when using Easy on a relearning
-    card.
+- Add an extra day to the interval when using Easy on a relearning
+  card.
 
--   Preserve surrounding styling when making cloze deletions.
+- Preserve surrounding styling when making cloze deletions.
 
--   Draw preview screen more quickly.
+- Draw preview screen more quickly.
 
--   Fix race condition in preview screen (thanks to Håkon).
+- Fix race condition in preview screen (thanks to Håkon).
 
--   Use --exact with dvsvgm to prevent truncated subscript/superscript
-    in LaTeX.
+- Use --exact with dvsvgm to prevent truncated subscript/superscript
+  in LaTeX.
 
--   Newly created cards could be given the wrong due number (thanks to
-    Arthur).
+- Newly created cards could be given the wrong due number (thanks to
+  Arthur).
 
--   Sticky fields were ignored when closing the add card window (thanks
-    to Arthur).
+- Sticky fields were ignored when closing the add card window (thanks
+  to Arthur).
 
--   Adding a note type forced a full sync (thanks to Arthur).
+- Adding a note type forced a full sync (thanks to Arthur).
 
--   Remove shortcut keys from translations (thanks to Arthur).
+- Remove shortcut keys from translations (thanks to Arthur).
 
--   Documentation changes for translators (thanks to Arthur).
+- Documentation changes for translators (thanks to Arthur).
 
--   Case not being preserved when changing a deck’s parent (thanks to
-    Arthur).
+- Case not being preserved when changing a deck’s parent (thanks to
+  Arthur).
 
--   Hide default deck in other screens when empty (thanks to Arthur).
+- Hide default deck in other screens when empty (thanks to Arthur).
 
--   Fix qtwebengineprocesses not being cleaned up when stats window
-    closed.
+- Fix qtwebengineprocesses not being cleaned up when stats window
+  closed.
 
--   Allow smaller window when editing current card.
+- Allow smaller window when editing current card.
 
--   Support pasting multiple URLs at once.
+- Support pasting multiple URLs at once.
 
--   Add ability to force software rendering on old Macs (thanks to Mike)
+- Add ability to force software rendering on old Macs (thanks to Mike)
 
--   A fix for case insensitive field name handling in find&replace
-    (thanks to lovac42)
+- A fix for case insensitive field name handling in find&replace
+  (thanks to lovac42)
 
--   Fix non-integer intervals being imported from Mnemosyne (thanks to
-    Blauelf)
+- Fix non-integer intervals being imported from Mnemosyne (thanks to
+  Blauelf)
 
--   Clear undo queue when changing scheduler (thanks to lovac42)
+- Clear undo queue when changing scheduler (thanks to lovac42)
 
--   Default to not closing add window (thanks to Aidan)
+- Default to not closing add window (thanks to Aidan)
 
--   Sort new cards separately when sorting by ease (thanks to Arthur)
+- Sort new cards separately when sorting by ease (thanks to Arthur)
 
--   Fix a bug in the V2 scheduler.
+- Fix a bug in the V2 scheduler.
 
--   Properly handle backslashes in the replacement section of
-    Find&Replace.
+- Properly handle backslashes in the replacement section of
+  Find&Replace.
 
--   Various small fixes.
+- Various small fixes.
 
-Changes in 2.1.15
-=================
+# Changes in 2.1.15
 
 Released 2019-08-22, build 442df9d6.
 
--   The V2 scheduler now fully randomizes review cards due on a given
-    day.
+- The V2 scheduler now fully randomizes review cards due on a given
+  day.
 
--   Fix add-ons errors on Windows when profile path was short.
+- Fix add-ons errors on Windows when profile path was short.
 
--   Fix flag changes in Browse screen not syncing.
+- Fix flag changes in Browse screen not syncing.
 
--   Cleanup recording wav file when recording canceled.
+- Cleanup recording wav file when recording canceled.
 
--   Fix the window icon on Wayland (thanks to Wilco).
+- Fix the window icon on Wayland (thanks to Wilco).
 
--   Add a progress bar to media deletion.
+- Add a progress bar to media deletion.
 
--   Other minor changes.
+- Other minor changes.
 
-Changes in 2.1.14
-=================
+# Changes in 2.1.14
 
 Released 2019-06-27, build 7b93e985.
 
--   Fix a bug in the V2 scheduler that would cause partially learnt
-    cards removed from filtered decks to revert to an earlier state.
+- Fix a bug in the V2 scheduler that would cause partially learnt
+  cards removed from filtered decks to revert to an earlier state.
 
--   Fix a bug in the handling of relearning cards when switching back to
-    the V1 scheduler.
+- Fix a bug in the handling of relearning cards when switching back to
+  the V1 scheduler.
 
--   Fix lost space when pasting indented text.
+- Fix lost space when pasting indented text.
 
--   Limit image height relative to window height, not document height.
+- Limit image height relative to window height, not document height.
 
--   Fix deck list being re-rendered unnecessarily.
+- Fix deck list being re-rendered unnecessarily.
 
--   Remove the 'unable to connect to local port' message.
+- Remove the 'unable to connect to local port' message.
 
-Changes in 2.1.13
-=================
+# Changes in 2.1.13
 
 Released 2019-05-20, build 3ba55990.
 
--   Fix formatting getting lost when copying&pasting between fields on
-    macOS.
+- Fix formatting getting lost when copying&pasting between fields on
+  macOS.
 
--   Fix some issues that cause the main window to get stuck.
+- Fix some issues that cause the main window to get stuck.
 
--   Fix an empty deck list sometimes appearing when restoring from a
-    backup.
+- Fix an empty deck list sometimes appearing when restoring from a
+  backup.
 
--   Fix Anki hanging after an error occurs during startup.
+- Fix Anki hanging after an error occurs during startup.
 
--   Fix error caused by profile with trailing space on Windows.
+- Fix error caused by profile with trailing space on Windows.
 
--   Fix error message when syncing with an unconfirmed email address.
+- Fix error message when syncing with an unconfirmed email address.
 
--   Use jsonschema for add-on manifests (thanks to Erez).
+- Use jsonschema for add-on manifests (thanks to Erez).
 
--   Warn in DB check when high due numbers are encountered.
+- Warn in DB check when high due numbers are encountered.
 
--   Improve error messages on full disk and failed add-on deletion.
+- Improve error messages on full disk and failed add-on deletion.
 
--   Fix relearning cards being given learning step count in V2
-    scheduler.
+- Fix relearning cards being given learning step count in V2
+  scheduler.
 
--   Fix preview window failing to appear when 'show both sides' enabled.
+- Fix preview window failing to appear when 'show both sides' enabled.
 
--   Removing trailing BR tag when pasting into an empty field.
+- Removing trailing BR tag when pasting into an empty field.
 
--   Don’t throw an error when non-Latin text in the Javascript console
-    can’t be shown.
+- Don’t throw an error when non-Latin text in the Javascript console
+  can’t be shown.
 
--   Double click on add-ons to edit their configuration (thanks to
-    lovac42).
+- Double click on add-ons to edit their configuration (thanks to
+  lovac42).
 
--   Fix the window icon in a few screens (thanks to John).
+- Fix the window icon in a few screens (thanks to John).
 
--   Don’t highlight the deck selection button in the add screen on
-    Windows.
+- Don’t highlight the deck selection button in the add screen on
+  Windows.
 
--   Improve the default 'type in the answer' note type.
+- Improve the default 'type in the answer' note type.
 
-Changes in 2.1.12
-=================
+# Changes in 2.1.12
 
 Released 2019-04-23, build eef86bf3.
 
--   Fix an issue that could prevent profile renaming/deletion on
-    Windows.
+- Fix an issue that could prevent profile renaming/deletion on
+  Windows.
 
--   Fix fields appearing under editor buttons.
+- Fix fields appearing under editor buttons.
 
--   Fix memory leak in card layout screen.
+- Fix memory leak in card layout screen.
 
--   Fix some issues with previewing in the Browse screen.
+- Fix some issues with previewing in the Browse screen.
 
--   Fix card counts not updating when a review is undone.
+- Fix card counts not updating when a review is undone.
 
--   Fix an error that could occur on startup on some Windows installs.
+- Fix an error that could occur on startup on some Windows installs.
 
--   The Mac build now uses the new hardened runtime on Mojave.
+- The Mac build now uses the new hardened runtime on Mojave.
 
--   Change focus outline colour on Windows.
+- Change focus outline colour on Windows.
 
--   Fix an error caused by missing note types.
+- Fix an error caused by missing note types.
 
--   A possible workaround for the audio player getting stuck on Macs.
+- A possible workaround for the audio player getting stuck on Macs.
 
--   Display the installed version in the Windows uninstall screen.
+- Display the installed version in the Windows uninstall screen.
 
--   Fix an issue checking for add-on updates (thanks to Glutanimate).
+- Fix an issue checking for add-on updates (thanks to Glutanimate).
 
--   Disable add-on config button when not appropriate (thanks to
-    Glutanimate).
+- Disable add-on config button when not appropriate (thanks to
+  Glutanimate).
 
--   Tweaks to the 'deck age' graph binning (thanks to Jian).
+- Tweaks to the 'deck age' graph binning (thanks to Jian).
 
--   Add-ons hosted on AnkiWeb can now define conflicts in the manifest
-    file.
+- Add-ons hosted on AnkiWeb can now define conflicts in the manifest
+  file.
 
--   Switch to mplayer on the alternate OS X build, as mpv was not
-    working on some older machines.
+- Switch to mplayer on the alternate OS X build, as mpv was not
+  working on some older machines.
 
--   Make sure mpv doesn’t attempt to load scripts from default location.
+- Make sure mpv doesn’t attempt to load scripts from default location.
 
--   Other minor fixes.
+- Other minor fixes.
 
-Changes in 2.1.11
-=================
+# Changes in 2.1.11
 
 Released 2019-03-11, build 3cf770c7.
 
--   Change Undo shortcut back to Ctrl+Alt+Z/Cmd+Opt+Z in Browse screen,
-    to prevent accidentally undoing non-text changes when editing
-    fields.
+- Change Undo shortcut back to Ctrl+Alt+Z/Cmd+Opt+Z in Browse screen,
+  to prevent accidentally undoing non-text changes when editing
+  fields.
 
--   Revert a previous card template optimization that could cause an
-    error.
+- Revert a previous card template optimization that could cause an
+  error.
 
--   Suppress a spurious error message that could occur when editing.
+- Suppress a spurious error message that could occur when editing.
 
-Changes in 2.1.10
-=================
+# Changes in 2.1.10
 
 Released 2019-03-07, build 22d6feed.
 
--   Add option to strip html in export.
+- Add option to strip html in export.
 
--   Avoid nbsp for single spaces when pasting text.
+- Avoid nbsp for single spaces when pasting text.
 
--   Fix preview screen flashing when moving between cards.
+- Fix preview screen flashing when moving between cards.
 
--   Improvements to the add-ons screen (thanks to Glutanimate).
+- Improvements to the add-ons screen (thanks to Glutanimate).
 
--   Support .ankiaddon bundles (thanks to Glutanimate).
+- Support .ankiaddon bundles (thanks to Glutanimate).
 
--   Improve subpixel antialiasing on some machines (thanks to
-    Glutanimate).
+- Improve subpixel antialiasing on some machines (thanks to
+  Glutanimate).
 
--   Improve Japanese interface font on Windows 10, and make it possible
-    for translators to change the font for other languages that need it
-    as well.
+- Improve Japanese interface font on Windows 10, and make it possible
+  for translators to change the font for other languages that need it
+  as well.
 
--   Fix inability to start if problem occurs on first run.
+- Fix inability to start if problem occurs on first run.
 
--   Allow decreasing daily limits in custom study.
+- Allow decreasing daily limits in custom study.
 
--   Add a button to copy debug info to about screen (thanks to
-    Glutanimate).
+- Add a button to copy debug info to about screen (thanks to
+  Glutanimate).
 
--   Fix problem running from source on Windows (thanks to dlon).
+- Fix problem running from source on Windows (thanks to dlon).
 
--   Allow add-ons to serve files from mediasrv (thanks to Glutanimate).
+- Allow add-ons to serve files from mediasrv (thanks to Glutanimate).
 
--   More user-friendly error messages for some network errors.
+- More user-friendly error messages for some network errors.
 
-Changes in 2.1.9
-================
+# Changes in 2.1.9
 
 Released 2019-02-20, build ae67c976.
 
--   Update standard build to latest toolkit version.
+- Update standard build to latest toolkit version.
 
--   Hardware acceleration defaults to off again on Windows/Linux, due to
-    the issues it was causing some users. If you were not experiencing
-    any issues, turning hardware acceleration back on in the preferences
-    screen is recommended.
+- Hardware acceleration defaults to off again on Windows/Linux, due to
+  the issues it was causing some users. If you were not experiencing
+  any issues, turning hardware acceleration back on in the preferences
+  screen is recommended.
 
--   Various statistics fixes for the V2 scheduler, including an
-    automatic remapping of button 2/3 in the review history when moving
-    back and forth between scheduler versions so the "answer buttons"
-    graph displays correctly.
+- Various statistics fixes for the V2 scheduler, including an
+  automatic remapping of button 2/3 in the review history when moving
+  back and forth between scheduler versions so the "answer buttons"
+  graph displays correctly.
 
--   Fix BR tags being included in empty fields (thanks to David and
-    zjosua)
+- Fix BR tags being included in empty fields (thanks to David and
+  zjosua)
 
--   Optimize card template repositioning (thanks to Arthur)
+- Optimize card template repositioning (thanks to Arthur)
 
--   Fix a crash when copying/cutting with an empty selection (thanks to
-    David)
+- Fix a crash when copying/cutting with an empty selection (thanks to
+  David)
 
--   Avoid screen flash when undoing reviews.
+- Avoid screen flash when undoing reviews.
 
--   Make sure info/warning dialogs appear on top.
+- Make sure info/warning dialogs appear on top.
 
--   Fixed an issue with just-typed text not being saved when using the
-    mouse to save/add a card.
+- Fixed an issue with just-typed text not being saved when using the
+  mouse to save/add a card.
 
--   Added support for \\{{CardFlag}}, which is either empty, or in the
-    format "flagN" where N is 1-4.
+- Added support for \\{{CardFlag}}, which is either empty, or in the
+  format "flagN" where N is 1-4.
 
--   Fix bulk flag changes in Browse screen not syncing.
+- Fix bulk flag changes in Browse screen not syncing.
 
--   Fix advanced menu in editor not showing shortcut keys.
+- Fix advanced menu in editor not showing shortcut keys.
 
--   When UI fails to load after resuming computer from sync, show a
-    tooltip and automatically refresh.
+- When UI fails to load after resuming computer from sync, show a
+  tooltip and automatically refresh.
 
--   Clean up old mplayer instances after a crash so that profile
-    renaming works.
+- Clean up old mplayer instances after a crash so that profile
+  renaming works.
 
--   Fix add-on list not refreshing when toggling enabled in latest
-    toolkit.
+- Fix add-on list not refreshing when toggling enabled in latest
+  toolkit.
 
--   Fix cursor jumping on first click in "Edit Current" area on Windows.
+- Fix cursor jumping on first click in "Edit Current" area on Windows.
 
--   Preserve whitespace when pasting plain text.
+- Preserve whitespace when pasting plain text.
 
--   Prevent errors caused by a timer firing after collection is
-    unloaded.
+- Prevent errors caused by a timer firing after collection is
+  unloaded.
 
--   Ensure a full sync is forced when restoring from a backup.
+- Ensure a full sync is forced when restoring from a backup.
 
--   Ensure full window is on screen when displaying windows on a changed
-    screen layout.
+- Ensure full window is on screen when displaying windows on a changed
+  screen layout.
 
--   Improvements to the add-ons, debug console, and error screens
-    (thanks to Glutanimate)
+- Improvements to the add-ons, debug console, and error screens
+  (thanks to Glutanimate)
 
--   Ensure \\{{Deck}} shows the correct deck when adding (thanks to
-    Arthur)
+- Ensure \\{{Deck}} shows the correct deck when adding (thanks to
+  Arthur)
 
--   Ensure windows don’t get shown off-screen.
+- Ensure windows don’t get shown off-screen.
 
--   Remember add-on window size and position.
+- Remember add-on window size and position.
 
-Changes in 2.1.8
-================
+# Changes in 2.1.8
 
 Released 2019-01-02, build 71e0c880.
 
--   Fix startup on Windows 8.
+- Fix startup on Windows 8.
 
--   Fix field content appearing under editor buttons.
+- Fix field content appearing under editor buttons.
 
--   Better handle an error when recording.
+- Better handle an error when recording.
 
--   Fix improper handling of collections with deck errors.
+- Fix improper handling of collections with deck errors.
 
--   Fix duplicate deck names being created due to text encoding.
+- Fix duplicate deck names being created due to text encoding.
 
--   Fix gtk2 theme and fcitx module not being included.
+- Fix gtk2 theme and fcitx module not being included.
 
--   Detect nouveau graphics drivers and automatically switch to software
-    rendering.
+- Detect nouveau graphics drivers and automatically switch to software
+  rendering.
 
-Changes in 2.1.7
-================
+# Changes in 2.1.7
 
 Released 2018-12-17.
 
--   Fix "QPushButton has been deleted" error messages after a problem
-    occurs changing note types.
+- Fix "QPushButton has been deleted" error messages after a problem
+  occurs changing note types.
 
--   Fix errors during "Check Database" that are just a byproduct of a
-    previous operation that failed.
+- Fix errors during "Check Database" that are just a byproduct of a
+  previous operation that failed.
 
--   Fix problems searching for some non-Latin text in decks/note type
-    names.
+- Fix problems searching for some non-Latin text in decks/note type
+  names.
 
--   Ensure cgi and uuid modules are available to add-ons.
+- Ensure cgi and uuid modules are available to add-ons.
 
--   Improvements to the Windows installer.
+- Improvements to the Windows installer.
 
--   Automatically restart mpv if it stops responding.
+- Automatically restart mpv if it stops responding.
 
--   Don’t convert non-Latin characters in add-on configuration to
-    difficult-to-read escape codes.
+- Don’t convert non-Latin characters in add-on configuration to
+  difficult-to-read escape codes.
 
--   Add a bottom border to the menubar on Windows 10.
+- Add a bottom border to the menubar on Windows 10.
 
-Changes in 2.1.6
-================
+# Changes in 2.1.6
 
 Released 2018-12-10.
 
@@ -644,15 +630,15 @@ Downloads are now split into a standard and alternate version.
 
 **The standard version**:
 
--   Is built with the latest toolkit, which fixes various issues.
+- Is built with the latest toolkit, which fixes various issues.
 
--   Changes the undo shortcut back to Ctrl+Z or Command+Z like Anki 2.0.
+- Changes the undo shortcut back to Ctrl+Z or Command+Z like Anki 2.0.
 
--   Includes a separate anki-console.exe executable in the Windows build
-    that may be useful for add-on authors.
+- Includes a separate anki-console.exe executable in the Windows build
+  that may be useful for add-on authors.
 
--   Includes support for the fcitx input method and a gtk2 theme in the
-    Linux build.
+- Includes support for the fcitx input method and a gtk2 theme in the
+  Linux build.
 
 You can switch between the standard and alternate 2.1.6 without
 problems. If you move back to a previous Anki 2.1 release, your sync
@@ -661,13 +647,13 @@ again.
 
 **The standard version has updated requirements**:
 
--   The Windows build only supports 64 bit Windows 7 or later, and will
-    not run on a 32 bit install.
+- The Windows build only supports 64 bit Windows 7 or later, and will
+  not run on a 32 bit install.
 
--   The Mac build requires macOS 10.12 or later.
+- The Mac build requires macOS 10.12 or later.
 
--   The Linux build requires a Linux distribution from approximately
-    2016 or later.
+- The Linux build requires a Linux distribution from approximately
+  2016 or later.
 
 The alternate version is similar to previous Anki 2.1 releases, and is
 built with an older toolkit. It will run on some older systems that the
@@ -677,215 +663,209 @@ includes.
 
 **The alternate version will run on**:
 
--   Windows 7 32 bit or 64 bit installs
+- Windows 7 32 bit or 64 bit installs
 
--   Mac 10.10 or later.
+- Mac 10.10 or later.
 
--   A Linux distro from around 2014 or later.
+- A Linux distro from around 2014 or later.
 
 **In addition to the toolkit upgrade, there have been some changes in
 Anki itself**:
 
--   Improvements to the Browse screen and flagging:
+- Improvements to the Browse screen and flagging:
 
-    -   Search text is normalized, which fixes problems searching for
-        unicode characters with multiple possible encodings.
+  - Search text is normalized, which fixes problems searching for
+    unicode characters with multiple possible encodings.
 
-    -   The selection is now partially transparent, allowing you to see
-        the underyling colours of the rows.
+  - The selection is now partially transparent, allowing you to see
+    the underyling colours of the rows.
 
-    -   The screen doesn’t scroll when performing actions that don’t
-        change the selection count.
+  - The screen doesn’t scroll when performing actions that don’t
+    change the selection count.
 
-    -   Flags now toggle on and off, and the separate clear flag action
-        has been removed.
+  - Flags now toggle on and off, and the separate clear flag action
+    has been removed.
 
-    -   The second flag is now orange instead of purple.
+  - The second flag is now orange instead of purple.
 
-    -   Find&replace now only shows fields relevant to the notes you’ve
-        selected, and is case insensitive.
+  - Find&replace now only shows fields relevant to the notes you’ve
+    selected, and is case insensitive.
 
-    -   Fix card list not updating when editing HTML.
+  - Fix card list not updating when editing HTML.
 
--   Importing apkgs is now more verbose about how notes have been
-    handled.
+- Importing apkgs is now more verbose about how notes have been
+  handled.
 
--   Prevent errors caused by the user adding a field reference to itself
-    on a field.
+- Prevent errors caused by the user adding a field reference to itself
+  on a field.
 
--   Better handle issues with the deck list, such as decks that are
-    missing a parent deck.
+- Better handle issues with the deck list, such as decks that are
+  missing a parent deck.
 
--   Anki should now be able to function even if a system proxy is
-    configured for localhost connections.
+- Anki should now be able to function even if a system proxy is
+  configured for localhost connections.
 
--   Fix font size being copied when pasting between Anki fields with
-    bold text.
+- Fix font size being copied when pasting between Anki fields with
+  bold text.
 
--   Pasting a link with shift held down now creates a clickable link.
+- Pasting a link with shift held down now creates a clickable link.
 
--   Fixed an issue with the bulk remove tags option where tags with
-    similar names could be removed as well.
+- Fixed an issue with the bulk remove tags option where tags with
+  similar names could be removed as well.
 
--   Fixed an error that occurred with very long filenames on Windows.
+- Fixed an error that occurred with very long filenames on Windows.
 
--   Fixed an issue running latex commands on some Linux installs.
+- Fixed an issue running latex commands on some Linux installs.
 
--   The Browse screen’s sidebar now defaults to on.
+- The Browse screen’s sidebar now defaults to on.
 
--   Fixed a race condition that could cause two copies of Anki to open.
+- Fixed a race condition that could cause two copies of Anki to open.
 
--   When adding media to cards, Anki now will automatically rename the
-    filenames if they’re too long.
+- When adding media to cards, Anki now will automatically rename the
+  filenames if they’re too long.
 
--   The experimental scheduler now regularly checks if new learning
-    cards have become due.
+- The experimental scheduler now regularly checks if new learning
+  cards have become due.
 
--   Handle invalid add-on config (thanks to Arthur).
+- Handle invalid add-on config (thanks to Arthur).
 
--   Enforce template ordering when card templates are reordered after
-    card creation (thanks to Arthur).
+- Enforce template ordering when card templates are reordered after
+  card creation (thanks to Arthur).
 
--   Don’t change deck when Esc pressed in deck chooser (thanks to
-    David).
+- Don’t change deck when Esc pressed in deck chooser (thanks to
+  David).
 
--   Fix a problem on initial startup when English not the default
-    language.
+- Fix a problem on initial startup when English not the default
+  language.
 
--   Fix busy cursor showing in import results screen.
+- Fix busy cursor showing in import results screen.
 
--   Fix content overlap when add-ons have added many editor buttons.
+- Fix content overlap when add-ons have added many editor buttons.
 
--   Don’t change current note when reopening editor from review screen
-    (thanks to Arthur).
+- Don’t change current note when reopening editor from review screen
+  (thanks to Arthur).
 
--   A fix for running on Python 3.7 (thanks to Alexey).
+- A fix for running on Python 3.7 (thanks to Alexey).
 
--   Restore the tooltip for the Fields and Cards buttons in editor.
+- Restore the tooltip for the Fields and Cards buttons in editor.
 
--   A possible fix for 'database is locked' errors on Windows.
+- A possible fix for 'database is locked' errors on Windows.
 
-Changes in 2.1.5
-================
+# Changes in 2.1.5
 
 Released 2018-10-01.
 
--   Use selected answer button instead of default when enter/space
-    pressed.
+- Use selected answer button instead of default when enter/space
+  pressed.
 
--   Change undo shortcut in browse screen to avoid conflict with editing
-    functionality.
+- Change undo shortcut in browse screen to avoid conflict with editing
+  functionality.
 
--   Ignore standard mpv config file location in favour of Anki data
-    folder.
+- Ignore standard mpv config file location in favour of Anki data
+  folder.
 
--   Fix importing of .apkg files when interface in Dutch.
+- Fix importing of .apkg files when interface in Dutch.
 
--   Fix translations not working on Linux after 'make install'.
+- Fix translations not working on Linux after 'make install'.
 
--   Support newlines in type:cloze, and treat them as spaces.
+- Support newlines in type:cloze, and treat them as spaces.
 
--   Add browser.rowChanged hook for add-on authors.
+- Add browser.rowChanged hook for add-on authors.
 
--   Possible fix for some 'database is locked' errors.
+- Possible fix for some 'database is locked' errors.
 
--   Fix errors on startup when deck given an invalid name.
+- Fix errors on startup when deck given an invalid name.
 
--   Fix sorting not working when field contains only a media reference.
+- Fix sorting not working when field contains only a media reference.
 
--   Fix 'access denied' error not being caught properly.
+- Fix 'access denied' error not being caught properly.
 
--   Fix exporting of v2 colpkg when interface in non-English language.
+- Fix exporting of v2 colpkg when interface in non-English language.
 
--   Fix conditional replacement not ignoring HTML formatting.
+- Fix conditional replacement not ignoring HTML formatting.
 
--   Fix question fade time being forced when hardware acceleration on.
+- Fix question fade time being forced when hardware acceleration on.
 
--   Add a small margin between buttons during review.
+- Add a small margin between buttons during review.
 
--   V2 scheduler now respects maximum interval even if it will lead to
-    all buttons giving the same interval.
+- V2 scheduler now respects maximum interval even if it will lead to
+  all buttons giving the same interval.
 
--   Tweak margins in overview and answer button areas.
+- Tweak margins in overview and answer button areas.
 
--   Ignore UI events that are received after collection has been closed.
+- Ignore UI events that are received after collection has been closed.
 
--   Don’t try to import .anki(2) files as text.
+- Don’t try to import .anki(2) files as text.
 
--   Added support for Lojban (thanks to giqtaqisi)
+- Added support for Lojban (thanks to giqtaqisi)
 
-Changes in 2.1.4
-================
+# Changes in 2.1.4
 
 Released 2018-09-05.
 
--   Fix deck list getting stuck when creating filtered deck.
+- Fix deck list getting stuck when creating filtered deck.
 
--   Prevent local cards being overwritten when accidentally downloading
-    empty AnkiWeb collection.
+- Prevent local cards being overwritten when accidentally downloading
+  empty AnkiWeb collection.
 
--   Favour mark/flag colour over suspended colour in browse screen.
+- Favour mark/flag colour over suspended colour in browse screen.
 
--   Fix new day calculation in experimental scheduler.
+- Fix new day calculation in experimental scheduler.
 
--   Linux theme tweaks (thanks to Glutanimate).
+- Linux theme tweaks (thanks to Glutanimate).
 
--   Disable view page button for locally added add-ons (thanks to
-    upday7).
+- Disable view page button for locally added add-ons (thanks to
+  upday7).
 
-Changes in 2.1.3
-================
+# Changes in 2.1.3
 
 Released 2018-08-30.
 
--   Hardware acceleration can now be toggled in the preferences screen
-    on Windows/Linux.
+- Hardware acceleration can now be toggled in the preferences screen
+  on Windows/Linux.
 
--   Disable question fade-in during review when hardware acceleration is
-    off.
+- Disable question fade-in during review when hardware acceleration is
+  off.
 
--   Fix some add-ons leaving a blank space in the main window when Anki
-    restarted.
+- Fix some add-ons leaving a blank space in the main window when Anki
+  restarted.
 
--   Fix file associations on macOS.
+- Fix file associations on macOS.
 
--   Fix some unwanted text being included when pasting.
+- Fix some unwanted text being included when pasting.
 
--   Fix shortcut keys like space from repeatedly triggering when held
-    down.
+- Fix shortcut keys like space from repeatedly triggering when held
+  down.
 
-Changes in 2.1.2
-================
+# Changes in 2.1.2
 
 Released 2018-08-20.
 
--   Add missing .apkg and .colpkg file associations.
+- Add missing .apkg and .colpkg file associations.
 
--   Improve handling of images inlined in fields.
+- Improve handling of images inlined in fields.
 
-Changes in 2.1.1
-================
+# Changes in 2.1.1
 
 Released 2018-08-09.
 
--   Fixed exporting of .apkg files with regular scheduler.
+- Fixed exporting of .apkg files with regular scheduler.
 
--   Work around Anki failing to start on some Windows machines.
+- Work around Anki failing to start on some Windows machines.
 
--   Fix dialogs failing to show in tabs when using macOS’s full screen
-    mode.
+- Fix dialogs failing to show in tabs when using macOS’s full screen
+  mode.
 
--   Extract embedded images when pasting HTML.
+- Extract embedded images when pasting HTML.
 
--   Fix images copied from Finder not pasting properly.
+- Fix images copied from Finder not pasting properly.
 
--   When the sort field is set to RTL, display in RTL order in the
-    browser.
+- When the sort field is set to RTL, display in RTL order in the
+  browser.
 
--   Update toolkit version on Windows.
+- Update toolkit version on Windows.
 
-Changes in 2.1.0
-================
+# Changes in 2.1.0
 
 Released 2018-08-06.
 
@@ -893,37 +873,33 @@ The first stable release of Anki 2.1.
 
 Changes from the previous release candidate:
 
--   Don’t unmaximize when reshowing browse screen.
+- Don’t unmaximize when reshowing browse screen.
 
--   Add \*.webm to attach media file selector.
+- Add \*.webm to attach media file selector.
 
--   Add shortcut key for MathJax mhchem support.
+- Add shortcut key for MathJax mhchem support.
 
-Changes in Anki 2.1
-===================
+# Changes in Anki 2.1
 
-Translations
-------------
+## Translations
 
--   [日本語](http://rs.luminousspice.com/changeinanki2/)
+- [日本語](http://rs.luminousspice.com/changeinanki2/)
 
-At a glance
------------
+## At a glance
 
--   Anki 2.1 uses the same scheduling, syncing and file format as Anki
-    2.0.x, so you can upgrade and downgrade at will.
+- Anki 2.1 uses the same scheduling, syncing and file format as Anki
+  2.0.x, so you can upgrade and downgrade at will.
 
--   It’s built with recent support libraries (Python 3.6, Qt 5.9/5.12),
-    bringing fixes for crashes, better handling of high resolution
-    displays, non-Latin text, and the latest web standards.
+- It’s built with recent support libraries (Python 3.6, Qt 5.9/5.12),
+  bringing fixes for crashes, better handling of high resolution
+  displays, non-Latin text, and the latest web standards.
 
--   It requires a modern system - Windows 7+, OSX 10.10+, or a Linux
-    distro from around 2014+.
+- It requires a modern system - Windows 7+, OSX 10.10+, or a Linux
+  distro from around 2014+.
 
--   Add-ons will need to be updated to work with 2.1.
+- Add-ons will need to be updated to work with 2.1.
 
-Add-ons
--------
+## Add-ons
 
 Add-ons need to be updated to work with Anki 2.1. [Some
 add-ons](https://ankiweb.net/shared/addons/2.1) have already been
@@ -935,43 +911,41 @@ not import any existing ones you have installed.
 If you’re an add-on author, you can read more about the required changes
 on <https://apps.ankiweb.net/docs/addons.html>
 
-Other changes
--------------
+## Other changes
 
 Anki 2.1 brings numerous bugfixes, and some quality of life
 improvements, such as:
 
--   Built in MathJax support
+- Built in MathJax support
 
--   A "restore backup" option in the profiles screen
+- A "restore backup" option in the profiles screen
 
--   SVG rendering support for LaTeX
+- SVG rendering support for LaTeX
 
--   Improved add-on configuration, management and updating
+- Improved add-on configuration, management and updating
 
--   Night mode for reviewing
+- Night mode for reviewing
 
--   Improved pasting, with less unnecessary formatting included, and
-    better handling of media links. You can hold the shift key when
-    pasting to allow more formatting to be included.
+- Improved pasting, with less unnecessary formatting included, and
+  better handling of media links. You can hold the shift key when
+  pasting to allow more formatting to be included.
 
 The Browse screen has been simplified:
 
--   Various shortcuts that were previously in the sidebar are now
-    available via the Filter button. If you find yourself frequently
-    accessing certain items, you can save the search to have them appear
-    in the side bar.
+- Various shortcuts that were previously in the sidebar are now
+  available via the Filter button. If you find yourself frequently
+  accessing certain items, you can save the search to have them appear
+  in the side bar.
 
--   The top bar with common shortcuts has been removed. You can access
-    all actions quickly by right clicking or ctrl+clicking in the card
-    list instead, and there is an add-on available for adding back the
-    top bar if you still prefer it.
+- The top bar with common shortcuts has been removed. You can access
+  all actions quickly by right clicking or ctrl+clicking in the card
+  list instead, and there is an add-on available for adding back the
+  top bar if you still prefer it.
 
 A full list of changes made during the alpha and beta period are
 documented [here](https://apps.ankiweb.net/docs/beta.html).
 
-Experimental scheduler
-----------------------
+## Experimental scheduler
 
 Anki 2.1 contains an optional, [experimental
 scheduler](https://anki.tenderapp.com/kb/anki-ecosystem/experiment-scheduling-changes-in-anki-21).
