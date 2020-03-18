@@ -1,5 +1,64 @@
 # Changes
- 
+
+## Changes in 2.1.22
+
+Released 2020-03-18, build 0ecc189a.
+
+Media syncing improvements:
+
+- Media syncing now happens in the background, so you can continue using
+  Anki while the media sync completes.
+- Aside from syncing at open and close, Anki will sync any media changes
+  every 15-20 minutes.
+- You can click on the sync button while the spinner is active to monitor
+  progress.
+- Long filenames and problematic characters should be handled smoothly now,
+  instead of causing syncing errors.
+- Anki should no longer sometimes forget to download files when a media
+  sync fails due to network errors.
+- When media files are added within Anki, Anki now marks them
+  in the database immediately, which can make things faster for people with
+  slower disks if they are not modifying the media folder externally.
+
+Media check improvements:
+
+- The Check Media function now shows progress, and can be interrupted.
+- There is now a separate button to generate missing LaTeX.
+- If LaTeX fails to build, the problem card will be revealed in the browse
+  screen.
+- When Anki finds files that are too long or would cause errors on some
+  operating systems, it will automatically rename them and update your notes
+  to point to the new filename.
+
+Both media sync and the media check now place deleted files in a media.trash
+folder inside your profile, instead of placing the files in the system trash.
+You can use the Check Media function to either empty the trash, or restore
+the deleted files back to your media folder.
+
+Other changes:
+
+- You can now export .apkg files with the V2 scheduler enabled.
+- Add "New #" prefix to the due column for new cards.
+- Fixed audio getting stuck on Windows.
+- Clear the audio queue when moving between cards with autoplay off.
+- Fixed play icons not appearing in browser preview when autoplay off.
+- Show next learning card due time, and count for today.
+- Restored grey styling of zeros in the deck list that got lost in the night mode changes.
+- Improvements to the readability of the scheduling code (thanks to Arthur)
+- Add-on hook improvements, thanks to Glutanimate and Arthur.
+- Fixed fields containing a filename with non-Latin text from being corrupted when editing HTML (thanks to Evandro).
+- Support for validating add-on config schemas (thanks to Arthur).
+- Removed the 'too many decks' message in the deck list screen.
+- Fix for issue playing audio from flash drive.
+- Fixed Anki getting stuck when importing an invalid file.
+- More type hints in the code (thanks to Alan).
+- Improvements to the build process and building on Windows (thanks to Evandro).
+- Support '/' separator in add-on web paths on Windows (thanks to BlueGreenMagick)
+- Fix tags that are in the wrong encoding as part of the DB check.
+- Hide the default deck in more cases (thanks to Arthur).
+- Updates to the translation infrastructure, including tweaks to the way
+  the answer buttons and the review history screen show intervals.
+
 ## Changes in 2.1.21
 
 Released 2020-03-09, build f1734a47.
