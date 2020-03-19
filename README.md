@@ -1,5 +1,14 @@
 # Changes
 
+## Changes in 2.1.23
+
+Released 2020-03-19, build de9543ff.
+
+A macOS-only build that fixes a problem syncing media files
+with non-Latin filenames added by previous Anki versions on macOS.
+
+Please see 2.1.22 below for the bulk of the changes.
+
 ## Changes in 2.1.22
 
 Released 2020-03-18, build 0ecc189a.
