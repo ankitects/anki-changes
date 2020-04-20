@@ -1,5 +1,120 @@
 # Changes
 
+## Changes in 2.1.24
+
+Release TBA.
+
+:warning: After using this version, if you wish to open your collection with an
+earlier Anki release, please go to the File>Switch Profile menu item, and click
+on "Downgrade & Quit". If you skip this step, you may get an error message when
+opening your collection in an older Anki version, and you will need to return to
+this version, downgrade, then try again.
+
+Searching:
+
+- You can now use `re:something` to search via regular expression, eg:
+  - `re:\bdog\b` will search for the word 'dog'. It has a word boundary character (`\b`) at the
+    start and end, so it will match 'a dog', but not 'a doggy'.
+  - `front:re:t+1` would match "t1", "tt1" and so on in the Front field
+  - When searching by regex, unicode case folding is used, so searching for `re:über` will
+    show a card that has "Über" on it.
+- `nc:something` (short for "no combining (characters)") can be used to search while
+  ignoring accents, eg `nc:uber` will match both "über" and "Über". This behaves the same way as the "Ignore Accents" add-on, but is about 16x faster.
+- You can now sort on the deck, card template, note type and tags columns.
+- You can now use wildcards when limiting the search to a field, eg `field*:something`.
+- You can now use wildcards when searching for a card template or note type by name.
+- `rated:x` searches are now capped to a year instead of a month.
+- You can now escaped double-quotes in a search - eg `"foo\"bar"`
+- Single-quote searches are no longer supported.
+- Because the searching code has been rewritten, add-ons that modify the search
+  code will need to be updated to support 2.1.24. It is no longer possible to
+  override the Finder class - add-ons will need to use the new hooks in the
+  browser screen to either rewrite the search text, or perform their own lookups
+  instead. The Advanced Browser add-on has already been updated, and can be used
+  as an example of how to accomplish things in 2.1.24.
+- Non-wildcard searches now do full unicode case folding (eg 'tag:masse' matches 'Maße').
+- Wildcard searches do simple unicode case folding.
+- The tag list in the Browse screen now uses unicode case folding.
+
+macOS dark mode handling:
+
+- Anki now solely relies on the night mode setting in the preferences to decide
+  whether to show in light or dark mode. Some users wanted to run Anki in light
+  mode while keeping the rest of their system dark, and there were various
+  display problems when dark mode was changed after Anki started that couldn't
+  be easily worked around.
+- Users who only use dark mode, and preferred the native look of widgets in dark
+  mode, can achieve the previous appearance by running the following command in
+  the terminal:
+
+  ```
+  defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool no
+  ```
+
+  And the following in the debug console:
+
+  ```
+  mw.pm.meta["dark_mode_widgets"] = True
+  ```
+
+Database changes (mainly of interest to add-on developers):
+
+- Anki now uses Rust's sqlite libraries instead of Python's.
+- The 'db' object on the collection retains most of the same API as before, minimizing the amount of immediate code changes that are required.
+- Custom sql functions are no longer supported, and named DB arguments (eg "where id = :id") are deprecated.
+- The old database code remains in db.py, and add-ons can continue to use it for accessing
+  their own databases.
+- The database is now behind a mutex, and can be safely accessed from a background thread.
+- Various screens like the database check have been updated to run on a background thread,
+  so they no longer lock up the UI while they're running.
+- The database progress handler has been removed. Anki previous had sqlite call back into
+  Python periodically during long-running DB operations so it could drain the UI queue,
+  but this would vary in choppyness depending on the type of DB operation being performed,
+  and it was the cause of some crashes in the past. Add-ons that perform long-running operations
+  should instead use mw.taskman.run_in_background() or their own threading solution moving forward.
+
+Other changes:
+
+- A tweak which should fix some broken add-ons from preventing the collection from being loaded.
+- Add socks support to media sync.
+- Allow dragging fields to change their position (thanks to BlueGreenMagick).
+- Allow selecting add-on config help text (thanks to ijgnd).
+- Allow the type answer arrow to be styled (thanks to Evandro).
+- Anki will now wait for a media sync to complete or be aborted before closing the collection.
+- Build improvements (thanks to Evandro).
+- Changed the way cloze deletions in RTL fields are handled, which should address some corner cases.
+- Clean up the previewing code (thanks to Arthur). Add-ons that modify the preview screen will need updating.
+- Don't force a full sync when DB check finds cards with a high due number.
+- Don't show a popup when a network error occurs while syncing media.
+- Fixed a case where decks could be sorted incorrectly (thanks to Arthur).
+- Fixed a useless log file being created when exporting.
+- Fixed add-ons with multiple branches not updating properly.
+- Fixed an error that could occur when performing an operation in the browse screen then immediately closing it.
+- Fixed Anki closing after a full sync on collection load.
+- Fixed current card sometimes not being centered when searching.
+- Fixed deck_browser_did_render hook.
+- Fixed editor buttons not being highlighted (thanks to Simone).
+- Fixed interface getting stuck when a corrupt collection was encountered.
+- Fixed media sync waiting forever when connection dropped.
+- Fixed progress dialogs failing to appear in a timely manner.
+- Fixed tag searches in custom study (thanks to zjosua).
+- Fixed the collection_did_load add-on hook.
+- Fixed the wrong language shown in the preferences screen for some languages.
+- GitHub now checks Windows and Mac builds as well (thanks to Evandro).
+- Handle renamed cloze fields when previewing (thanks to BlueGreenMagick).
+- Ignore .DS_Store files in the media trash folder.
+- Improved invalid HTML/JS error messages (thanks to Evandro).
+- Improved the handling of deck deletions (thanks to Arthur).
+- Improvements to debug console (thanks to BlueGreenMagick).
+- Left-align tags in the browser.
+- Media syncs no longer take time to abort.
+- More hooks (thanks to Arthur).
+- Moved the scheduling options in the preferences to a separate tab, so options fit on the screen even on devices with small screens.
+- Prepare for uploading releases to PyPI (thanks to Evandro).
+- The media check will now fix file references in fields that broke because a filename was shortened as part of a sync.
+- Updated config handling. While there should be no immediate breakages, if you're an add-on author and
+  store lists or dicts in Anki's config, please see 676f4e74a.
+
 ## Changes in 2.1.23
 
 Released 2020-03-19, build de9543ff.
