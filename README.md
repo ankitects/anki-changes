@@ -12,10 +12,19 @@ this version, downgrade, then try again.
 
 Searching:
 
+- You can use `w:something` to search on word boundaries, eg:
+  - `w:dog`  
+    search for "dog" on a word boundary - will match "dog", but not "doggy"
+    or "underdog".
+  - `w:dog*`  
+    will match "dog" and "doggy", but not "underdog".
+  - `w:*dog`  
+    will match "dog" and "underdog", but not "doggy".
 - You can now use `re:something` to search via regular expression, eg:
-  - `re:\bdog\b` will search for the word 'dog'. It has a word boundary character (`\b`) at the
-    start and end, so it will match 'a dog', but not 'a doggy'.
-  - `front:re:t+1` would match "t1", "tt1" and so on in the Front field
+  - `"re:(some|another).*thing"`  
+    find notes that have "some" or "another" on them, followed by 0 or more characters, and then "thing"
+  - `re:\d{3}`  
+    find notes that have 3 digits in a row
   - When searching by regex, unicode case folding is used, so searching for `re:über` will
     show a card that has "Über" on it.
 - `nc:something` (short for "no combining (characters)") can be used to search while
