@@ -2,7 +2,7 @@
 
 ## Changes in 2.1.24
 
-Release TBA.
+Released 2020-04-28, build 359b9f5c.
 
 :warning: After using this version, if you wish to open your collection with an
 earlier Anki release, please go to the File>Switch Profile menu item, and click
