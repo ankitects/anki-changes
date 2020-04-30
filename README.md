@@ -1,5 +1,12 @@
 # Changes
 
+:warning: After using the latest version, if you wish to open your collection with an
+earlier Anki release, please go to the File>Switch Profile menu item, and click
+on "Downgrade & Quit". If you skip this step, you may get an error message when
+opening your collection in an older Anki version, and you will need to return to
+this version, downgrade, then try again.
+
+
 ## Changes in 2.1.25
 
 Release TBA.
@@ -21,12 +28,6 @@ Download from https://github.com/ankitects/anki/releases
 ## Changes in 2.1.24
 
 Released 2020-04-28, build 359b9f5c.
-
-:warning: After using this version, if you wish to open your collection with an
-earlier Anki release, please go to the File>Switch Profile menu item, and click
-on "Downgrade & Quit". If you skip this step, you may get an error message when
-opening your collection in an older Anki version, and you will need to return to
-this version, downgrade, then try again.
 
 Searching:
 
