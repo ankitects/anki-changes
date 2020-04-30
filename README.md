@@ -1,5 +1,23 @@
 # Changes
 
+## Changes in 2.1.25
+
+Release TBA.
+
+Download from https://github.com/ankitects/anki/releases
+
+- Fix a change to deck configurations that was breaking AnkiDroid.
+- Fix deck configurations not deleting.
+- Fix angle brackets inside cloze+MathJax not working properly.
+- The DB check fixes an AnkiMobile bug where tags were not searchable.
+- Revert to an earlier macOS toolchain to work around recordings not working.
+- The media check no longer fails when files with very long filenames are in the folder.
+- More gracefully handle case where deck conf is missing.
+- Don't throw an error when cards have an invalid due number.
+- {{type::Field}} now marks the card as non-empty if Field is non-empty.
+- Tweak tab width in card layout screen (thanks to BlueGreenMagick).
+- Build fixes (thanks to Evandro).
+
 ## Changes in 2.1.24
 
 Released 2020-04-28, build 359b9f5c.
