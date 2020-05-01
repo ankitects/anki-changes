@@ -6,12 +6,9 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
-
 ## Changes in 2.1.25
 
-Release TBA.
-
-Download from https://github.com/ankitects/anki/releases
+Released 2020-05-01, build 898801eb (PyPi 6046bbc7)
 
 - Fix a change to deck configurations that was breaking AnkiDroid.
 - Fix deck configurations not deleting.
