@@ -6,6 +6,20 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.26
+
+Release candidate available at https://apps.ankiweb.net/downloads/beta/
+
+- Fixed saving of searches in the browse screen.
+- Fixed card layout screen failing to open in the alternate Anki build.
+- Fixed .log files appearing when exporting.
+- Fixed an error appearing when undoing V2 filtered decks with scheduling disabled.
+- Fixed duplicate search when text contains formatting.
+- Improvements to the PyPI packages (thanks to Evandro).
+- Tweak the handling of changed note types in the add screen (thanks to Arthur).
+- Tolerate decks with missing modification time from third party software.
+- Support SOCKS proxies in the non-media sync.
+
 ## Changes in 2.1.25
 
 Released 2020-05-01, build 898801eb (PyPi 6046bbc7)
