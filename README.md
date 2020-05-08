@@ -8,7 +8,7 @@ this version, downgrade, then try again.
 
 ## Changes in 2.1.26
 
-Release candidate available at https://apps.ankiweb.net/downloads/beta/
+Released 2020-05-09, build 70784154.
 
 - Fixed saving of searches in the browse screen.
 - Fixed card layout screen failing to open in the alternate Anki build.
