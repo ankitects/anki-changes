@@ -86,6 +86,9 @@ macOS dark mode handling:
   mode, can achieve the previous appearance by running the following command in
   the terminal:
 
+  :warning: This will only work if your system is permanently in dark mode!
+  If you switch between dark and light mode, the interface will render incorrectly.
+
   ```
   defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool no
   ```
