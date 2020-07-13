@@ -85,7 +85,7 @@ Other changes:
 - Audio player on Windows has been switched back to mpv. Please report any
   issues you have playing audio files/videos.
 - Fixed is:review not including relearning cards.
-- Scroll media log to bottom at start (thanks to kelciour)
+- Scroll media log to bottom at start (thanks to Kelciour)
 - Update local media server (thanks to Evandro).
 - Use Qt colour picker on Linux (thanks to Andreas).
 - Add edited:x search for matching notes edited in last x days.
