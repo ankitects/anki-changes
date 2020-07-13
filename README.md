@@ -6,6 +6,107 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.28
+
+2.1.28 is a big update with changes in a number of areas. Currently available
+for [beta testing](https://betas.ankiweb.net/).
+
+- A reworked graphs screen:
+
+  - Rewritten with new graphing tools for more interactivity.
+  - Graphs can now be displayed for arbitrary searches.
+  - Added a calendar/heapmap view.
+  - If you need them for add-ons, the old graphs are currently still
+    accessible with a shift+click on the Stats button.
+
+- Reworked syncing:
+
+  - Normal syncs and media syncs can operate in parallel, speeding up startup and shutdown.
+  - Normal syncs no longer need to close open windows like the Browse screen, or close & re-open
+    the collection.
+  - Full syncs now show a progress bar.
+  - Full syncs can now be cancelled, and both normal and full syncs cancel more quickly.
+
+- Card generation changes:
+
+  - Card generation now supports negated conditionals, and a mix of required
+    and optional fields.
+  - When adding/importing, if a normal note doesn't generate any cards, Anki
+    will now add a blank card 1 instead of refusing to add the note.
+  - Please bear in mind that if you take advantage of these features, older Anki
+    clients may report the cards are blank, or try to clean them up when you
+    use the Empty Cards feature.
+  - Cloze numbers over 499 are no longer supported.
+
+- Card template screen:
+
+  - Changes are now accumulated, and can be saved or discarded when you close the screen.
+  - The front, back, and styling are no longer shown at the same time. You can switch between them with ctrl+1/2/3 or cmd+1/2/3.
+  - Added a search bar to search for text in the template or styling.
+  - Added a dropdown to change the previewed cloze number.
+  - Added a checkbox to toggle the filling of empty fields for preview.
+  - You can now delete a card template even if some notes are only using that
+    template - they will be given a blank card 1 instead.
+
+- Scheduling:
+
+  - The deck list no longer caps counts to 1000.
+  - The overview and study screen no longer cap counts to 1000.
+  - The deck list will no longer show a parent count higher than the limit
+    set on the parent.
+
+- Empty cards screen:
+
+  - Notes will not be deleted by default.
+  - Empty cards are grouped by note type.
+  - Empty cards can be clicked on to reveal them in the browse screen.
+
+- Database check:
+
+  - Notes with the wrong field count are now recovered instead of being deleted.
+  - Notes with missing note types are now recovered instead of being deleted.
+  - Notes with missing cards are now recovered instead of being deleted.
+
+- Unicode normalization:
+
+  If you are studying rare CJK characters and wish to prevent them from being converted into
+  modern equivalents, the following in the debug console will stop Anki from normalizing note text.
+
+  ```
+  mw.col.conf["normalize_note_text"] = False
+  ```
+
+Other changes:
+
+- Performance improvements to a number of screens.
+- Fields screen now accumulates changes, which can be saved or discarded when you close the screen.
+- Updated a few screens to show progress bars instead of hanging the UI.
+- The standard builds now use Qt 5.15.
+- Audio player on Windows has been switched back to mpv. Please report any
+  issues you have playing audio files/videos.
+- Fixed is:review not including relearning cards.
+- Scroll media log to bottom at start (thanks to kelciour)
+- Update local media server (thanks to Evandro).
+- Use Qt colour picker on Linux (thanks to Andreas).
+- Add edited:x search for matching notes edited in last x days.
+- Improvements to mpv handling (thanks to Kelciour).
+- Windows build fix (thanks to Evandro).
+- Clearer error message on failed regex search.
+- Find & Replace remembers input (thanks to Evandro).
+- Code improvements (thanks to BlueGreenMagick, Thomas and Andrew).
+- Fixed '&' being changed in image filenames in HTML editor.
+- Fixed exports getting broken by Windows carriage returns in note fields.
+- Fixed deck deletion, and allow "deleting" the default deck (it comes back empty).
+- Card layout screen divider can now be adjusted (thanks to Evandro).
+- Fixed duplicate rendering in card layout screen (thanks to Evandro).
+- Fixed off-by-one in field drag&drop (thanks to BlueGreenMagick)
+- Various other fixes, including contributions from BlueGreenMagick, Arthur, neitrinoweb
+  and kenden.
+
+## Changes in 2.1.27
+
+This number is reserved for a bugfix release.
+
 ## Changes in 2.1.26
 
 Released 2020-05-09, build 70784154.
