@@ -8,8 +8,9 @@ this version, downgrade, then try again.
 
 ## Changes in 2.1.28
 
-2.1.28 is a big update with changes in a number of areas. Currently available
-for [beta testing](https://betas.ankiweb.net/).
+Released 2020-07-20, build 7d8818f8.
+
+2.1.28 is a big update with changes in a number of areas.
 
 - A reworked graphs screen:
 
@@ -76,6 +77,13 @@ for [beta testing](https://betas.ankiweb.net/).
   mw.col.conf["normalize_note_text"] = False
   ```
 
+- The standard Mac build currently does not support native dark mode. If you previously
+  enabled it from the terminal, please undo the change with the following terminal command:
+
+  ```
+  defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool yes
+  ```
+
 Other changes:
 
 - Performance improvements to a number of screens.
@@ -105,7 +113,7 @@ Other changes:
 
 ## Changes in 2.1.27
 
-This number is reserved for a bugfix release.
+This number was reserved for a bugfix release.
 
 ## Changes in 2.1.26
 
