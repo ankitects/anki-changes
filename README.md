@@ -77,8 +77,9 @@ Released 2020-07-20, build 7d8818f8.
   mw.col.conf["normalize_note_text"] = False
   ```
 
-- The standard Mac build currently does not support native dark mode. If you previously
-  enabled it from the terminal, please undo the change with the following terminal command:
+- The standard Mac build currently does not support native dark mode. If you
+  previously enabled it from the terminal, please either try the 2.1.29 beta, or
+  undo the change with the following terminal command:
 
   ```
   defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool yes
