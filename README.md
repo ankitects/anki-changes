@@ -16,7 +16,7 @@ Released 2020-07-20, build 7d8818f8.
 
   - Rewritten with new graphing tools for more interactivity.
   - Graphs can now be displayed for arbitrary searches.
-  - Added a calendar/heapmap view.
+  - Added a calendar/heatmap view.
   - If you need them for add-ons, the old graphs are currently still
     accessible with a shift+click on the Stats button.
 
