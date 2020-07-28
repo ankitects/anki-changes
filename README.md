@@ -6,6 +6,26 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.29
+
+Released 2020-07-28, build bbff62bf.
+
+- Add cloze-only: template filter, which can be combined with TTS to speak only the elided part.
+- Fixed AltGr key handling in standard Windows build.
+- Fix some Windows performance problems by rolling back to an older
+  Qt version.
+- Support the terminal command that enables dark mode on macOS again.
+- Start media sync after full sync finishes.
+- Fixed mpv taking time to start (thanks to Kelciour)
+- Code/build improvements (thanks to Evandro, Matt & Arthur).
+- Use right-to-left direction in some webviews when using RTL interface language.
+- Fixed card ID and note ID being flipped in card stats.
+- Don't show an error when card contains an empty URL.
+- Various fixes for deck statistics.
+- Fixed preview not updating when editing text in the Browse screen.
+- Close gracefully on SIGTERM.
+- Other minor tweaks.
+
 ## Changes in 2.1.28
 
 Released 2020-07-20, build 7d8818f8.
