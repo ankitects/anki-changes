@@ -6,6 +6,30 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.30
+
+Released 2020-08-09, build 06a69c25.
+
+- Work around a failure to start on some Windows 10 May 2020 installations.
+- Fix "show windows in tabs" not working on standard macOS build.
+- Fix move into/out of filtered decks not syncing.
+- Add right axis to graphs.
+- Add night mode and mobile class toggles in card layout screen (thanks to ANH25).
+- Card counts graph now always shows table.
+- Catch negative review times in DB check.
+- Code improvements (thanks to Matt, phwoo, Evandro and aplaice).
+- Fix a crash in the DB check when a note type was missing.
+- Fix automatic logout not working when auth failure occurs.
+- Fix deck list and graphs not including v2 scheduler cards with rescheduling disabled.
+- Fix early reviews not appearing in review graph.
+- Fix hour graph problem in timezones west of UTC.
+- Fix negated conditonals being non-negated when renamed.
+- Fix some syncing errors that could happen until Check Database was run.
+- Fix some young cards being shown as mature in reviews graph.
+- Handle multiple same-numbered clozes in cloze-only filter.
+- Refresh tag list after clearing empty tags.
+- Other minor fixes.
+
 ## Changes in 2.1.29
 
 Released 2020-07-28, build bbff62bf.
