@@ -6,6 +6,30 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.31
+
+Released 2020-08-23, build 13476503.
+
+- Show card counts in pie graph, and other minor graph tweaks.
+- Fix sync error+lost review when undoing in v2 filtered deck with scheduling off.
+- Fix crash when dragging & dropping, thanks to ANH25.
+- Fix 'stale notetype' error after sync+add.
+- Close "edit current" when current card deleted.
+- Code improvements thanks to ANH, Arthur, Evandro, Henrik and Thomas.
+- Find&Replace completion is now case sensitive.
+- Fix crash when recovering notes with missing notetype.
+- Fix duplicate detection when input text is not normalized.
+- Fix Empty Cards not ignoring BR tags.
+- Fix Find&Replace window sizing.
+- Fix handling of nested legacy template directives.
+- Fix issues with bulk tag removal.
+- Fix mpv failing to play audio after it's restarted, thanks to Kelciour.
+- Fix some (rare) crashes.
+- Full syncs and media syncs now terminate more quickly when the connection breaks.
+- Improve support for getting proxies from Windows registry.
+- Remove embedded direction markers in RTL cloze deletions.
+- Strip nul characters from tags.
+
 ## Changes in 2.1.30
 
 Released 2020-08-09, build 06a69c25.
