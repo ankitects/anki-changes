@@ -6,6 +6,13 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.32
+
+Released 2020-08-25, build dee7d45d.
+
+- Roll back a change in the previous update that could cause syncs to time out.
+- Fix sign up link in login screen.
+
 ## Changes in 2.1.31
 
 Released 2020-08-23, build 13476503.
