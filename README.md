@@ -6,6 +6,21 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.33
+
+Released 2020-08-30, build 3f403040.
+
+- Access More button in review screen with 'm' (thanks to ANH).
+- Audio no longer plays when dropped/pasted (thanks to ANH).
+- Fix bulk tag adding not adding tags if tag is a substring of an existing tag (thanks to Soren)
+- Fix cards not being unburied if leaving Anki open and the first action of a new day is a sync.
+- Fix drag&drop into existing content (thanks to ANH).
+- Fix error when add-ons tried to access note/template in card template screen.
+- Fix next learn message in congrats screen.
+- Fix nonbreaking spaces in filenames not being handled properly.
+- Fix text in export file selector (thanks to ANH).
+- Fix timeouts in full syncs and media syncs again.
+
 ## Changes in 2.1.32
 
 Released 2020-08-25, build dee7d45d.
