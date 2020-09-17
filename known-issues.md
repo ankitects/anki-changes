@@ -23,8 +23,7 @@ On Linux, you can write either 'auto' or 'software' into
 you’re using nouveau, it is known to be buggy and it only supports
 software mode.
 
-Interface speed
-===============
+# Interface speed
 
 Even if you enable hardware acceleration as mentioned above, you may
 find Anki takes longer to start and show new windows - especially if
@@ -34,16 +33,14 @@ unfortunately more resource intensive. The web toolkit older Anki
 versions use has been abandoned at this point, so it is no longer an
 option for future releases.
 
-Blank screens and eGPUs on Macs
-===============================
+# Blank screens and eGPUs on Macs
 
 If you experience blank screens when using an external graphics card on
 a Mac, You can either use the -alternate version from the download site,
 or ctrl+click on the Anki app, click "Get Info", and enable the "prefer
 eGPU" option.
 
-Shortcuts
-=========
+# Shortcuts
 
 The undo shortcut is different in the alternate version due to an issue
 with the toolkit. You can discover the alternate shortcut by looking at
@@ -55,8 +52,7 @@ can also use a third party tool like BetterTouchTool or Karabiner to
 intercept the cmd+left/right keystroke when you type it into Anki, and
 have it automatically be rewritten to use the function key instead.
 
-Copy & paste problems on Windows
-================================
+# Copy & paste problems on Windows
 
 If you are experiencing problems with copying and pasting on Windows,
 please check if you are running other programs on your computer that
@@ -64,25 +60,23 @@ monitor the clipboard, such as dictionary programs, clipboard managers
 or clipping tools. The toolkit Anki uses can have trouble when such
 programs are running.
 
-Fcitx on Linux
-==============
+# Fcitx on Linux
 
 The standard Anki build includes fcitx support, but it may not work on
 all distributions. If you are unable to use fcitx, you may want to run
 Anki from source, or switch to a different input method.
 
-Text size
-=========
+# Text size
 
 If you find the text is the wrong size, there are two environmental
 variables you can try:
 
--   ANKI\_NOHIGHDPI=1 will turn off some of Qt’s high dpi support
+- ANKI_NOHIGHDPI=1 will turn off some of Qt’s high dpi support
 
--   ANKI\_WEBSCALE=1 will alter the scale of Anki’s web views (like the
-    deck list, study screen, etc), while leaving interface elements like
-    the menu bar alone. Replace 1 with the desired scale, such as 1.5 or
-    0.75.
+- ANKI_WEBSCALE=1 will alter the scale of Anki’s web views (like the
+  deck list, study screen, etc), while leaving interface elements like
+  the menu bar alone. Replace 1 with the desired scale, such as 1.5 or
+  0.75.
 
 On Windows you can add these to a batch file to make it easier to start
 Anki. For example, create a file called startanki.bat on your desktop
@@ -94,13 +88,15 @@ with the following text:
 After saving, you can double click on the file to start Anki with that
 setting.
 
-SSL errors
-==========
+# SSL errors
+
+The following applies to Anki versions before 2.1.28. Newer versions
+use the system keychain, and no longer need the workaround below.
 
 Some work and school networks intercept your internet traffic, and this
 can cause errors when syncing and downloading add-ons. You can prevent
 the errors from occurring by setting the environmental variable
-"ANKI\_NOVERIFYSSL" to "1".
+"ANKI_NOVERIFYSSL" to "1".
 
 When you enable this option, you are telling Anki not to verify that it
 is actually talking with AnkiWeb. This means that not only your work or
