@@ -6,6 +6,26 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.34
+
+Released 2020-09-24, build 8af8f565.
+
+- Fix a bug in Anki 2.1.28+ where a newly created deck config would default to
+  an ease of 130%. When updating, Anki will automatically change any deck
+  configs with an ease of 130% back to 250%, and change any cards using those
+  deck configs with a low ease back to an ease of 250%. Users who updated from
+  an older Anki version and did not add new deck configurations should not be
+  affected. If you have deliberately set an initial ease of 130%, please change
+  it to 131% or greater prior to upgrading, so that Anki leaves your settings
+  alone. Thanks to Aleksa for discovering the issue.
+- Update the standard builds to the latest GUI toolkit version.
+  Please report any improvements or regressions you notice.
+- Dropped audio plays automatically again (thanks to abdo).
+- Revert to older sound playing behaviour to work around issues
+  (thanks to kelciour).
+- is:due now stops at now+learn ahead limit, instead of end of day.
+- Various improvements/fixes, some thanks Aleksa & Henrik.
+
 ## Changes in 2.1.33
 
 Released 2020-08-30, build 3f403040.
