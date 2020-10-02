@@ -6,6 +6,21 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.35
+
+Released 2020-10-02, build 84dcaa86.
+
+- Fix a bug in Anki 2.1.29+ that caused excessive memory and CPU usage
+  on long-running operations that show a progress bar, such as importing.
+- Roll back Mac and Windows builds to Qt 5.14 again,
+  as there are still issues with 5.15.
+- Fix display issue in graphs on alternate Mac build.
+- Fix preview not updating on multiple selection (thanks to abdo).
+- Fix old content appearing when flagging immediately
+  after typing.
+- Fix some handling of `*` in searches.
+- Sidebar now correctly escapes some characters (thanks to abdo).
+
 ## Changes in 2.1.34
 
 Released 2020-09-24, build 8af8f565.
