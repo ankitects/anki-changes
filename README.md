@@ -6,6 +6,15 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.35
+
+Released 2020-10-02, build 84dcaa86.
+
+- Fix issue where special characters (*, %, _) in the browser sidebar search terms are not escaped.
+- Fix previewer not refreshing when selecting multiple cards in browser.
+- Fix black area on alternate Mac build for line graph graphics.
+
+
 ## Changes in 2.1.34
 
 Released 2020-09-24, build 8af8f565.
