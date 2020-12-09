@@ -6,6 +6,63 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.36
+
+Released 2020-12-09, build c505894b.
+
+Notable changes:
+
+- Alternate builds have been discontinued. If you are using a 32 bit system, or
+  a macOS version older than 10.13, Anki 2.1.35 is the last release you will be able
+  to update to.
+- MathJax has been updated to version 3, thanks to Henrik. It should render faster
+  than before. If you were customizing the MathJax configuration using Javascript,
+  you will need to
+  [use a new method](https://github.com/ankitects/anki/pull/809#issuecomment-721438738).
+- A separate mpv process is now used to play videos on Windows, which should
+  solve issues with playing getting stuck, thanks to Kelciour.
+- The handling of wildcards and escape characters in search [has been
+  reworked](https://docs.ankiweb.net/#/searching?id=matching-special-characters)
+  to be more consistent, thanks to Rumo.
+- Early startup messages are now translable, thanks to Abdo.
+- When cards are rescheduled in the browse screen, a review entry log is now created.
+- The main card area is now focused instead of the bottom area during review,
+  which allows using the keyboard to scroll, thanks to Henrik.
+
+Bugfixes:
+
+- Fixed corrupt indexes when checking database.
+- Fixed duplicate search when sort field is not first field (thanks to Abdo).
+- Fixed error when switching to note type with fewer fields.
+- Fixed invalid utf8 in notes when checking database.
+- Fixed invisible scrollbar in night mode + browser.
+- Fixed issues with "find duplicates" (thanks to Abdo)
+- Fixed some issues with adding/renaming decks (thanks to Cecini).
+- Other minor fixes.
+
+For developers:
+
+- Anki is now built using Bazel. This leads to more reliable builds, and reduces
+  the number of dependencies you need to manually install. Please see docs/ for
+  updated build instructions, and report any issues you encounter on the user
+  forums.
+- The minimum Python version has been updated to 3.8.
+- The wheels available on PyPI support both Python 3.8 and 3.9.
+- All translations have been migrated to [Fluent](https://translating.ankiweb.net/#/anki/developers).
+- Normal and night mode theming now uses CSS variables, making it easier to override in add-ons.
+- The congrats screen, burying/suspending, filtered deck building/emptying, browser sidebar, and card
+  reposition/reset have been reworked. If you were modifying them in an add-on, your add-on
+  may need updating. For the congratulations screen, see the new webview_did_inject_style_into_page
+  hook
+
+Thanks to all the people who have contributed bugfixes and code/doc updates:
+Abdo, Lukkea, Akshara, Kelciour, David, Henrik, Colin, Johan, Piotr, Andreas,
+Arthur, Alan, RumovZ, Cecini, Soren, Krish, ianki, Cyphar and kaczmarj, in no
+particular order.
+
+Thanks also to all of the people who have contributed translations for this
+and previous releases: https://i18n.ankiweb.net/contributors/
+
 ## Changes in 2.1.35
 
 Released 2020-10-02, build 84dcaa86.
