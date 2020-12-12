@@ -6,6 +6,19 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.37
+
+Released 2020-12-12, build 6d596c8f.
+
+- Fixed filtered decks not honoring sort order.
+- Fixed review screen not automatically scrolling to answer (thanks to Henrik).
+- The deck options screen now limits minimum ease to 131%.
+
+For developers:
+
+- Added a scripts/build command to build the redistributable wheels.
+- The Rust worker is disabled by default, as some users had trouble building with it.
+
 ## Changes in 2.1.36
 
 Released 2020-12-09, build c505894b.
