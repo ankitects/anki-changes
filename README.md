@@ -6,6 +6,36 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.38
+
+Released 2020-12-26, build 355e4cd5.
+
+- Use a new approach for recording audio. If you encounter any issues,
+  the old PyAudio driver can be selected in the Preferences screen. The old
+  driver will likely be retired in the future, so please let us know
+  if the default system does not work for you.
+- All built-in Windows TTS voices should now be supported on recent Windows 10
+  releases (thanks to Ryan).
+- Fix the Reposition tool in the Browse screen not following the sort
+  order.
+- Reduce the default fade time in the review screen.
+- The ANGLE video driver can now be selected in the Preferences on Windows.
+- Fix some instances of the sync indicator remaining on after sync (thanks to Rumo).
+- Work around --text-fg appearing in fields.
+- Fix link in about screen (thanks to Abdo).
+- Fix '1' being shown instead of the correct number in some Russian translations.
+- Fixed invisible characters when adding new card templates (thanks to Henrik).
+- Fixed duplicate check getting confused by non-breaking spaces (thanks to abdo).
+- Don't throw error when computer hostname is invalid.
+- Other minor changes (thanks to Henrik & k12sh)
+
+For developers:
+
+- Protobuf binaries are now used to speed up the initial build.
+- Fixed Python code completion, and added some info to docs/development.md
+- ./run now runs Anki with Python warnings enabled - PRs that fix any that come
+  up would be welcome (thanks cecini for the first!)
+
 ## Changes in 2.1.37
 
 Released 2020-12-12, build 6d596c8f.
