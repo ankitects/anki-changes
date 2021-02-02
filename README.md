@@ -6,6 +6,19 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.39
+
+Released 2021-02-02, build 576f0043.
+
+- Fix the Reposition command not preserving the browser sort order.
+- Fix some issues causing the sync indicator to show unnecessarily (thanks to Rumo).
+- Fix a spurious warning about a full sync when renaming card templates.
+- Fix Anki not working after installing on Linux over a previous install.
+- Don't log card resets when exporting.
+- Fix congrats screen not showing when learning cards were due soon.
+- Updated bundled lame and mpv on Windows and Mac builds.
+- Other fixes and improvements, with thanks to Henrik, Rumo, Abdo, Arthur, Guillem, Meredith, Gustavo and Daniel.
+
 ## Changes in 2.1.38
 
 Released 2020-12-26, build 355e4cd5.
