@@ -17,7 +17,7 @@ Released 2021-02-02, build 576f0043.
 - Don't log card resets when exporting.
 - Fix congrats screen not showing when learning cards were due soon.
 - Updated bundled lame and mpv on Windows and Mac builds.
-- Other fixes and improvements, with thanks to Henrik, Rumo, Abdo, Arthur, Guillem, Meredith, Gustavo and Daniel.
+- Other fixes and improvements, with thanks to Henrik, Rumo, Abdo, Arthur, Guillem, Meredith, Gustavo, and Daniel.
 
 ## Changes in 2.1.38
 
