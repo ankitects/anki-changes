@@ -6,7 +6,7 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
-## Changes in 2.1.39
+## Changes in 2.1.40
 
 Released 2021-02-07, build cf446733.
 
