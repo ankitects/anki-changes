@@ -8,6 +8,13 @@ this version, downgrade, then try again.
 
 ## Changes in 2.1.39
 
+Released 2021-02-07, build cf446733.
+
+- Fixed backup not being made when choosing "Download" when syncing.
+- Fixed a slowdown after importing.
+
+## Changes in 2.1.39
+
 Released 2021-02-02, build 576f0043.
 
 - Fix the Reposition command not preserving the browser sort order.
