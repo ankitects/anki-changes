@@ -40,6 +40,9 @@ a Mac, You can either use the -alternate version from the download site,
 or ctrl+click on the Anki app, click "Get Info", and enable the "prefer
 eGPU" option.
 
+When switching between monitors of different resolutions, you may
+also run into problems that can be [worked around](https://forums.ankiweb.net/t/mac-known-issues-wording-suggestion/7331).
+
 # Shortcuts
 
 The undo shortcut is different in the alternate version due to an issue
