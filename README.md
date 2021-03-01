@@ -6,6 +6,126 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.41
+
+Currently in [beta testing](https://betas.ankiweb.net).
+
+Browser improvements:
+
+- Tags now show in a tree (thanks to Abdo).
+- Added a search bar to the sidebar (thanks to Abdo).
+- New context menu actions to rename or remove tags and their children, rename
+  decks, manage notetypes, and rename/remove saved searches (thanks to Abdo
+  and BlueGreenMagick).
+- The preview button in the browse screen has moved into the editing area (thanks to Henrik).
+- With the improved sidebar, a number of options have been removed from the Filter button.
+- The remaining items in the Filter button have been moved into the sidebar, and
+  the Filter button removed.
+- Tags and decks can now be dragged and dropped in the sidebar.
+- Each section can now be expanded/collapsed.
+- "Due" now shows only cards due that day.
+- Added "Overdue" item.
+- Click on Decks to show whole collection.
+- Click on Flags to show any flag.
+- Click on Tags to show all non-empty tags.
+- Added "Untagged" under Tags.
+
+Editing improvements:
+
+- `<br>` tags will now be used by default instead of the previous `<div>`
+  tags, which solves some issues with multiple lines in cloze deletions and
+  MathJax (thanks to Henrik).
+- The tags field in the editor now autocompletes from anywhere in a tag name,
+  not only the start.
+- Invalid field content can no longer spill out into the editing area (thanks to Henrik).
+
+Search improvements:
+
+- Searches are new rewritten into a canonical format (eg `one two` becomes
+  `"one" AND "two"`) (thanks to Rumo).
+- Search error messages are now much more specific (thanks to Rumo).
+- is:learn, is:due and prop:due now handle more cases, such as suspended cards
+  (thanks to Henrik).
+- Added prop:pos search to search for new card position (thanks to Abdo).
+- Added a shortcut to replace part of a search with a different search
+  (eg changing the selected deck) (thanks to Rumo).
+- Support resched:x for searching for cards that were manually rescheduled
+  in x days (thanks to Henrik).
+- Support prop:rated/resched to search for rated/rescheduled cards over
+  specific time periods (thanks to Henrik).
+- Filtered decks can now be created from a browser search, and vice versa (thanks to Rumo).
+- Filtered deck screen now has a link to show cards not matched by search (thanks to Rumo, Abdo).
+- Better ergonomics for developers (thanks to Rumo).
+
+Graph improvements:
+
+- A number of the graphs can now be clicked on to search for the cards
+  displayed by the graph (thanks to Henrik).
+- The starting day of week can now be altered in the Calendar graph (thanks to Henrik).
+- The Card Counts graph now supports toggling separate suspended/buried counts (thanks to Henrik).
+- The intervals and ease graphs now covers more cases, such as suspended cards
+  (thanks to Henrik).
+- Place less emphasis on outliers in the Calendar graph (thanks to Henrik).
+- Ignore manually scheduled cards in hour graph.
+
+Scheduler improvements:
+
+- The V1->V2 upgrade process no longer resets cards that are in learning, or
+  removes cards from filtered decks.
+- Users on the old scheduler will now see a message at the top of the deck
+  list prompting them to update to the Anki 2.1 scheduler.
+- There is no option to downgrade to the V1 scheduler anymore, though you can
+  still do so by downgrading to an older Anki version first.
+- Fixed incorrect review counts in the 2.1 scheduler when parent decks had a
+  smaller limit than their children.
+
+Reworked the Reschedule tool:
+
+- Split into separate "Forget" and "Set Due Date" actions
+- "Set Due Date" defaults to not adjusting the card interval.
+- Changed the "Delete Tags" shortcut; Ctrl+Shift+D now changes the due date.
+- Added the action to the review screen as well.
+- Input now remembered.
+
+Other changes:
+
+- A basic sync server is now built into Anki. It does not yet support
+  media. Docs are in the docs/ folder of the source tree.
+- The title bar on Macs will now turn dark when night mode is activated.
+- Deck descriptions of the congratulations screen can be enabled by turning markdown
+  on in the deck options, but only 2.1.41+ will be able to render the markdown.
+- Add opus to media list in editor.
+- Edit/More buttons auto-hide when window is small (thanks to Henrik).
+- Support Alt+number to switch between clozes in the card layout screen (thanks to Abdo).
+- Use monospace font in HTML editor.
+- Improve error message when trying to nest under a filtered deck (thanks to Rumo).
+- Reposition dialog's "shift cards" option now defaults to off.
+- Other fixes and improvements thanks to Henrik, Rumo, Abdo, Arthur, Maksim, Guillem,
+  stayingpeachy, Daniel, khonkhortisan and Kerrick.
+
+Fixes:
+
+- Fix the Reposition command not preserving the browser sort order.
+- Fix some issues causing the sync indicator to show unnecessarily (thanks to Rumo).
+- Fix slowdown after large "check media" report.
+- Fix a spurious warning about a full sync when renaming card templates.
+- Fix Anki not working after installing on Linux over a previous install.
+- Don't log card resets when exporting.
+- Fix congrats screen not showing when learning cards were due soon.
+- Updated bundled lame and mpv on Windows and Mac builds.
+
+For developers:
+
+- Add-on authors, please see
+  <https://forums.ankiweb.net/t/add-on-porting-notes-for-anki-2-1-41/7390>
+- Almost all of the Python codebase now has type hints. 🎉
+- JS libraries like jQuery have been updated (thanks to Henrik).
+- Add (untested) support for ARM64 Linux.
+- orjson is turned back into an optional requirement (though is still
+  recommended, as it's faster).
+- The sidebar code has been moved from from browser.py into sidebar.py, which
+  may break some add-ons.
+
 ## Changes in 2.1.40
 
 Released 2021-02-07, build cf446733.
