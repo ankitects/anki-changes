@@ -76,8 +76,7 @@ Scheduler improvements:
   list prompting them to update to the Anki 2.1 scheduler.
 - There is no option to downgrade to the V1 scheduler anymore, though you can
   still do so by downgrading to an older Anki version first.
-- Fixed incorrect review counts in the 2.1 scheduler when parent decks had a
-  smaller limit than their children.
+- The V2 scheduler no longer applies parent review limits to child decks.
 
 Reworked the Reschedule tool:
 
