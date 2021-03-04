@@ -108,6 +108,7 @@ Fixes:
 - Fix some issues causing the sync indicator to show unnecessarily (thanks to Rumo).
 - Fix slowdown after large "check media" report.
 - Fix a spurious warning about a full sync when renaming card templates.
+- Fix a freeze when answering a card with a missing parent deck.
 - Fix Anki not working after installing on Linux over a previous install.
 - Don't log card resets when exporting.
 - Fix congrats screen not showing when learning cards were due soon.
