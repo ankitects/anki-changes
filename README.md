@@ -8,7 +8,7 @@ this version, downgrade, then try again.
 
 ## Changes in 2.1.41
 
-Currently in [beta testing](https://betas.ankiweb.net).
+Released 2021-03-07, build 312fa278.
 
 Browser improvements:
 
@@ -70,13 +70,19 @@ Graph improvements:
 
 Scheduler improvements:
 
+- The V2 scheduler no longer applies parent review limits to child decks.
+  Previously the limits were inconsistently applied, which could lead to the
+  deck list not reflecting the actual number of cards you'd receive when you
+  clicked on a deck. AnkiMobile and AnkiWeb have been updated to match this
+  behaviour, and AnkiDroid will also be updated soon. Using 2.1.41 in
+  conjunction with older clients will not cause any problems when syncing, but
+  you may find the deck list/review counts do not match.
 - The V1->V2 upgrade process no longer resets cards that are in learning, or
   removes cards from filtered decks.
 - Users on the old scheduler will now see a message at the top of the deck
   list prompting them to update to the Anki 2.1 scheduler.
 - There is no option to downgrade to the V1 scheduler anymore, though you can
   still do so by downgrading to an older Anki version first.
-- The V2 scheduler no longer applies parent review limits to child decks.
 
 Reworked the Reschedule tool:
 
