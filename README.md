@@ -6,6 +6,20 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.42
+
+Released 2021-03-10.
+
+- Fix sync downloads failing when temp folder on separate partition.
+- Fix RTL fields (thanks to Abdo).
+- Fix issues with field focusing and caret positioning (thanks to Henrik).
+- Strip comments when pasting HTML (thanks to Abdo).
+- Don't forget CSV delimeter when canceling dialog (thanks to Benjamin).
+- Fix stale caches after rolling back to a checkpoint (thanks to Rumo).
+
+For build hashes, please see the [GitHub releases
+page](https://github.com/ankitects/anki/releases).
+
 ## Changes in 2.1.41
 
 Released 2021-03-07, build 312fa278.
