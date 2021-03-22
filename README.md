@@ -55,7 +55,7 @@ Editing improvements:
 
 Search improvements:
 
-- Searches are new rewritten into a canonical format (eg `one two` becomes
+- Searches are now rewritten into a canonical format (eg `one two` becomes
   `"one" AND "two"`) (thanks to Rumo).
 - Search error messages are now much more specific (thanks to Rumo).
 - is:learn, is:due and prop:due now handle more cases, such as suspended cards
