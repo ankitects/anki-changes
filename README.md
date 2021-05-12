@@ -6,6 +6,13 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+## Changes in 2.1.44
+
+Released 2021-05-04.
+
+- Search text is no longer automatically quoted/interspersed with ANDs.
+- Fix two backslashes being treated as one in MathJax.
+
 ## Changes in 2.1.43
 
 Released 2021-04-03.
