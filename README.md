@@ -6,6 +6,144 @@ on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.
 
+# Changes in 2.1.45
+
+Currently in [beta testing](https://betas.ankiweb.net).
+
+Undo handling:
+
+- Most actions now support multiple undo steps. You can change a card template,
+  delete some notes, bury a card, then undo each of those steps if you wish.
+- Actions that support multiple undo steps will now save the changes
+  immediately, meaning that if Anki crashes, the changes you made in the last
+  few minutes will no longer be lost.
+- Most undoable actions can now be redone, so you can undo an accidental undo.
+- Actions that don't support the new undo handling (eg, Check Database), will
+  clear the undo history.
+- Add-ons will clear the undo history if they modify the database directly, or
+  use routines that don't support undoing. There are some new routines available
+  to add-ons to make operations undoable, but add-ons may need to be updated
+  to use them.
+
+Scheduling changes:
+
+- A new scheduler is available, with a number of improvements. Please see the
+  [2021 scheduler page](https://faqs.ankiweb.net/the-2021-scheduler.html) for
+  more information.
+- The deck list now shows the learning count separately.
+- On new collections, the v2 scheduler is now the default.
+
+Browser changes, mostly thanks to Rumo:
+
+- The sidebar now has two modes. The default allows clicking on items to search
+  for them. The other mode allows you to select multiple items at once, so you
+  can drag & drop or delete multiple items.
+- The browse screen can now be toggled between showing cards,
+  and showing notes.
+- When showing notes, some columns will show an aggregate over all the
+  cards of a note.
+- Added an introduced:x search to locate cards first studied in the last x days.
+- Column rendering has been moved into the backend, and will be faster than
+  before (but is still limited by the speed of the graphics toolkit).
+- A fair bit of the browser code has been changed, and some add-ons like the
+  "Advanced Browser" add-on will need to be updated to support the new approach.
+- New tag icons and associated backend work (thanks to Henrik).
+- Added an option in the Preferences screen to customize the starting
+  search text (eg, to start with "deck:current").
+- More reliably scroll to the current card.
+- When opening the Browse screen with an active study card, the whole
+  deck is now shown.
+- Added 3 new flag colours.
+- Flags can now be renamed in the sidebar.
+- Horizontal scrolling in the browse screen is less jumpy.
+- Sidebar items can be dragged onto the Saved Searches area to add them as a favourite.
+
+Editor changes, mostly thanks to Henrik:
+
+- A new editor toolbar implementation, with improved icons and handling.
+- The editor now provides bullet and numbered list buttons.
+- The editor now provides buttons to control text alignment and indent.
+- Sticky fields can now be toggled on/off from the editing screen.
+- A new API is available for add-ons, and the existing API should continue
+  to work.
+- The HTML editor is now shown inline, and supports syntax highlighting,
+  and showing opening/closing tags.
+- Warn user when they attempt to use cloze markers inappropriately
+  (thanks to Rumo).
+
+State handling:
+
+- When you make changes, the user interface should update more consistently now.
+  Adding a new tag to a note will update the sidebar in the Browse screen for
+  example, and when you review a card that is shown there, the columns will
+  update.
+- The Browse screen no longer refreshes a search automatically. When you make a
+  change, the column text may update, but the number of rows will not change.
+  Deleted cards show "(deleted)" until you search again.
+- The main window no longer shows a "waiting for editing to finish" screen. When
+  you make changes such as editing a note, the main window will dim, and will
+  automatically refresh when you return to it.
+
+The deck options screen has been reimplemented:
+
+- (Re)learning steps are now shown with units, eg 10m or 4d.
+- Deck options are now shown on one scrollable page.
+- Extra help is available for most options.
+- It is easy to see at a glance which options have been changed from the
+  default, and individual options can be reverted to the default setting.
+- Warnings will be shown for some common issues (eg, review limit too low
+  compared to new cards).
+- Some of the more advanced options have been moved to a separate "Advanced"
+  section.
+- The old options can be accessed with a Shift+click, since it will take a while
+  for add-ons to be updated to support the new screen. A new API is available,
+  thanks to Henrik.
+- The deck description is now accessible via a button in the overview screen,
+  instead of via the deck options.
+
+Other features:
+
+- An updated Change Notetype implementation, that can match fields by name, and
+  allows you to map a source field to multiple destination fields in order to
+  clone a field.
+- The `[...]` in cloze deletions is now read as "blank" by TTS (thanks to Rumo).
+- The Find&Replace option in the Browse screen can now be used on tags as well.
+- Added a Card Info option to the review screen.
+- When opening deck option from the study screen, you'll now be asked which deck
+  you want if the card is in a subdeck.
+- You can now choose which add-ons you want to update (thanks to BlueGreenMagick).
+- Support system SSL certs on Linux.
+- Extra checks are now done when updating a card template, such as detecting when
+  a cloze notetype is missing a cloze directive, or two templates have identical question sides (thanks to Rumo).
+- Support Ctrl+Numpad Enter to add cards.
+- Added night mode styling to 'type in the answer' box, and improve legibility
+  of comparison.
+
+Fixes:
+
+- Custom study now limits the tag selection to 100 tags or fewer, to prevent errors caused by exceeding database limits.
+- Fixed an issue compiling on recent Python 3.9 installs.
+- Fixed audio getting stuck when pausing near end (thanks to kelciour).
+- Fixed building on linux-arm64 (thanks to qubist-pixel-ux).
+- Fixed Card Info screen not ignoring manual rescheduling when calculating the average time.
+- Fixed crash when pressing the copy shortcut with no active selection.
+- Fixed current review card sometimes changing when making edits.
+- Fixed deck options tooltip appearance (thanks to Matthias).
+- Fixed escaping of hyphens in searches (thanks to Rumo).
+- Fixed field pin status being forgotten when opening Cards screen (thanks to Henrik).
+- Fixed incorrect card count when removing multiple templates.
+- Fixed incorrect font on Windows (thanks to Kelciour).
+- Fixed resource leak in sound code (thanks to Kelciour).
+- Fixed some instances of a flash when revealing answer on cards with images.
+- Fixed text with single quote not being escaped in export (thanks to Ryan).
+- Fixed various links to the manual (thanks to cherryblossom000).
+- Force x11 mode when the packaged build is run on a system that tells Qt to use
+  Wayland, as Wayland is not currently supported by the packaged build.
+- Numerous behind-the-scenes improvements from Henrik and Rumo.
+- Other fixes and improvements, thanks to Abdo, Glutanimate, Arthur, Shaun,
+  hkr and others.
+- Performance improvements and other miscellaneous fixes.
+
 ## Changes in 2.1.44
 
 Released 2021-05-04.
