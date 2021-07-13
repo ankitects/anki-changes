@@ -8,7 +8,7 @@ this version, downgrade, then try again.
 
 # Changes in 2.1.45
 
-Currently in [beta testing](https://betas.ankiweb.net).
+A [release candidate](https://betas.ankiweb.net) is available.
 
 Undo handling:
 
@@ -106,6 +106,7 @@ Other features:
 - An updated Change Notetype implementation, that can match fields by name, and
   allows you to map a source field to multiple destination fields in order to
   clone a field.
+- Pre-load images on answer side (thanks to Hikaru).
 - The `[...]` in cloze deletions is now read as "blank" by TTS (thanks to Rumo).
 - The Find&Replace option in the Browse screen can now be used on tags as well.
 - Added a Card Info option to the review screen.
@@ -118,6 +119,7 @@ Other features:
 - Support Ctrl+Numpad Enter to add cards.
 - Added night mode styling to 'type in the answer' box, and improve legibility
   of comparison.
+- Sidebar search now scrolls to first match (thanks to Abdo & Rumo).
 
 Fixes:
 
