@@ -1,6 +1,6 @@
 # Changes
 
-:warning: After using the latest version, if you wish to open your collection with an
+⚠ After using the latest version, if you wish to open your collection with an
 earlier Anki release, please go to the File>Switch Profile menu item, and click
 on "Downgrade & Quit". If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
@@ -389,7 +389,7 @@ Notable changes:
 - A separate mpv process is now used to play videos on Windows, which should
   solve issues with playing getting stuck, thanks to Kelciour.
 - The handling of wildcards and escape characters in search [has been
-  reworked](https://docs.ankiweb.net/#/searching?id=matching-special-characters)
+  reworked](https://docs.ankiweb.net/searching.html#matching-special-characters)
   to be more consistent, thanks to Rumo.
 - Early startup messages are now translable, thanks to Abdo.
 - When cards are rescheduled in the browse screen, a review entry log is now created.
@@ -415,7 +415,7 @@ For developers:
   forums.
 - The minimum Python version has been updated to 3.8.
 - The wheels available on PyPI support both Python 3.8 and 3.9.
-- All translations have been migrated to [Fluent](https://translating.ankiweb.net/#/anki/developers).
+- All translations have been migrated to [Fluent](https://translating.ankiweb.net/anki/developers.html).
 - Normal and night mode theming now uses CSS variables, making it easier to override in add-ons.
 - The congrats screen, burying/suspending, filtered deck building/emptying, browser sidebar, and card
   reposition/reset have been reworked. If you were modifying them in an add-on, your add-on
@@ -927,14 +927,14 @@ updated](https://anki.tenderapp.com/discussions/beta-testing/1706-anki-2120-upda
 Audio changes:
 
 - Text to speech is now [supported in card
-  templates](https://apps.ankiweb.net/docs/manual.html#text-to-speech).
+  templates](https://docs.ankiweb.net/templates/fields.html#text-to-speech).
 
 - Audio buttons are now shown on the card, and can be turned off in
   the preferences. They will show for both regular audio and text to
   speech.
 
 - You can [customize the size and
-  colour](https://apps.ankiweb.net/docs/manual.html#audio-replay-buttons).
+  colour](https://docs.ankiweb.net/templates/styling.html#audio-replay-buttons).
 
 - Added shortcut keys in the review screen to pause and jump
   forward/backward 5 seconds.
