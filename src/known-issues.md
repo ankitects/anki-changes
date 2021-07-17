@@ -23,7 +23,7 @@ On Linux, you can write either 'auto' or 'software' into
 you’re using nouveau, it is known to be buggy and it only supports
 software mode.
 
-# Interface speed
+## Interface speed
 
 Even if you enable hardware acceleration as mentioned above, you may
 find Anki takes longer to start and show new windows - especially if
@@ -33,7 +33,7 @@ unfortunately more resource intensive. The web toolkit older Anki
 versions use has been abandoned at this point, so it is no longer an
 option for future releases.
 
-# Blank screens and eGPUs on Macs
+## Blank screens and eGPUs on Macs
 
 If you experience blank screens when using an external graphics card on
 a Mac, You can either use the -alternate version from the download site,
@@ -43,7 +43,7 @@ eGPU" option.
 When switching between monitors of different resolutions, you may
 also run into problems that can be [worked around](https://forums.ankiweb.net/t/mac-known-issues-wording-suggestion/7331).
 
-# Shortcuts
+## Shortcuts
 
 The undo shortcut is different in the alternate version due to an issue
 with the toolkit. You can discover the alternate shortcut by looking at
@@ -55,7 +55,7 @@ can also use a third party tool like BetterTouchTool or Karabiner to
 intercept the cmd+left/right keystroke when you type it into Anki, and
 have it automatically be rewritten to use the function key instead.
 
-# Copy & paste problems on Windows
+## Copy & paste problems on Windows
 
 If you are experiencing problems with copying and pasting on Windows,
 please check if you are running other programs on your computer that
@@ -63,13 +63,13 @@ monitor the clipboard, such as dictionary programs, clipboard managers
 or clipping tools. The toolkit Anki uses can have trouble when such
 programs are running.
 
-# Fcitx on Linux
+## Fcitx on Linux
 
 The standard Anki build includes fcitx support, but it may not work on
 all distributions. If you are unable to use fcitx, you may want to run
 Anki from source, or switch to a different input method.
 
-# Text size
+## Text size
 
 If you find the text is the wrong size, there are two environmental
 variables you can try:
@@ -91,7 +91,7 @@ with the following text:
 After saving, you can double click on the file to start Anki with that
 setting.
 
-# SSL errors
+## SSL errors
 
 The following applies to Anki versions before 2.1.28. Newer versions
 use the system keychain, and no longer need the workaround below.
