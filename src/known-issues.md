@@ -1,5 +1,7 @@
 # Known Issues
 
+<!-- toc -->
+
 ## Hardware acceleration and startup issues on Windows/Linux
 
 Hardware acceleration defaults to off on Windows and Linux. Enabling it
