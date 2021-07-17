@@ -1,2 +1,0 @@
-- [Changes](/)
-- [Known Issues](known-issues.md)
