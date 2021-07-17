@@ -1,0 +1,743 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Changes in 2.1.0 to 9 - Changes</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html" class="active">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Changes</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/ankitects/changes/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#changes-in-210-to-219" id="changes-in-210-to-219">Changes in 2.1.0 to 2.1.9</a></h1>
+<ul>
+<li><a href="#changes-in-219">Changes in 2.1.9</a></li>
+<li><a href="#changes-in-218">Changes in 2.1.8</a></li>
+<li><a href="#changes-in-217">Changes in 2.1.7</a></li>
+<li><a href="#changes-in-216">Changes in 2.1.6</a></li>
+<li><a href="#changes-in-215">Changes in 2.1.5</a></li>
+<li><a href="#changes-in-214">Changes in 2.1.4</a></li>
+<li><a href="#changes-in-213">Changes in 2.1.3</a></li>
+<li><a href="#changes-in-212">Changes in 2.1.2</a></li>
+<li><a href="#changes-in-211">Changes in 2.1.1</a></li>
+<li><a href="#changes-in-210">Changes in 2.1.0</a></li>
+</ul>
+<h2><a class="header" href="#changes-in-219" id="changes-in-219">Changes in 2.1.9</a></h2>
+<p>Released 2019-02-20, build ae67c976.</p>
+<ul>
+<li>
+<p>Update standard build to latest toolkit version.</p>
+</li>
+<li>
+<p>Hardware acceleration defaults to off again on Windows/Linux, due to
+the issues it was causing some users. If you were not experiencing
+any issues, turning hardware acceleration back on in the preferences
+screen is recommended.</p>
+</li>
+<li>
+<p>Various statistics fixes for the V2 scheduler, including an
+automatic remapping of button 2/3 in the review history when moving
+back and forth between scheduler versions so the &quot;answer buttons&quot;
+graph displays correctly.</p>
+</li>
+<li>
+<p>Fix BR tags being included in empty fields (thanks to David and
+zjosua)</p>
+</li>
+<li>
+<p>Optimize card template repositioning (thanks to Arthur)</p>
+</li>
+<li>
+<p>Fix a crash when copying/cutting with an empty selection (thanks to
+David)</p>
+</li>
+<li>
+<p>Avoid screen flash when undoing reviews.</p>
+</li>
+<li>
+<p>Make sure info/warning dialogs appear on top.</p>
+</li>
+<li>
+<p>Fixed an issue with just-typed text not being saved when using the
+mouse to save/add a card.</p>
+</li>
+<li>
+<p>Added support for \{{CardFlag}}, which is either empty, or in the
+format &quot;flagN&quot; where N is 1-4.</p>
+</li>
+<li>
+<p>Fix bulk flag changes in Browse screen not syncing.</p>
+</li>
+<li>
+<p>Fix advanced menu in editor not showing shortcut keys.</p>
+</li>
+<li>
+<p>When UI fails to load after resuming computer from sync, show a
+tooltip and automatically refresh.</p>
+</li>
+<li>
+<p>Clean up old mplayer instances after a crash so that profile
+renaming works.</p>
+</li>
+<li>
+<p>Fix add-on list not refreshing when toggling enabled in latest
+toolkit.</p>
+</li>
+<li>
+<p>Fix cursor jumping on first click in &quot;Edit Current&quot; area on Windows.</p>
+</li>
+<li>
+<p>Preserve whitespace when pasting plain text.</p>
+</li>
+<li>
+<p>Prevent errors caused by a timer firing after collection is
+unloaded.</p>
+</li>
+<li>
+<p>Ensure a full sync is forced when restoring from a backup.</p>
+</li>
+<li>
+<p>Ensure full window is on screen when displaying windows on a changed
+screen layout.</p>
+</li>
+<li>
+<p>Improvements to the add-ons, debug console, and error screens
+(thanks to Glutanimate)</p>
+</li>
+<li>
+<p>Ensure \{{Deck}} shows the correct deck when adding (thanks to
+Arthur)</p>
+</li>
+<li>
+<p>Ensure windows don’t get shown off-screen.</p>
+</li>
+<li>
+<p>Remember add-on window size and position.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-218" id="changes-in-218">Changes in 2.1.8</a></h2>
+<p>Released 2019-01-02, build 71e0c880.</p>
+<ul>
+<li>
+<p>Fix startup on Windows 8.</p>
+</li>
+<li>
+<p>Fix field content appearing under editor buttons.</p>
+</li>
+<li>
+<p>Better handle an error when recording.</p>
+</li>
+<li>
+<p>Fix improper handling of collections with deck errors.</p>
+</li>
+<li>
+<p>Fix duplicate deck names being created due to text encoding.</p>
+</li>
+<li>
+<p>Fix gtk2 theme and fcitx module not being included.</p>
+</li>
+<li>
+<p>Detect nouveau graphics drivers and automatically switch to software
+rendering.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-217" id="changes-in-217">Changes in 2.1.7</a></h2>
+<p>Released 2018-12-17.</p>
+<ul>
+<li>
+<p>Fix &quot;QPushButton has been deleted&quot; error messages after a problem
+occurs changing note types.</p>
+</li>
+<li>
+<p>Fix errors during &quot;Check Database&quot; that are just a byproduct of a
+previous operation that failed.</p>
+</li>
+<li>
+<p>Fix problems searching for some non-Latin text in decks/note type
+names.</p>
+</li>
+<li>
+<p>Ensure cgi and uuid modules are available to add-ons.</p>
+</li>
+<li>
+<p>Improvements to the Windows installer.</p>
+</li>
+<li>
+<p>Automatically restart mpv if it stops responding.</p>
+</li>
+<li>
+<p>Don’t convert non-Latin characters in add-on configuration to
+difficult-to-read escape codes.</p>
+</li>
+<li>
+<p>Add a bottom border to the menubar on Windows 10.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-216" id="changes-in-216">Changes in 2.1.6</a></h2>
+<p>Released 2018-12-10.</p>
+<p>Downloads are now split into a standard and alternate version.</p>
+<p><strong>The standard version</strong>:</p>
+<ul>
+<li>
+<p>Is built with the latest toolkit, which fixes various issues.</p>
+</li>
+<li>
+<p>Changes the undo shortcut back to Ctrl+Z or Command+Z like Anki 2.0.</p>
+</li>
+<li>
+<p>Includes a separate anki-console.exe executable in the Windows build
+that may be useful for add-on authors.</p>
+</li>
+<li>
+<p>Includes support for the fcitx input method and a gtk2 theme in the
+Linux build.</p>
+</li>
+</ul>
+<p>You can switch between the standard and alternate 2.1.6 without
+problems. If you move back to a previous Anki 2.1 release, your sync
+login details and window positions will be lost, and will need to be set
+again.</p>
+<p><strong>The standard version has updated requirements</strong>:</p>
+<ul>
+<li>
+<p>The Windows build only supports 64 bit Windows 7 or later, and will
+not run on a 32 bit install.</p>
+</li>
+<li>
+<p>The Mac build requires macOS 10.12 or later.</p>
+</li>
+<li>
+<p>The Linux build requires a Linux distribution from approximately
+2016 or later.</p>
+</li>
+</ul>
+<p>The alternate version is similar to previous Anki 2.1 releases, and is
+built with an older toolkit. It will run on some older systems that the
+standard version will not, but as it is not as up to date, it may be
+missing bugfixes and security improvements that the standard version
+includes.</p>
+<p><strong>The alternate version will run on</strong>:</p>
+<ul>
+<li>
+<p>Windows 7 32 bit or 64 bit installs</p>
+</li>
+<li>
+<p>Mac 10.10 or later.</p>
+</li>
+<li>
+<p>A Linux distro from around 2014 or later.</p>
+</li>
+</ul>
+<p><strong>In addition to the toolkit upgrade, there have been some changes in
+Anki itself</strong>:</p>
+<ul>
+<li>
+<p>Improvements to the Browse screen and flagging:</p>
+<ul>
+<li>
+<p>Search text is normalized, which fixes problems searching for
+unicode characters with multiple possible encodings.</p>
+</li>
+<li>
+<p>The selection is now partially transparent, allowing you to see
+the underyling colours of the rows.</p>
+</li>
+<li>
+<p>The screen doesn’t scroll when performing actions that don’t
+change the selection count.</p>
+</li>
+<li>
+<p>Flags now toggle on and off, and the separate clear flag action
+has been removed.</p>
+</li>
+<li>
+<p>The second flag is now orange instead of purple.</p>
+</li>
+<li>
+<p>Find&amp;replace now only shows fields relevant to the notes you’ve
+selected, and is case insensitive.</p>
+</li>
+<li>
+<p>Fix card list not updating when editing HTML.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Importing apkgs is now more verbose about how notes have been
+handled.</p>
+</li>
+<li>
+<p>Prevent errors caused by the user adding a field reference to itself
+on a field.</p>
+</li>
+<li>
+<p>Better handle issues with the deck list, such as decks that are
+missing a parent deck.</p>
+</li>
+<li>
+<p>Anki should now be able to function even if a system proxy is
+configured for localhost connections.</p>
+</li>
+<li>
+<p>Fix font size being copied when pasting between Anki fields with
+bold text.</p>
+</li>
+<li>
+<p>Pasting a link with shift held down now creates a clickable link.</p>
+</li>
+<li>
+<p>Fixed an issue with the bulk remove tags option where tags with
+similar names could be removed as well.</p>
+</li>
+<li>
+<p>Fixed an error that occurred with very long filenames on Windows.</p>
+</li>
+<li>
+<p>Fixed an issue running latex commands on some Linux installs.</p>
+</li>
+<li>
+<p>The Browse screen’s sidebar now defaults to on.</p>
+</li>
+<li>
+<p>Fixed a race condition that could cause two copies of Anki to open.</p>
+</li>
+<li>
+<p>When adding media to cards, Anki now will automatically rename the
+filenames if they’re too long.</p>
+</li>
+<li>
+<p>The experimental scheduler now regularly checks if new learning
+cards have become due.</p>
+</li>
+<li>
+<p>Handle invalid add-on config (thanks to Arthur).</p>
+</li>
+<li>
+<p>Enforce template ordering when card templates are reordered after
+card creation (thanks to Arthur).</p>
+</li>
+<li>
+<p>Don’t change deck when Esc pressed in deck chooser (thanks to
+David).</p>
+</li>
+<li>
+<p>Fix a problem on initial startup when English not the default
+language.</p>
+</li>
+<li>
+<p>Fix busy cursor showing in import results screen.</p>
+</li>
+<li>
+<p>Fix content overlap when add-ons have added many editor buttons.</p>
+</li>
+<li>
+<p>Don’t change current note when reopening editor from review screen
+(thanks to Arthur).</p>
+</li>
+<li>
+<p>A fix for running on Python 3.7 (thanks to Alexey).</p>
+</li>
+<li>
+<p>Restore the tooltip for the Fields and Cards buttons in editor.</p>
+</li>
+<li>
+<p>A possible fix for 'database is locked' errors on Windows.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-215" id="changes-in-215">Changes in 2.1.5</a></h2>
+<p>Released 2018-10-01.</p>
+<ul>
+<li>
+<p>Use selected answer button instead of default when enter/space
+pressed.</p>
+</li>
+<li>
+<p>Change undo shortcut in browse screen to avoid conflict with editing
+functionality.</p>
+</li>
+<li>
+<p>Ignore standard mpv config file location in favour of Anki data
+folder.</p>
+</li>
+<li>
+<p>Fix importing of .apkg files when interface in Dutch.</p>
+</li>
+<li>
+<p>Fix translations not working on Linux after 'make install'.</p>
+</li>
+<li>
+<p>Support newlines in type:cloze, and treat them as spaces.</p>
+</li>
+<li>
+<p>Add browser.rowChanged hook for add-on authors.</p>
+</li>
+<li>
+<p>Possible fix for some 'database is locked' errors.</p>
+</li>
+<li>
+<p>Fix errors on startup when deck given an invalid name.</p>
+</li>
+<li>
+<p>Fix sorting not working when field contains only a media reference.</p>
+</li>
+<li>
+<p>Fix 'access denied' error not being caught properly.</p>
+</li>
+<li>
+<p>Fix exporting of v2 colpkg when interface in non-English language.</p>
+</li>
+<li>
+<p>Fix conditional replacement not ignoring HTML formatting.</p>
+</li>
+<li>
+<p>Fix question fade time being forced when hardware acceleration on.</p>
+</li>
+<li>
+<p>Add a small margin between buttons during review.</p>
+</li>
+<li>
+<p>V2 scheduler now respects maximum interval even if it will lead to
+all buttons giving the same interval.</p>
+</li>
+<li>
+<p>Tweak margins in overview and answer button areas.</p>
+</li>
+<li>
+<p>Ignore UI events that are received after collection has been closed.</p>
+</li>
+<li>
+<p>Don’t try to import .anki(2) files as text.</p>
+</li>
+<li>
+<p>Added support for Lojban (thanks to giqtaqisi)</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-214" id="changes-in-214">Changes in 2.1.4</a></h2>
+<p>Released 2018-09-05.</p>
+<ul>
+<li>
+<p>Fix deck list getting stuck when creating filtered deck.</p>
+</li>
+<li>
+<p>Prevent local cards being overwritten when accidentally downloading
+empty AnkiWeb collection.</p>
+</li>
+<li>
+<p>Favour mark/flag colour over suspended colour in browse screen.</p>
+</li>
+<li>
+<p>Fix new day calculation in experimental scheduler.</p>
+</li>
+<li>
+<p>Linux theme tweaks (thanks to Glutanimate).</p>
+</li>
+<li>
+<p>Disable view page button for locally added add-ons (thanks to
+upday7).</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-213" id="changes-in-213">Changes in 2.1.3</a></h2>
+<p>Released 2018-08-30.</p>
+<ul>
+<li>
+<p>Hardware acceleration can now be toggled in the preferences screen
+on Windows/Linux.</p>
+</li>
+<li>
+<p>Disable question fade-in during review when hardware acceleration is
+off.</p>
+</li>
+<li>
+<p>Fix some add-ons leaving a blank space in the main window when Anki
+restarted.</p>
+</li>
+<li>
+<p>Fix file associations on macOS.</p>
+</li>
+<li>
+<p>Fix some unwanted text being included when pasting.</p>
+</li>
+<li>
+<p>Fix shortcut keys like space from repeatedly triggering when held
+down.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-212" id="changes-in-212">Changes in 2.1.2</a></h2>
+<p>Released 2018-08-20.</p>
+<ul>
+<li>
+<p>Add missing .apkg and .colpkg file associations.</p>
+</li>
+<li>
+<p>Improve handling of images inlined in fields.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-211" id="changes-in-211">Changes in 2.1.1</a></h2>
+<p>Released 2018-08-09.</p>
+<ul>
+<li>
+<p>Fixed exporting of .apkg files with regular scheduler.</p>
+</li>
+<li>
+<p>Work around Anki failing to start on some Windows machines.</p>
+</li>
+<li>
+<p>Fix dialogs failing to show in tabs when using macOS’s full screen
+mode.</p>
+</li>
+<li>
+<p>Extract embedded images when pasting HTML.</p>
+</li>
+<li>
+<p>Fix images copied from Finder not pasting properly.</p>
+</li>
+<li>
+<p>When the sort field is set to RTL, display in RTL order in the
+browser.</p>
+</li>
+<li>
+<p>Update toolkit version on Windows.</p>
+</li>
+</ul>
+<h2><a class="header" href="#changes-in-210" id="changes-in-210">Changes in 2.1.0</a></h2>
+<p>Released 2018-08-06.</p>
+<p>The first stable release of Anki 2.1.</p>
+<p>Changes from the previous release candidate:</p>
+<ul>
+<li>
+<p>Don’t unmaximize when reshowing browse screen.</p>
+</li>
+<li>
+<p>Add *.webm to attach media file selector.</p>
+</li>
+<li>
+<p>Add shortcut key for MathJax mhchem support.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../changes/2.1.10-19.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../changes/2.1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../changes/2.1.10-19.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../changes/2.1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

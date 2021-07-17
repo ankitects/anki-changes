@@ -1,0 +1,549 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Changes in 2.1.40 to 49 - Changes</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html" class="active">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Changes</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/ankitects/changes/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#changes-in-2140-to-49" id="changes-in-2140-to-49">Changes in 2.1.40 to 49</a></h1>
+<ul>
+<li><a href="#changes-in-2145">Changes in 2.1.45</a></li>
+<li><a href="#changes-in-2144">Changes in 2.1.44</a></li>
+<li><a href="#changes-in-2143">Changes in 2.1.43</a></li>
+<li><a href="#changes-in-2142">Changes in 2.1.42</a></li>
+<li><a href="#changes-in-2141">Changes in 2.1.41</a></li>
+<li><a href="#changes-in-2140">Changes in 2.1.40</a></li>
+</ul>
+<h2><a class="header" href="#changes-in-2145" id="changes-in-2145">Changes in 2.1.45</a></h2>
+<p>A <a href="https://betas.ankiweb.net">release candidate</a> is available.</p>
+<p>Undo handling:</p>
+<ul>
+<li>Most actions now support multiple undo steps. You can change a card template,
+delete some notes, bury a card, then undo each of those steps if you wish.</li>
+<li>Actions that support multiple undo steps will now save the changes
+immediately, meaning that if Anki crashes, the changes you made in the last
+few minutes will no longer be lost.</li>
+<li>Most undoable actions can now be redone, so you can undo an accidental undo.</li>
+<li>Actions that don't support the new undo handling (eg, Check Database), will
+clear the undo history.</li>
+<li>Add-ons will clear the undo history if they modify the database directly, or
+use routines that don't support undoing. There are some new routines available
+to add-ons to make operations undoable, but add-ons may need to be updated
+to use them.</li>
+</ul>
+<p>Scheduling changes:</p>
+<ul>
+<li>A new scheduler is available, with a number of improvements. Please see the
+<a href="https://faqs.ankiweb.net/the-2021-scheduler.html">2021 scheduler page</a> for
+more information.</li>
+<li>The deck list now shows the learning count separately.</li>
+<li>On new collections, the v2 scheduler is now the default.</li>
+</ul>
+<p>Browser changes, mostly thanks to Rumo:</p>
+<ul>
+<li>The sidebar now has two modes. The default allows clicking on items to search
+for them. The other mode allows you to select multiple items at once, so you
+can drag &amp; drop or delete multiple items.</li>
+<li>The browse screen can now be toggled between showing cards,
+and showing notes.</li>
+<li>When showing notes, some columns will show an aggregate over all the
+cards of a note.</li>
+<li>Added an introduced:x search to locate cards first studied in the last x days.</li>
+<li>Column rendering has been moved into the backend, and will be faster than
+before (but is still limited by the speed of the graphics toolkit).</li>
+<li>A fair bit of the browser code has been changed, and some add-ons like the
+&quot;Advanced Browser&quot; add-on will need to be updated to support the new approach.</li>
+<li>New tag icons and associated backend work (thanks to Henrik).</li>
+<li>Added an option in the Preferences screen to customize the starting
+search text (eg, to start with &quot;deck:current&quot;).</li>
+<li>More reliably scroll to the current card.</li>
+<li>When opening the Browse screen with an active study card, the whole
+deck is now shown.</li>
+<li>Added 3 new flag colours.</li>
+<li>Flags can now be renamed in the sidebar.</li>
+<li>Horizontal scrolling in the browse screen is less jumpy.</li>
+<li>Sidebar items can be dragged onto the Saved Searches area to add them as a favourite.</li>
+</ul>
+<p>Editor changes, mostly thanks to Henrik:</p>
+<ul>
+<li>A new editor toolbar implementation, with improved icons and handling.</li>
+<li>The editor now provides bullet and numbered list buttons.</li>
+<li>The editor now provides buttons to control text alignment and indent.</li>
+<li>Sticky fields can now be toggled on/off from the editing screen.</li>
+<li>A new API is available for add-ons, and the existing API should continue
+to work.</li>
+<li>The HTML editor is now shown inline, and supports syntax highlighting,
+and showing opening/closing tags.</li>
+<li>Warn user when they attempt to use cloze markers inappropriately
+(thanks to Rumo).</li>
+</ul>
+<p>State handling:</p>
+<ul>
+<li>When you make changes, the user interface should update more consistently now.
+Adding a new tag to a note will update the sidebar in the Browse screen for
+example, and when you review a card that is shown there, the columns will
+update.</li>
+<li>The Browse screen no longer refreshes a search automatically. When you make a
+change, the column text may update, but the number of rows will not change.
+Deleted cards show &quot;(deleted)&quot; until you search again.</li>
+<li>The main window no longer shows a &quot;waiting for editing to finish&quot; screen. When
+you make changes such as editing a note, the main window will dim, and will
+automatically refresh when you return to it.</li>
+</ul>
+<p>The deck options screen has been reimplemented:</p>
+<ul>
+<li>(Re)learning steps are now shown with units, eg 10m or 4d.</li>
+<li>Deck options are now shown on one scrollable page.</li>
+<li>Extra help is available for most options.</li>
+<li>It is easy to see at a glance which options have been changed from the
+default, and individual options can be reverted to the default setting.</li>
+<li>Warnings will be shown for some common issues (eg, review limit too low
+compared to new cards).</li>
+<li>Some of the more advanced options have been moved to a separate &quot;Advanced&quot;
+section.</li>
+<li>The old options can be accessed with a Shift+click, since it will take a while
+for add-ons to be updated to support the new screen. A new API is available,
+thanks to Henrik.</li>
+<li>The deck description is now accessible via a button in the overview screen,
+instead of via the deck options.</li>
+</ul>
+<p>Other features:</p>
+<ul>
+<li>An updated Change Notetype implementation, that can match fields by name, and
+allows you to map a source field to multiple destination fields in order to
+clone a field.</li>
+<li>Pre-load images on answer side (thanks to Hikaru).</li>
+<li>The <code>[...]</code> in cloze deletions is now read as &quot;blank&quot; by TTS (thanks to Rumo).</li>
+<li>The Find&amp;Replace option in the Browse screen can now be used on tags as well.</li>
+<li>Added a Card Info option to the review screen.</li>
+<li>When opening deck option from the study screen, you'll now be asked which deck
+you want if the card is in a subdeck.</li>
+<li>You can now choose which add-ons you want to update (thanks to BlueGreenMagick).</li>
+<li>Support system SSL certs on Linux.</li>
+<li>Extra checks are now done when updating a card template, such as detecting when
+a cloze notetype is missing a cloze directive, or two templates have identical question sides (thanks to Rumo).</li>
+<li>Support Ctrl+Numpad Enter to add cards.</li>
+<li>Added night mode styling to 'type in the answer' box, and improve legibility
+of comparison.</li>
+<li>Sidebar search now scrolls to first match (thanks to Abdo &amp; Rumo).</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Custom study now limits the tag selection to 100 tags or fewer, to prevent errors caused by exceeding database limits.</li>
+<li>Fixed an issue compiling on recent Python 3.9 installs.</li>
+<li>Fixed audio getting stuck when pausing near end (thanks to kelciour).</li>
+<li>Fixed building on linux-arm64 (thanks to qubist-pixel-ux).</li>
+<li>Fixed Card Info screen not ignoring manual rescheduling when calculating the average time.</li>
+<li>Fixed crash when pressing the copy shortcut with no active selection.</li>
+<li>Fixed current review card sometimes changing when making edits.</li>
+<li>Fixed deck options tooltip appearance (thanks to Matthias).</li>
+<li>Fixed escaping of hyphens in searches (thanks to Rumo).</li>
+<li>Fixed field pin status being forgotten when opening Cards screen (thanks to Henrik).</li>
+<li>Fixed incorrect card count when removing multiple templates.</li>
+<li>Fixed incorrect font on Windows (thanks to Kelciour).</li>
+<li>Fixed resource leak in sound code (thanks to Kelciour).</li>
+<li>Fixed some instances of a flash when revealing answer on cards with images.</li>
+<li>Fixed text with single quote not being escaped in export (thanks to Ryan).</li>
+<li>Fixed various links to the manual (thanks to cherryblossom000).</li>
+<li>Force x11 mode when the packaged build is run on a system that tells Qt to use
+Wayland, as Wayland is not currently supported by the packaged build.</li>
+<li>Numerous behind-the-scenes improvements from Henrik and Rumo.</li>
+<li>Other fixes and improvements, thanks to Abdo, Glutanimate, Arthur, Shaun,
+hkr and others.</li>
+<li>Performance improvements and other miscellaneous fixes.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2144" id="changes-in-2144">Changes in 2.1.44</a></h2>
+<p>Released 2021-05-04.</p>
+<ul>
+<li>Search text is no longer automatically quoted/interspersed with ANDs.</li>
+<li>Fix two backslashes being treated as one in MathJax.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2143" id="changes-in-2143">Changes in 2.1.43</a></h2>
+<p>Released 2021-04-03.</p>
+<ul>
+<li>The reviewing screen will now wait for up to 100ms
+for images to load before showing, and waits until images
+have been loaded before scrolling to the answer.</li>
+<li>The default fade-in on the review screen has been removed.</li>
+<li>Fix DB check incorrectly identifying an issue after
+lapsing a card with a non-zero interval % in the V1 scheduler.</li>
+<li>Fix editing toolbar being initially active (thanks to Henrik).</li>
+<li>Fix some error messages (thanks to Rumo).</li>
+<li>Fix expand/collapse triggering click in sidebar (thanks to BlueGreenMagick).</li>
+<li>Update translations, thanks to the translators.</li>
+<li>Fix &quot;Forgot Card&quot; message.</li>
+<li>Fix deck list not updating after deleting.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2142" id="changes-in-2142">Changes in 2.1.42</a></h2>
+<p>Released 2021-03-10.</p>
+<ul>
+<li>Fix sync downloads failing when temp folder on separate partition.</li>
+<li>Fix RTL fields (thanks to Abdo).</li>
+<li>Fix issues with field focusing and caret positioning (thanks to Henrik).</li>
+<li>Strip comments when pasting HTML (thanks to Abdo).</li>
+<li>Don't forget CSV delimeter when canceling dialog (thanks to Benjamin).</li>
+<li>Fix stale caches after rolling back to a checkpoint (thanks to Rumo).</li>
+</ul>
+<p>For build hashes, please see the <a href="https://github.com/ankitects/anki/releases">GitHub releases
+page</a>.</p>
+<h2><a class="header" href="#changes-in-2141" id="changes-in-2141">Changes in 2.1.41</a></h2>
+<p>Released 2021-03-07, build 312fa278.</p>
+<p>Browser improvements:</p>
+<ul>
+<li>Tags now show in a tree (thanks to Abdo).</li>
+<li>Added a search bar to the sidebar (thanks to Abdo).</li>
+<li>New context menu actions to rename or remove tags and their children, rename
+decks, manage notetypes, and rename/remove saved searches (thanks to Abdo
+and BlueGreenMagick).</li>
+<li>The preview button in the browse screen has moved into the editing area (thanks to Henrik).</li>
+<li>With the improved sidebar, a number of options have been removed from the Filter button.</li>
+<li>The remaining items in the Filter button have been moved into the sidebar, and
+the Filter button removed.</li>
+<li>Tags and decks can now be dragged and dropped in the sidebar.</li>
+<li>Each section can now be expanded/collapsed.</li>
+<li>&quot;Due&quot; now shows only cards due that day.</li>
+<li>Added &quot;Overdue&quot; item.</li>
+<li>Click on Decks to show whole collection.</li>
+<li>Click on Flags to show any flag.</li>
+<li>Click on Tags to show all non-empty tags.</li>
+<li>Added &quot;Untagged&quot; under Tags.</li>
+</ul>
+<p>Editing improvements:</p>
+<ul>
+<li><code>&lt;br&gt;</code> tags will now be used by default instead of the previous <code>&lt;div&gt;</code>
+tags, which solves some issues with multiple lines in cloze deletions and
+MathJax (thanks to Henrik).</li>
+<li>The tags field in the editor now autocompletes from anywhere in a tag name,
+not only the start.</li>
+<li>Invalid field content can no longer spill out into the editing area (thanks to Henrik).</li>
+</ul>
+<p>Search improvements:</p>
+<ul>
+<li>Searches are now rewritten into a canonical format (eg <code>one two</code> becomes
+<code>&quot;one&quot; AND &quot;two&quot;</code>) (thanks to Rumo).</li>
+<li>Search error messages are now much more specific (thanks to Rumo).</li>
+<li>is:learn, is:due and prop:due now handle more cases, such as suspended cards
+(thanks to Henrik).</li>
+<li>Added prop:pos search to search for new card position (thanks to Abdo).</li>
+<li>Added a shortcut to replace part of a search with a different search
+(eg changing the selected deck) (thanks to Rumo).</li>
+<li>Support resched:x for searching for cards that were manually rescheduled
+in x days (thanks to Henrik).</li>
+<li>Support prop:rated/resched to search for rated/rescheduled cards over
+specific time periods (thanks to Henrik).</li>
+<li>Filtered decks can now be created from a browser search, and vice versa (thanks to Rumo).</li>
+<li>Filtered deck screen now has a link to show cards not matched by search (thanks to Rumo, Abdo).</li>
+<li>Better ergonomics for developers (thanks to Rumo).</li>
+</ul>
+<p>Graph improvements:</p>
+<ul>
+<li>A number of the graphs can now be clicked on to search for the cards
+displayed by the graph (thanks to Henrik).</li>
+<li>The starting day of week can now be altered in the Calendar graph (thanks to Henrik).</li>
+<li>The Card Counts graph now supports toggling separate suspended/buried counts (thanks to Henrik).</li>
+<li>The intervals and ease graphs now covers more cases, such as suspended cards
+(thanks to Henrik).</li>
+<li>Place less emphasis on outliers in the Calendar graph (thanks to Henrik).</li>
+<li>Ignore manually scheduled cards in hour graph.</li>
+</ul>
+<p>Scheduler improvements:</p>
+<ul>
+<li>The V2 scheduler no longer applies parent review limits to child decks.
+Previously the limits were inconsistently applied, which could lead to the
+deck list not reflecting the actual number of cards you'd receive when you
+clicked on a deck. AnkiMobile and AnkiWeb have been updated to match this
+behaviour, and AnkiDroid will also be updated soon. Using 2.1.41 in
+conjunction with older clients will not cause any problems when syncing, but
+you may find the deck list/review counts do not match.</li>
+<li>The V1-&gt;V2 upgrade process no longer resets cards that are in learning, or
+removes cards from filtered decks.</li>
+<li>Users on the old scheduler will now see a message at the top of the deck
+list prompting them to update to the Anki 2.1 scheduler.</li>
+<li>There is no option to downgrade to the V1 scheduler anymore, though you can
+still do so by downgrading to an older Anki version first.</li>
+</ul>
+<p>Reworked the Reschedule tool:</p>
+<ul>
+<li>Split into separate &quot;Forget&quot; and &quot;Set Due Date&quot; actions</li>
+<li>&quot;Set Due Date&quot; defaults to not adjusting the card interval.</li>
+<li>Changed the &quot;Delete Tags&quot; shortcut; Ctrl+Shift+D now changes the due date.</li>
+<li>Added the action to the review screen as well.</li>
+<li>Input now remembered.</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>A basic sync server is now built into Anki. It does not yet support
+media. Docs are in the docs/ folder of the source tree.</li>
+<li>The title bar on Macs will now turn dark when night mode is activated.</li>
+<li>Deck descriptions of the congratulations screen can be enabled by turning markdown
+on in the deck options, but only 2.1.41+ will be able to render the markdown.</li>
+<li>Add opus to media list in editor.</li>
+<li>Edit/More buttons auto-hide when window is small (thanks to Henrik).</li>
+<li>Support Alt+number to switch between clozes in the card layout screen (thanks to Abdo).</li>
+<li>Use monospace font in HTML editor.</li>
+<li>Improve error message when trying to nest under a filtered deck (thanks to Rumo).</li>
+<li>Reposition dialog's &quot;shift cards&quot; option now defaults to off.</li>
+<li>Other fixes and improvements thanks to Henrik, Rumo, Abdo, Arthur, Maksim, Guillem,
+stayingpeachy, Daniel, khonkhortisan and Kerrick.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Fix the Reposition command not preserving the browser sort order.</li>
+<li>Fix some issues causing the sync indicator to show unnecessarily (thanks to Rumo).</li>
+<li>Fix slowdown after large &quot;check media&quot; report.</li>
+<li>Fix a spurious warning about a full sync when renaming card templates.</li>
+<li>Fix a freeze when answering a card with a missing parent deck.</li>
+<li>Fix Anki not working after installing on Linux over a previous install.</li>
+<li>Don't log card resets when exporting.</li>
+<li>Fix congrats screen not showing when learning cards were due soon.</li>
+<li>Updated bundled lame and mpv on Windows and Mac builds.</li>
+</ul>
+<p>For developers:</p>
+<ul>
+<li>Add-on authors, please see
+<a href="https://forums.ankiweb.net/t/add-on-porting-notes-for-anki-2-1-41/7390">https://forums.ankiweb.net/t/add-on-porting-notes-for-anki-2-1-41/7390</a></li>
+<li>Almost all of the Python codebase now has type hints. 🎉</li>
+<li>JS libraries like jQuery have been updated (thanks to Henrik).</li>
+<li>Add (untested) support for ARM64 Linux.</li>
+<li>orjson is turned back into an optional requirement (though is still
+recommended, as it's faster).</li>
+<li>The sidebar code has been moved from from browser.py into sidebar.py, which
+may break some add-ons.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2140" id="changes-in-2140">Changes in 2.1.40</a></h2>
+<p>Released 2021-02-07, build cf446733.</p>
+<ul>
+<li>Fixed backup not being made when choosing &quot;Download&quot; when syncing.</li>
+<li>Fixed a slowdown after importing.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../changes/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../changes/2.1.30-39.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../changes/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../changes/2.1.30-39.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

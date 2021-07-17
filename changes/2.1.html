@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Changes in Anki 2.1 - Changes</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html" class="active">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Changes</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/ankitects/changes/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#changes-in-anki-21" id="changes-in-anki-21">Changes in Anki 2.1</a></h1>
+<ul>
+<li><a href="#translations">Translations</a></li>
+<li><a href="#at-a-glance">At a glance</a></li>
+<li><a href="#add-ons">Add-ons</a></li>
+<li><a href="#other-changes">Other changes</a></li>
+<li><a href="#experimental-scheduler">Experimental scheduler</a></li>
+</ul>
+<h2><a class="header" href="#translations" id="translations">Translations</a></h2>
+<ul>
+<li><a href="http://rs.luminousspice.com/changeinanki2/">日本語</a></li>
+</ul>
+<h2><a class="header" href="#at-a-glance" id="at-a-glance">At a glance</a></h2>
+<ul>
+<li>
+<p>Anki 2.1 uses the same scheduling, syncing and file format as Anki
+2.0.x, so you can upgrade and downgrade at will.</p>
+</li>
+<li>
+<p>It’s built with recent support libraries (Python 3.6, Qt 5.9/5.12),
+bringing fixes for crashes, better handling of high resolution
+displays, non-Latin text, and the latest web standards.</p>
+</li>
+<li>
+<p>It requires a modern system - Windows 7+, OSX 10.10+, or a Linux
+distro from around 2014+.</p>
+</li>
+<li>
+<p>Add-ons will need to be updated to work with 2.1.</p>
+</li>
+</ul>
+<h2><a class="header" href="#add-ons" id="add-ons">Add-ons</a></h2>
+<p>Add-ons need to be updated to work with Anki 2.1. <a href="https://ankiweb.net/shared/addons/2.1">Some
+add-ons</a> have already been
+updated; others have not been ported yet.</p>
+<p>When you install 2.1, it will create a separate folder for add-ons, and
+not import any existing ones you have installed.</p>
+<p>If you’re an add-on author, you can read more about the required changes
+on <a href="https://apps.ankiweb.net/docs/addons.html">https://apps.ankiweb.net/docs/addons.html</a></p>
+<h2><a class="header" href="#other-changes" id="other-changes">Other changes</a></h2>
+<p>Anki 2.1 brings numerous bugfixes, and some quality of life
+improvements, such as:</p>
+<ul>
+<li>
+<p>Built in MathJax support</p>
+</li>
+<li>
+<p>A &quot;restore backup&quot; option in the profiles screen</p>
+</li>
+<li>
+<p>SVG rendering support for LaTeX</p>
+</li>
+<li>
+<p>Improved add-on configuration, management and updating</p>
+</li>
+<li>
+<p>Night mode for reviewing</p>
+</li>
+<li>
+<p>Improved pasting, with less unnecessary formatting included, and
+better handling of media links. You can hold the shift key when
+pasting to allow more formatting to be included.</p>
+</li>
+</ul>
+<p>The Browse screen has been simplified:</p>
+<ul>
+<li>
+<p>Various shortcuts that were previously in the sidebar are now
+available via the Filter button. If you find yourself frequently
+accessing certain items, you can save the search to have them appear
+in the side bar.</p>
+</li>
+<li>
+<p>The top bar with common shortcuts has been removed. You can access
+all actions quickly by right clicking or ctrl+clicking in the card
+list instead, and there is an add-on available for adding back the
+top bar if you still prefer it.</p>
+</li>
+</ul>
+<p>A full list of changes made during the alpha and beta period are
+documented <a href="https://apps.ankiweb.net/docs/beta.html">here</a>.</p>
+<h2><a class="header" href="#experimental-scheduler" id="experimental-scheduler">Experimental scheduler</a></h2>
+<p>Anki 2.1 contains an optional, <a href="https://anki.tenderapp.com/kb/anki-ecosystem/experiment-scheduling-changes-in-anki-21">experimental
+scheduler</a>.
+The experimental scheduler is not compatible with older Anki versions.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../changes/2.1.0-9.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../known-issues.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../changes/2.1.0-9.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../known-issues.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

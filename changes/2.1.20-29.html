@@ -1,0 +1,759 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Changes in 2.1.20 to 29 - Changes</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html" class="active">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Changes</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        <a href="https://github.com/ankitects/changes/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#changes-in-2120-to-29" id="changes-in-2120-to-29">Changes in 2.1.20 to 29</a></h1>
+<ul>
+<li><a href="#changes-in-2129">Changes in 2.1.29</a></li>
+<li><a href="#changes-in-2128">Changes in 2.1.28</a></li>
+<li><a href="#changes-in-2127">Changes in 2.1.27</a></li>
+<li><a href="#changes-in-2126">Changes in 2.1.26</a></li>
+<li><a href="#changes-in-2125">Changes in 2.1.25</a></li>
+<li><a href="#changes-in-2124">Changes in 2.1.24</a></li>
+<li><a href="#changes-in-2123">Changes in 2.1.23</a></li>
+<li><a href="#changes-in-2122">Changes in 2.1.22</a></li>
+<li><a href="#changes-in-2121">Changes in 2.1.21</a></li>
+<li><a href="#changes-in-2120">Changes in 2.1.20</a></li>
+</ul>
+<h2><a class="header" href="#changes-in-2129" id="changes-in-2129">Changes in 2.1.29</a></h2>
+<p>Released 2020-07-28, build bbff62bf.</p>
+<ul>
+<li>Add cloze-only: template filter, which can be combined with TTS to speak only the elided part.</li>
+<li>Fixed AltGr key handling in standard Windows build.</li>
+<li>Fix some Windows performance problems by rolling back to an older
+Qt version.</li>
+<li>Support the terminal command that enables dark mode on macOS again.</li>
+<li>Start media sync after full sync finishes.</li>
+<li>Fixed mpv taking time to start (thanks to Kelciour)</li>
+<li>Code/build improvements (thanks to Evandro, Matt &amp; Arthur).</li>
+<li>Use right-to-left direction in some webviews when using RTL interface language.</li>
+<li>Fixed card ID and note ID being flipped in card stats.</li>
+<li>Don't show an error when card contains an empty URL.</li>
+<li>Various fixes for deck statistics.</li>
+<li>Fixed preview not updating when editing text in the Browse screen.</li>
+<li>Close gracefully on SIGTERM.</li>
+<li>Other minor tweaks.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2128" id="changes-in-2128">Changes in 2.1.28</a></h2>
+<p>Released 2020-07-20, build 7d8818f8.</p>
+<p>2.1.28 is a big update with changes in a number of areas.</p>
+<ul>
+<li>
+<p>A reworked graphs screen:</p>
+<ul>
+<li>Rewritten with new graphing tools for more interactivity.</li>
+<li>Graphs can now be displayed for arbitrary searches.</li>
+<li>Added a calendar/heatmap view.</li>
+<li>If you need them for add-ons, the old graphs are currently still
+accessible with a shift+click on the Stats button.</li>
+</ul>
+</li>
+<li>
+<p>Reworked syncing:</p>
+<ul>
+<li>Normal syncs and media syncs can operate in parallel, speeding up startup and shutdown.</li>
+<li>Normal syncs no longer need to close open windows like the Browse screen, or close &amp; re-open
+the collection.</li>
+<li>Full syncs now show a progress bar.</li>
+<li>Full syncs can now be cancelled, and both normal and full syncs cancel more quickly.</li>
+</ul>
+</li>
+<li>
+<p>Card generation changes:</p>
+<ul>
+<li>Card generation now supports negated conditionals, and a mix of required
+and optional fields.</li>
+<li>When adding/importing, if a normal note doesn't generate any cards, Anki
+will now add a blank card 1 instead of refusing to add the note.</li>
+<li>Please bear in mind that if you take advantage of these features, older Anki
+clients may report the cards are blank, or try to clean them up when you
+use the Empty Cards feature.</li>
+<li>Cloze numbers over 499 are no longer supported.</li>
+</ul>
+</li>
+<li>
+<p>Card template screen:</p>
+<ul>
+<li>Changes are now accumulated, and can be saved or discarded when you close the screen.</li>
+<li>The front, back, and styling are no longer shown at the same time. You can switch between them with ctrl+1/2/3 or cmd+1/2/3.</li>
+<li>Added a search bar to search for text in the template or styling.</li>
+<li>Added a dropdown to change the previewed cloze number.</li>
+<li>Added a checkbox to toggle the filling of empty fields for preview.</li>
+<li>You can now delete a card template even if some notes are only using that
+template - they will be given a blank card 1 instead.</li>
+</ul>
+</li>
+<li>
+<p>Scheduling:</p>
+<ul>
+<li>The deck list no longer caps counts to 1000.</li>
+<li>The overview and study screen no longer cap counts to 1000.</li>
+<li>The deck list will no longer show a parent count higher than the limit
+set on the parent.</li>
+</ul>
+</li>
+<li>
+<p>Empty cards screen:</p>
+<ul>
+<li>Notes will not be deleted by default.</li>
+<li>Empty cards are grouped by note type.</li>
+<li>Empty cards can be clicked on to reveal them in the browse screen.</li>
+</ul>
+</li>
+<li>
+<p>Database check:</p>
+<ul>
+<li>Notes with the wrong field count are now recovered instead of being deleted.</li>
+<li>Notes with missing note types are now recovered instead of being deleted.</li>
+<li>Notes with missing cards are now recovered instead of being deleted.</li>
+</ul>
+</li>
+<li>
+<p>Unicode normalization:</p>
+<p>If you are studying rare CJK characters and wish to prevent them from being converted into
+modern equivalents, the following in the debug console will stop Anki from normalizing note text.</p>
+<pre><code class="language-py">mw.col.conf[&quot;normalize_note_text&quot;] = False
+</code></pre>
+</li>
+<li>
+<p>The standard Windows build has troubles with the AltGr key. This is fixed
+in the 2.1.29 beta, or <a href="https://forums.ankiweb.net/t/altgr-shortcuts/67">a workaround is available</a>.</p>
+</li>
+<li>
+<p>The standard Mac build currently does not support native dark mode. If you
+previously enabled it from the terminal, please either try the 2.1.29 beta, or
+undo the change with the following terminal command:</p>
+<pre><code class="language-py">defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool yes
+</code></pre>
+</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>Performance improvements to a number of screens.</li>
+<li>Fields screen now accumulates changes, which can be saved or discarded when you close the screen.</li>
+<li>Updated a few screens to show progress bars instead of hanging the UI.</li>
+<li>The standard builds now use Qt 5.15.</li>
+<li>Audio player on Windows has been switched back to mpv. Please report any
+issues you have playing audio files/videos.</li>
+<li>Fixed is:review not including relearning cards.</li>
+<li>Scroll media log to bottom at start (thanks to Kelciour)</li>
+<li>Update local media server (thanks to Evandro).</li>
+<li>Use Qt colour picker on Linux (thanks to Andreas).</li>
+<li>Add edited:x search for matching notes edited in last x days.</li>
+<li>Improvements to mpv handling (thanks to Kelciour).</li>
+<li>Windows build fix (thanks to Evandro).</li>
+<li>Clearer error message on failed regex search.</li>
+<li>Find &amp; Replace remembers input (thanks to Evandro).</li>
+<li>Code improvements (thanks to BlueGreenMagick, Thomas and Andrew).</li>
+<li>Fixed '&amp;' being changed in image filenames in HTML editor.</li>
+<li>Fixed exports getting broken by Windows carriage returns in note fields.</li>
+<li>Fixed deck deletion, and allow &quot;deleting&quot; the default deck (it comes back empty).</li>
+<li>Card layout screen divider can now be adjusted (thanks to Evandro).</li>
+<li>Fixed duplicate rendering in card layout screen (thanks to Evandro).</li>
+<li>Fixed off-by-one in field drag&amp;drop (thanks to BlueGreenMagick)</li>
+<li>Various other fixes, including contributions from BlueGreenMagick, Arthur, neitrinoweb
+and kenden.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2127" id="changes-in-2127">Changes in 2.1.27</a></h2>
+<p>This number was reserved for a bugfix release.</p>
+<h2><a class="header" href="#changes-in-2126" id="changes-in-2126">Changes in 2.1.26</a></h2>
+<p>Released 2020-05-09, build 70784154.</p>
+<ul>
+<li>Fixed saving of searches in the browse screen.</li>
+<li>Fixed card layout screen failing to open in the alternate Anki build.</li>
+<li>Fixed .log files appearing when exporting.</li>
+<li>Fixed an error appearing when undoing V2 filtered decks with scheduling disabled.</li>
+<li>Fixed duplicate search when text contains formatting.</li>
+<li>Improvements to the PyPI packages (thanks to Evandro).</li>
+<li>Tweak the handling of changed note types in the add screen (thanks to Arthur).</li>
+<li>Tolerate decks with missing modification time from third party software.</li>
+<li>Support SOCKS proxies in the non-media sync.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2125" id="changes-in-2125">Changes in 2.1.25</a></h2>
+<p>Released 2020-05-01, build 898801eb (PyPi 6046bbc7)</p>
+<ul>
+<li>Fix a change to deck configurations that was breaking AnkiDroid.</li>
+<li>Fix deck configurations not deleting.</li>
+<li>Fix angle brackets inside cloze+MathJax not working properly.</li>
+<li>The DB check fixes an AnkiMobile bug where tags were not searchable.</li>
+<li>Revert to an earlier macOS toolchain to work around recordings not working.</li>
+<li>The media check no longer fails when files with very long filenames are in the folder.</li>
+<li>More gracefully handle case where deck conf is missing.</li>
+<li>Don't throw an error when cards have an invalid due number.</li>
+<li>{{type::Field}} now marks the card as non-empty if Field is non-empty.</li>
+<li>Tweak tab width in card layout screen (thanks to BlueGreenMagick).</li>
+<li>Build fixes (thanks to Evandro).</li>
+</ul>
+<h2><a class="header" href="#changes-in-2124" id="changes-in-2124">Changes in 2.1.24</a></h2>
+<p>Released 2020-04-28, build 359b9f5c.</p>
+<p>Searching:</p>
+<ul>
+<li>You can use <code>w:something</code> to search on word boundaries, eg:
+<ul>
+<li><code>w:dog</code><br />
+search for &quot;dog&quot; on a word boundary - will match &quot;dog&quot;, but not &quot;doggy&quot;
+or &quot;underdog&quot;.</li>
+<li><code>w:dog*</code><br />
+will match &quot;dog&quot; and &quot;doggy&quot;, but not &quot;underdog&quot;.</li>
+<li><code>w:*dog</code><br />
+will match &quot;dog&quot; and &quot;underdog&quot;, but not &quot;doggy&quot;.</li>
+</ul>
+</li>
+<li>You can now use <code>re:something</code> to search via regular expression, eg:
+<ul>
+<li><code>&quot;re:(some|another).*thing&quot;</code><br />
+find notes that have &quot;some&quot; or &quot;another&quot; on them, followed by 0 or more characters, and then &quot;thing&quot;</li>
+<li><code>re:\d{3}</code><br />
+find notes that have 3 digits in a row</li>
+<li>When searching by regex, unicode case folding is used, so searching for <code>re:über</code> will
+show a card that has &quot;Über&quot; on it.</li>
+</ul>
+</li>
+<li><code>nc:something</code> (short for &quot;no combining (characters)&quot;) can be used to search while
+ignoring accents, eg <code>nc:uber</code> will match both &quot;über&quot; and &quot;Über&quot;. This behaves the same way as the &quot;Ignore Accents&quot; add-on, but is about 16x faster.</li>
+<li>You can now sort on the deck, card template, note type and tags columns.</li>
+<li>You can now use wildcards when limiting the search to a field, eg <code>field*:something</code>.</li>
+<li>You can now use wildcards when searching for a card template or note type by name.</li>
+<li><code>rated:x</code> searches are now capped to a year instead of a month.</li>
+<li>You can now escaped double-quotes in a search - eg <code>&quot;foo\&quot;bar&quot;</code></li>
+<li>Single-quote searches are no longer supported.</li>
+<li>Because the searching code has been rewritten, add-ons that modify the search
+code will need to be updated to support 2.1.24. It is no longer possible to
+override the Finder class - add-ons will need to use the new hooks in the
+browser screen to either rewrite the search text, or perform their own lookups
+instead. The Advanced Browser add-on has already been updated, and can be used
+as an example of how to accomplish things in 2.1.24.</li>
+<li>Non-wildcard searches now do full unicode case folding (eg 'tag:masse' matches 'Maße').</li>
+<li>Wildcard searches do simple unicode case folding.</li>
+<li>The tag list in the Browse screen now uses unicode case folding.</li>
+</ul>
+<p>macOS dark mode handling:</p>
+<ul>
+<li>
+<p>Anki now solely relies on the night mode setting in the preferences to decide
+whether to show in light or dark mode. Some users wanted to run Anki in light
+mode while keeping the rest of their system dark, and there were various
+display problems when dark mode was changed after Anki started that couldn't
+be easily worked around.</p>
+</li>
+<li>
+<p>Users who only use dark mode, and preferred the native look of widgets in dark
+mode, can achieve the previous appearance by running the following command in
+the terminal:</p>
+<p>:warning: This will only work if your system is permanently in dark mode!
+If you switch between dark and light mode, the interface will render incorrectly.</p>
+<pre><code class="language-shell">defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool no
+</code></pre>
+<p>And the following in the debug console:</p>
+<pre><code class="language-py">mw.pm.meta[&quot;dark_mode_widgets&quot;] = True
+</code></pre>
+</li>
+</ul>
+<p>Database changes (mainly of interest to add-on developers):</p>
+<ul>
+<li>Anki now uses Rust's sqlite libraries instead of Python's.</li>
+<li>The 'db' object on the collection retains most of the same API as before, minimizing the amount of immediate code changes that are required.</li>
+<li>Custom sql functions are no longer supported, and named DB arguments (eg &quot;where id = :id&quot;) are deprecated.</li>
+<li>The old database code remains in db.py, and add-ons can continue to use it for accessing
+their own databases.</li>
+<li>The database is now behind a mutex, and can be safely accessed from a background thread.</li>
+<li>Various screens like the database check have been updated to run on a background thread,
+so they no longer lock up the UI while they're running.</li>
+<li>The database progress handler has been removed. Anki previous had sqlite call back into
+Python periodically during long-running DB operations so it could drain the UI queue,
+but this would vary in choppyness depending on the type of DB operation being performed,
+and it was the cause of some crashes in the past. Add-ons that perform long-running operations
+should instead use mw.taskman.run_in_background() or their own threading solution moving forward.</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>A tweak which should fix some broken add-ons from preventing the collection from being loaded.</li>
+<li>Add socks support to media sync.</li>
+<li>Allow dragging fields to change their position (thanks to BlueGreenMagick).</li>
+<li>Allow selecting add-on config help text (thanks to ijgnd).</li>
+<li>Allow the type answer arrow to be styled (thanks to Evandro).</li>
+<li>Anki will now wait for a media sync to complete or be aborted before closing the collection.</li>
+<li>Build improvements (thanks to Evandro).</li>
+<li>Changed the way cloze deletions in RTL fields are handled, which should address some corner cases.</li>
+<li>Clean up the previewing code (thanks to Arthur). Add-ons that modify the preview screen will need updating.</li>
+<li>Don't force a full sync when DB check finds cards with a high due number.</li>
+<li>Don't show a popup when a network error occurs while syncing media.</li>
+<li>Fixed a case where decks could be sorted incorrectly (thanks to Arthur).</li>
+<li>Fixed a useless log file being created when exporting.</li>
+<li>Fixed add-ons with multiple branches not updating properly.</li>
+<li>Fixed an error that could occur when performing an operation in the browse screen then immediately closing it.</li>
+<li>Fixed Anki closing after a full sync on collection load.</li>
+<li>Fixed current card sometimes not being centered when searching.</li>
+<li>Fixed deck_browser_did_render hook.</li>
+<li>Fixed editor buttons not being highlighted (thanks to Simone).</li>
+<li>Fixed interface getting stuck when a corrupt collection was encountered.</li>
+<li>Fixed media sync waiting forever when connection dropped.</li>
+<li>Fixed progress dialogs failing to appear in a timely manner.</li>
+<li>Fixed tag searches in custom study (thanks to zjosua).</li>
+<li>Fixed the collection_did_load add-on hook.</li>
+<li>Fixed the wrong language shown in the preferences screen for some languages.</li>
+<li>GitHub now checks Windows and Mac builds as well (thanks to Evandro).</li>
+<li>Handle renamed cloze fields when previewing (thanks to BlueGreenMagick).</li>
+<li>Ignore .DS_Store files in the media trash folder.</li>
+<li>Improved invalid HTML/JS error messages (thanks to Evandro).</li>
+<li>Improved the handling of deck deletions (thanks to Arthur).</li>
+<li>Improvements to debug console (thanks to BlueGreenMagick).</li>
+<li>Left-align tags in the browser.</li>
+<li>Media syncs no longer take time to abort.</li>
+<li>More hooks (thanks to Arthur).</li>
+<li>Moved the scheduling options in the preferences to a separate tab, so options fit on the screen even on devices with small screens.</li>
+<li>Prepare for uploading releases to PyPI (thanks to Evandro).</li>
+<li>The media check will now fix file references in fields that broke because a filename was shortened as part of a sync.</li>
+<li>Updated config handling. While there should be no immediate breakages, if you're an add-on author and
+store lists or dicts in Anki's config, please see 676f4e74a.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2123" id="changes-in-2123">Changes in 2.1.23</a></h2>
+<p>Released 2020-03-19, build de9543ff.</p>
+<p>A macOS-only build that fixes a problem syncing media files
+with non-Latin filenames added by previous Anki versions on macOS.</p>
+<p>Please see 2.1.22 below for the bulk of the changes.</p>
+<h2><a class="header" href="#changes-in-2122" id="changes-in-2122">Changes in 2.1.22</a></h2>
+<p>Released 2020-03-18, build 0ecc189a.</p>
+<p>Media syncing improvements:</p>
+<ul>
+<li>Media syncing now happens in the background, so you can continue using
+Anki while the media sync completes.</li>
+<li>Aside from syncing at open and close, Anki will sync any media changes
+every 15-20 minutes.</li>
+<li>You can click on the sync button while the spinner is active to monitor
+progress.</li>
+<li>Long filenames and problematic characters should be handled smoothly now,
+instead of causing syncing errors.</li>
+<li>Anki should no longer sometimes forget to download files when a media
+sync fails due to network errors.</li>
+<li>When media files are added within Anki, Anki now marks them
+in the database immediately, which can make things faster for people with
+slower disks if they are not modifying the media folder externally.</li>
+</ul>
+<p>Media check improvements:</p>
+<ul>
+<li>The Check Media function now shows progress, and can be interrupted.</li>
+<li>There is now a separate button to generate missing LaTeX.</li>
+<li>If LaTeX fails to build, the problem card will be revealed in the browse
+screen.</li>
+<li>When Anki finds files that are too long or would cause errors on some
+operating systems, it will automatically rename them and update your notes
+to point to the new filename.</li>
+</ul>
+<p>Both media sync and the media check now place deleted files in a media.trash
+folder inside your profile, instead of placing the files in the system trash.
+You can use the Check Media function to either empty the trash, or restore
+the deleted files back to your media folder.</p>
+<p>Other changes:</p>
+<ul>
+<li>You can now export .apkg files with the V2 scheduler enabled.</li>
+<li>Add &quot;New #&quot; prefix to the due column for new cards.</li>
+<li>Fixed audio getting stuck on Windows.</li>
+<li>Clear the audio queue when moving between cards with autoplay off.</li>
+<li>Fixed play icons not appearing in browser preview when autoplay off.</li>
+<li>Show next learning card due time, and count for today.</li>
+<li>Restored grey styling of zeros in the deck list that got lost in the night mode changes.</li>
+<li>Improvements to the readability of the scheduling code (thanks to Arthur)</li>
+<li>Add-on hook improvements, thanks to Glutanimate and Arthur.</li>
+<li>Fixed fields containing a filename with non-Latin text from being corrupted when editing HTML (thanks to Evandro).</li>
+<li>Support for validating add-on config schemas (thanks to Arthur).</li>
+<li>Removed the 'too many decks' message in the deck list screen.</li>
+<li>Fix for issue playing audio from flash drive.</li>
+<li>Fixed Anki getting stuck when importing an invalid file.</li>
+<li>More type hints in the code (thanks to Alan).</li>
+<li>Improvements to the build process and building on Windows (thanks to Evandro).</li>
+<li>Support '/' separator in add-on web paths on Windows (thanks to BlueGreenMagick)</li>
+<li>Fix tags that are in the wrong encoding as part of the DB check.</li>
+<li>Hide the default deck in more cases (thanks to Arthur).</li>
+<li>Updates to the translation infrastructure, including tweaks to the way
+the answer buttons and the review history screen show intervals.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2121" id="changes-in-2121">Changes in 2.1.21</a></h2>
+<p>Released 2020-03-09, build f1734a47.</p>
+<ul>
+<li>Fixed error messages when playing audio.</li>
+<li>Fixed legacy add-on filters not working (reading generation in Japanese Support, etc).</li>
+<li>The alternate Mac build works properly when macOS is in dark mode now,
+and can be used if you prefer light Anki in macOS dark mode.</li>
+<li>Prevent UI scale from being decreased below 100%, which caused display problems.</li>
+<li>Fixed Anki failing to start on some Windows 7 machines that were missing TTS support.</li>
+<li>Display a more useful message when mpv/mplayer not installed.</li>
+<li>Don't allow exporting into Anki folder.</li>
+<li>Fixed display of AnkiMobile drawings in night mode.</li>
+<li>Fixed interrupting of current audio when autoplay is turned off.</li>
+<li>Night mode defaults to dark grey instead of black card background.</li>
+<li>Fixed {{Deck}} showing filtered deck instead of original deck.</li>
+<li>Fixed an error that could occur with very small learning steps.</li>
+<li>Fixed a negative version number being shown when add-ons incompatible.</li>
+<li>Fixed some invalid HTML in the review screen (thanks to BlueGreenMagic)</li>
+<li>Added back missing fcntl module.</li>
+</ul>
+<h2><a class="header" href="#changes-in-2120" id="changes-in-2120">Changes in 2.1.20</a></h2>
+<p>Released 2020-02-14, build 47a1bf8b.</p>
+<p>Template changes:</p>
+<p>The way Anki combines your card templates and fields has been updated.
+Many users will not notice a difference, but if you encounter error
+messages inside the review screen and opening and closing the Cards
+screen from the editing area does not resolve the issue, please see
+<a href="https://anki.tenderapp.com/kb/problems/card-template-has-a-problem">this support
+page</a>.</p>
+<p>Add-ons that alter the way cards are shown may <a href="https://anki.tenderapp.com/discussions/beta-testing/1706-anki-2120-updates-to-card-template-rendering">need to be
+updated</a>.</p>
+<p>Audio changes:</p>
+<ul>
+<li>
+<p>Text to speech is now <a href="https://docs.ankiweb.net/templates/fields.html#text-to-speech">supported in card
+templates</a>.</p>
+</li>
+<li>
+<p>Audio buttons are now shown on the card, and can be turned off in
+the preferences. They will show for both regular audio and text to
+speech.</p>
+</li>
+<li>
+<p>You can <a href="https://docs.ankiweb.net/templates/styling.html#audio-replay-buttons">customize the size and
+colour</a>.</p>
+</li>
+<li>
+<p>Added shortcut keys in the review screen to pause and jump
+forward/backward 5 seconds.</p>
+</li>
+<li>
+<p>Anki now starts a new copy of mplayer for each audio file on
+Windows, which avoids the need to create temporary files.</p>
+</li>
+<li>
+<p>Added an option in the preferences to not interrupt the currently
+playing audio when answering.</p>
+</li>
+<li>
+<p>Fix multiple spaces in filenames from getting truncated when pasting
+sound files.</p>
+</li>
+</ul>
+<p>Night mode:</p>
+<ul>
+<li>
+<p>The night mode option in the preferences screen now turns the
+interface dark as well.</p>
+</li>
+<li>
+<p>On macOS, when the system is in dark mode, Anki will switch to night
+mode automatically.</p>
+</li>
+<li>
+<p>Invert LaTeX in night mode (thanks to zjosua).</p>
+</li>
+<li>
+<p>Some of the colours in areas like the graphs could be improved -
+pull requests with included screenshots of the changes would be
+appreciated.</p>
+</li>
+</ul>
+<p>Add-on changes:</p>
+<ul>
+<li>
+<p>Anki will now check for add-on updates automatically once a day.</p>
+</li>
+<li>
+<p>Disabled add-ons are now included in the check as well.</p>
+</li>
+<li>
+<p>Add-on authors can specify the minimum and maximum Anki version they
+support, and add-ons will be automatically disabled when running on
+an unsupported Anki version.</p>
+</li>
+<li>
+<p>Add-on authors can now upload different add-on versions for
+different Anki versions, and Anki will download the correct one.</p>
+</li>
+<li>
+<p>A new hook system for add-ons - please see
+<a href="https://anki.tenderapp.com/discussions/beta-testing/1704-anki-2120-updates-to-the-hook-system">here</a>.</p>
+</li>
+<li>
+<p>For add-on authors, some more examples using the new hook system are
+available on the following page, including ported versions of the
+clickable tags and additional card fields add-ons:
+<a href="https://github.com/ankitects/anki-addons/tree/master/demos">https://github.com/ankitects/anki-addons/tree/master/demos</a></p>
+</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>
+<p>Added the ability to export selected notes from the Browse screen
+(thanks to Arthur).</p>
+</li>
+<li>
+<p>Updated to a newer toolkit.</p>
+</li>
+<li>
+<p>Emptying a filtered deck in the V2 scheduler no longer unsuspends
+suspended cards inside it.</p>
+</li>
+<li>
+<p>Fix incorrect delay being logged when Hard is used on the first
+learning step in the V2 scheduler.</p>
+</li>
+<li>
+<p>The editor no longer modifies percent-escaped text outside of image
+tags.</p>
+</li>
+<li>
+<p>Fix an extra linebreak being left in a field when an image is
+attached to an empty field.</p>
+</li>
+<li>
+<p>Tweaks to the 'tag updated notes' feature (thanks to Erez)</p>
+</li>
+<li>
+<p>Fix cards being sorted in wrong order when added after the note was
+created (thanks to Arthur)</p>
+</li>
+<li>
+<p>Disabled elastic scrolling in webviews to work around a Qt bug.</p>
+</li>
+<li>
+<p>Don’t filter em/strong tags when pasting.</p>
+</li>
+<li>
+<p>Fix error when double-clicking the open profile button.</p>
+</li>
+<li>
+<p>Constrain image width in editor to the field width.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../changes/2.1.30-39.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../changes/2.1.10-19.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../changes/2.1.30-39.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../changes/2.1.10-19.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
