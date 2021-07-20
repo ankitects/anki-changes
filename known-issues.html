@@ -4,47 +4,29 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Known Issues - Changes</title>
-        
-        
-
-
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -120,33 +102,26 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Changes</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                         <a href="https://github.com/ankitects/anki-changes/" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -154,8 +129,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -167,7 +140,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#known-issues" id="known-issues">Known Issues</a></h1>
+                        <h1 id="known-issues"><a class="header" href="#known-issues">Known Issues</a></h1>
 <ul>
 <li><a href="#hardware-acceleration-and-startup-issues-on-windowslinux">Hardware acceleration and startup issues on Windows/Linux</a></li>
 <li><a href="#interface-speed">Interface speed</a></li>
@@ -178,7 +151,7 @@
 <li><a href="#text-size">Text size</a></li>
 <li><a href="#ssl-errors">SSL errors</a></li>
 </ul>
-<h2><a class="header" href="#hardware-acceleration-and-startup-issues-on-windowslinux" id="hardware-acceleration-and-startup-issues-on-windowslinux">Hardware acceleration and startup issues on Windows/Linux</a></h2>
+<h2 id="hardware-acceleration-and-startup-issues-on-windowslinux"><a class="header" href="#hardware-acceleration-and-startup-issues-on-windowslinux">Hardware acceleration and startup issues on Windows/Linux</a></h2>
 <p>Hardware acceleration defaults to off on Windows and Linux. Enabling it
 in the preferences screen and restarting Anki may make Anki’s interface
 more responsive, but some users may experience missing menubars, blank
@@ -196,7 +169,7 @@ turned off in the preferences, it’s worth giving 'angle' a go.</p>
 ~/.local/share/Anki2/gldriver to adjust the driver. Please note that if
 you’re using nouveau, it is known to be buggy and it only supports
 software mode.</p>
-<h2><a class="header" href="#interface-speed" id="interface-speed">Interface speed</a></h2>
+<h2 id="interface-speed"><a class="header" href="#interface-speed">Interface speed</a></h2>
 <p>Even if you enable hardware acceleration as mentioned above, you may
 find Anki takes longer to start and show new windows - especially if
 your computer is not the fastest. This is caused by the use of a newer
@@ -204,14 +177,14 @@ web toolkit, which brings new features and security improvements, but is
 unfortunately more resource intensive. The web toolkit older Anki
 versions use has been abandoned at this point, so it is no longer an
 option for future releases.</p>
-<h2><a class="header" href="#blank-screens-and-egpus-on-macs" id="blank-screens-and-egpus-on-macs">Blank screens and eGPUs on Macs</a></h2>
+<h2 id="blank-screens-and-egpus-on-macs"><a class="header" href="#blank-screens-and-egpus-on-macs">Blank screens and eGPUs on Macs</a></h2>
 <p>If you experience blank screens when using an external graphics card on
 a Mac, You can either use the -alternate version from the download site,
 or ctrl+click on the Anki app, click &quot;Get Info&quot;, and enable the &quot;prefer
 eGPU&quot; option.</p>
 <p>When switching between monitors of different resolutions, you may
 also run into problems that can be <a href="https://forums.ankiweb.net/t/mac-known-issues-wording-suggestion/7331">worked around</a>.</p>
-<h2><a class="header" href="#shortcuts" id="shortcuts">Shortcuts</a></h2>
+<h2 id="shortcuts"><a class="header" href="#shortcuts">Shortcuts</a></h2>
 <p>The undo shortcut is different in the alternate version due to an issue
 with the toolkit. You can discover the alternate shortcut by looking at
 the Edit menu of the main screen.</p>
@@ -220,17 +193,17 @@ cmd+left/right when editing cards. Fn+left/right does work instead. You
 can also use a third party tool like BetterTouchTool or Karabiner to
 intercept the cmd+left/right keystroke when you type it into Anki, and
 have it automatically be rewritten to use the function key instead.</p>
-<h2><a class="header" href="#copy--paste-problems-on-windows" id="copy--paste-problems-on-windows">Copy &amp; paste problems on Windows</a></h2>
+<h2 id="copy--paste-problems-on-windows"><a class="header" href="#copy--paste-problems-on-windows">Copy &amp; paste problems on Windows</a></h2>
 <p>If you are experiencing problems with copying and pasting on Windows,
 please check if you are running other programs on your computer that
 monitor the clipboard, such as dictionary programs, clipboard managers
 or clipping tools. The toolkit Anki uses can have trouble when such
 programs are running.</p>
-<h2><a class="header" href="#fcitx-on-linux" id="fcitx-on-linux">Fcitx on Linux</a></h2>
+<h2 id="fcitx-on-linux"><a class="header" href="#fcitx-on-linux">Fcitx on Linux</a></h2>
 <p>The standard Anki build includes fcitx support, but it may not work on
 all distributions. If you are unable to use fcitx, you may want to run
 Anki from source, or switch to a different input method.</p>
-<h2><a class="header" href="#text-size" id="text-size">Text size</a></h2>
+<h2 id="text-size"><a class="header" href="#text-size">Text size</a></h2>
 <p>If you find the text is the wrong size, there are two environmental
 variables you can try:</p>
 <ul>
@@ -252,7 +225,7 @@ start &quot;Anki&quot; &quot;C:\Program Files\Anki\anki&quot;
 </code></pre>
 <p>After saving, you can double click on the file to start Anki with that
 setting.</p>
-<h2><a class="header" href="#ssl-errors" id="ssl-errors">SSL errors</a></h2>
+<h2 id="ssl-errors"><a class="header" href="#ssl-errors">SSL errors</a></h2>
 <p>The following applies to Anki versions before 2.1.28. Newer versions
 use the system keychain, and no longer need the workaround below.</p>
 <p>Some work and school networks intercept your internet traffic, and this
@@ -280,59 +253,32 @@ following add-on to make the change permanent:</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="changes/2.1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
-
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="changes/2.1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
-
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-
     </body>
 </html>

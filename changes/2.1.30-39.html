@@ -4,47 +4,29 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Changes in 2.1.30 to 39 - Changes</title>
-        
-        
-
-
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../favicon.png">
-        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        
         <link rel="stylesheet" href="../css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -120,33 +102,26 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Changes</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                         <a href="https://github.com/ankitects/anki-changes/" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -154,8 +129,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -167,7 +140,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#changes-in-2130-to-39" id="changes-in-2130-to-39">Changes in 2.1.30 to 39</a></h1>
+                        <h1 id="changes-in-2130-to-39"><a class="header" href="#changes-in-2130-to-39">Changes in 2.1.30 to 39</a></h1>
 <ul>
 <li><a href="#changes-in-2139">Changes in 2.1.39</a></li>
 <li><a href="#changes-in-2138">Changes in 2.1.38</a></li>
@@ -180,7 +153,7 @@
 <li><a href="#changes-in-2131">Changes in 2.1.31</a></li>
 <li><a href="#changes-in-2130">Changes in 2.1.30</a></li>
 </ul>
-<h2><a class="header" href="#changes-in-2139" id="changes-in-2139">Changes in 2.1.39</a></h2>
+<h2 id="changes-in-2139"><a class="header" href="#changes-in-2139">Changes in 2.1.39</a></h2>
 <p>Released 2021-02-02, build 576f0043.</p>
 <ul>
 <li>Fix the Reposition command not preserving the browser sort order.</li>
@@ -192,7 +165,7 @@
 <li>Updated bundled lame and mpv on Windows and Mac builds.</li>
 <li>Other fixes and improvements, with thanks to Henrik, Rumo, Abdo, Arthur, Guillem, Meredith, Gustavo, and Daniel.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2138" id="changes-in-2138">Changes in 2.1.38</a></h2>
+<h2 id="changes-in-2138"><a class="header" href="#changes-in-2138">Changes in 2.1.38</a></h2>
 <p>Released 2020-12-26, build 355e4cd5.</p>
 <ul>
 <li>Use a new approach for recording audio. If you encounter any issues,
@@ -221,7 +194,7 @@ order.</li>
 <li>./run now runs Anki with Python warnings enabled - PRs that fix any that come
 up would be welcome (thanks cecini for the first!)</li>
 </ul>
-<h2><a class="header" href="#changes-in-2137" id="changes-in-2137">Changes in 2.1.37</a></h2>
+<h2 id="changes-in-2137"><a class="header" href="#changes-in-2137">Changes in 2.1.37</a></h2>
 <p>Released 2020-12-12, build 6d596c8f.</p>
 <ul>
 <li>Fixed filtered decks not honoring sort order.</li>
@@ -233,7 +206,7 @@ up would be welcome (thanks cecini for the first!)</li>
 <li>Added a scripts/build command to build the redistributable wheels.</li>
 <li>The Rust worker is disabled by default, as some users had trouble building with it.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2136" id="changes-in-2136">Changes in 2.1.36</a></h2>
+<h2 id="changes-in-2136"><a class="header" href="#changes-in-2136">Changes in 2.1.36</a></h2>
 <p>Released 2020-12-09, build c505894b.</p>
 <p>Notable changes:</p>
 <ul>
@@ -286,7 +259,7 @@ Arthur, Alan, RumovZ, Cecini, Soren, Krish, ianki, Cyphar and kaczmarj, in no
 particular order.</p>
 <p>Thanks also to all of the people who have contributed translations for this
 and previous releases: <a href="https://i18n.ankiweb.net/contributors/">https://i18n.ankiweb.net/contributors/</a></p>
-<h2><a class="header" href="#changes-in-2135" id="changes-in-2135">Changes in 2.1.35</a></h2>
+<h2 id="changes-in-2135"><a class="header" href="#changes-in-2135">Changes in 2.1.35</a></h2>
 <p>Released 2020-10-02, build 84dcaa86.</p>
 <ul>
 <li>Fix a bug in Anki 2.1.29+ that caused excessive memory and CPU usage
@@ -300,7 +273,7 @@ after typing.</li>
 <li>Fix some handling of <code>*</code> in searches.</li>
 <li>Sidebar now correctly escapes some characters (thanks to abdo).</li>
 </ul>
-<h2><a class="header" href="#changes-in-2134" id="changes-in-2134">Changes in 2.1.34</a></h2>
+<h2 id="changes-in-2134"><a class="header" href="#changes-in-2134">Changes in 2.1.34</a></h2>
 <p>Released 2020-09-24, build 8af8f565.</p>
 <ul>
 <li>Fix a bug in Anki 2.1.28+ where a newly created deck config would default to
@@ -319,7 +292,7 @@ Please report any improvements or regressions you notice.</li>
 <li>is:due now stops at now+learn ahead limit, instead of end of day.</li>
 <li>Various improvements/fixes, some thanks Aleksa &amp; Henrik.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2133" id="changes-in-2133">Changes in 2.1.33</a></h2>
+<h2 id="changes-in-2133"><a class="header" href="#changes-in-2133">Changes in 2.1.33</a></h2>
 <p>Released 2020-08-30, build 3f403040.</p>
 <ul>
 <li>Access More button in review screen with 'm' (thanks to ANH).</li>
@@ -333,13 +306,13 @@ Please report any improvements or regressions you notice.</li>
 <li>Fix text in export file selector (thanks to ANH).</li>
 <li>Fix timeouts in full syncs and media syncs again.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2132" id="changes-in-2132">Changes in 2.1.32</a></h2>
+<h2 id="changes-in-2132"><a class="header" href="#changes-in-2132">Changes in 2.1.32</a></h2>
 <p>Released 2020-08-25, build dee7d45d.</p>
 <ul>
 <li>Roll back a change in the previous update that could cause syncs to time out.</li>
 <li>Fix sign up link in login screen.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2131" id="changes-in-2131">Changes in 2.1.31</a></h2>
+<h2 id="changes-in-2131"><a class="header" href="#changes-in-2131">Changes in 2.1.31</a></h2>
 <p>Released 2020-08-23, build 13476503.</p>
 <ul>
 <li>Show card counts in pie graph, and other minor graph tweaks.</li>
@@ -362,7 +335,7 @@ Please report any improvements or regressions you notice.</li>
 <li>Remove embedded direction markers in RTL cloze deletions.</li>
 <li>Strip nul characters from tags.</li>
 </ul>
-<h2><a class="header" href="#changes-in-2130" id="changes-in-2130">Changes in 2.1.30</a></h2>
+<h2 id="changes-in-2130"><a class="header" href="#changes-in-2130">Changes in 2.1.30</a></h2>
 <p>Released 2020-08-09, build 06a69c25.</p>
 <ul>
 <li>Work around a failure to start on some Windows 10 May 2020 installations.</li>
@@ -390,67 +363,38 @@ Please report any improvements or regressions you notice.</li>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../changes/2.1.40-49.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
-
-                        
                             <a rel="next" href="../changes/2.1.20-29.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../changes/2.1.40-49.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
-
-                
                     <a rel="next" href="../changes/2.1.20-29.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-
     </body>
 </html>
