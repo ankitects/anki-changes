@@ -157,7 +157,7 @@ this version, downgrade, then try again.</p>
 <li><a href="changes/2.1.40-49.html#changes-in-2140">Changes in 2.1.40</a></li>
 </ul>
 <h2 id="changes-in-2145"><a class="header" href="#changes-in-2145">Changes in 2.1.45</a></h2>
-<p>A <a href="https://betas.ankiweb.net">release candidate</a> is available.</p>
+<p>Released 2021-07-30.</p>
 <p>Undo handling:</p>
 <ul>
 <li>Most actions now support multiple undo steps. You can change a card template,
@@ -180,6 +180,7 @@ to use them.</li>
 more information.</li>
 <li>The deck list now shows the learning count separately.</li>
 <li>On new collections, the v2 scheduler is now the default.</li>
+<li>Set due date uses the deck's configured starting ease (thanks to cyphar).</li>
 </ul>
 <p>Browser changes, mostly thanks to Rumo:</p>
 <ul>
@@ -268,6 +269,7 @@ a cloze notetype is missing a cloze directive, or two templates have identical q
 <li>Added night mode styling to 'type in the answer' box, and improve legibility
 of comparison.</li>
 <li>Sidebar search now scrolls to first match (thanks to Abdo &amp; Rumo).</li>
+<li>F3/F4 in card layout screen go to next/previous template (thanks to Evandro).</li>
 </ul>
 <p>Fixes:</p>
 <ul>
@@ -287,13 +289,19 @@ of comparison.</li>
 <li>Fixed some instances of a flash when revealing answer on cards with images.</li>
 <li>Fixed text with single quote not being escaped in export (thanks to Ryan).</li>
 <li>Fixed various links to the manual (thanks to cherryblossom000).</li>
+<li>Fixed red duplicate background being included in copy+paste (thanks to Hikaru).</li>
+<li>Fixed flags not being excluded on export (thanks to Alex).</li>
 <li>Force x11 mode when the packaged build is run on a system that tells Qt to use
 Wayland, as Wayland is not currently supported by the packaged build.</li>
 <li>Numerous behind-the-scenes improvements from Henrik and Rumo.</li>
 <li>Other fixes and improvements, thanks to Abdo, Glutanimate, Arthur, Shaun,
 hkr and others.</li>
+<li>Strip invalid unicode from filenames in media check.</li>
 <li>Performance improvements and other miscellaneous fixes.</li>
 </ul>
+<p>A big thank you to everyone who contributed, including people who contributed translations,
+and those who helped test out the beta releases and provided feedback.</p>
+<p>Add-on authors, there are <a href="https://forums.ankiweb.net/t/add-on-porting-notes-for-anki-2-1-45/11212">some notes</a> on porting add-ons to 2.1.45 available.</p>
 <h2 id="changes-in-2144"><a class="header" href="#changes-in-2144">Changes in 2.1.44</a></h2>
 <p>Released 2021-05-04.</p>
 <ul>
