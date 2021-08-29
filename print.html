@@ -149,6 +149,7 @@ opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2140-to-49"><a class="header" href="#changes-in-2140-to-49">Changes in 2.1.40 to 49</a></h1>
 <ul>
+<li><a href="changes/2.1.40-49.html#changes-in-2147">Changes in 2.1.47</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2146">Changes in 2.1.46</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2145">Changes in 2.1.45</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2144">Changes in 2.1.44</a></li>
@@ -156,6 +157,51 @@ this version, downgrade, then try again.</p>
 <li><a href="changes/2.1.40-49.html#changes-in-2142">Changes in 2.1.42</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2141">Changes in 2.1.41</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2140">Changes in 2.1.40</a></li>
+</ul>
+<h2 id="changes-in-2147"><a class="header" href="#changes-in-2147">Changes in 2.1.47</a></h2>
+<p>Released 2021-08-29.</p>
+<p>Changes to the <a href="https://faqs.ankiweb.net/the-2021-scheduler.html">v3 scheduler</a>:</p>
+<ul>
+<li>Interday learning cards are included in the learning count again, instead of
+the review count.</li>
+<li>Interday learning cards are still affected by the review limit. Interday
+learning cards are fetched first, then reviews, and finally new cards.</li>
+<li>Filtered decks with rescheduling disabled now log reviews, so the reviews will
+appear in your graphs.</li>
+<li>Added an option to sort reviews by ascending/descending ease.</li>
+<li>Fixed an issue where an error message could appear after undoing/redoing a mix
+of reviews and other changes.</li>
+<li>Fixed custom scheduling not working.</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>The &quot;timebox finished&quot; message is now shown on card answer, instead of after
+revealing the next card. This should also address an issue where the message
+popped up outside of review.</li>
+<li>Added shortcut for Forget in the Browse screen.</li>
+<li>Fixed an error being shown when there was no current deck.</li>
+<li>Fixed incorrect quoting in duplicate search (thanks to Abdo).</li>
+<li>Fixed deck options inverting the &quot;replay question when showing answer&quot; option.</li>
+<li>Fixed an issue with ampersands in the Add Cards history button (thanks to
+Arthur).</li>
+<li>Fixed handling of audio/video tags (thanks to Hikaru).</li>
+<li>Fixed errors playing audio when computer was slow to respond (thanks to Kelciour).</li>
+<li>Fixed preferences screen not updating undo menu, and causing an error when
+subsequently reviewing a card in the v3 scheduler.</li>
+<li>Fixed case changes being ignored in tag rename.</li>
+<li>Fixed error shown when DB check run on corrupt collection.</li>
+<li>Fixed deck options prompt showing the default deck, instead of the correct one.</li>
+<li>Fixed reposition command ignoring suspended cards.</li>
+<li>Fixed answer button highlight on Windows (thanks to Henrik).</li>
+<li>Fixed calendar graph day labels showing incorrectly in some timezones.</li>
+<li>Improved validation of add-on package names (thanks to BlueGreenMagick for the
+report and initial fix).</li>
+</ul>
+<p>For add-on developers:</p>
+<ul>
+<li>The Svelte components Anki exports should now work correctly in add-ons,
+provided they exclude Svelte when bundling.</li>
+<li>WithShortcut is now also available.</li>
 </ul>
 <h2 id="changes-in-2146"><a class="header" href="#changes-in-2146">Changes in 2.1.46</a></h2>
 <p>Released 2021-08-04.</p>
