@@ -2315,8 +2315,8 @@ The experimental scheduler is not compatible with older Anki versions.</p>
 <li><a href="known-issues.html#hardware-acceleration-and-startup-issues-on-windowslinux">Hardware acceleration and startup issues on Windows/Linux</a></li>
 <li><a href="known-issues.html#interface-speed">Interface speed</a></li>
 <li><a href="known-issues.html#blank-screens-and-egpus-on-macs">Blank screens and eGPUs on Macs</a></li>
-<li><a href="known-issues.html#shortcuts">Shortcuts</a></li>
 <li><a href="known-issues.html#copy--paste-problems-on-windows">Copy &amp; paste problems on Windows</a></li>
+<li><a href="known-issues.html#wayland-on-linux">Wayland on Linux</a></li>
 <li><a href="known-issues.html#fcitx-on-linux">Fcitx on Linux</a></li>
 <li><a href="known-issues.html#text-size">Text size</a></li>
 <li><a href="known-issues.html#ssl-errors">SSL errors</a></li>
@@ -2340,35 +2340,33 @@ turned off in the preferences, it’s worth giving 'angle' a go.</p>
 you’re using nouveau, it is known to be buggy and it only supports
 software mode.</p>
 <h2 id="interface-speed"><a class="header" href="#interface-speed">Interface speed</a></h2>
-<p>Even if you enable hardware acceleration as mentioned above, you may
-find Anki takes longer to start and show new windows - especially if
-your computer is not the fastest. This is caused by the use of a newer
-web toolkit, which brings new features and security improvements, but is
-unfortunately more resource intensive. The web toolkit older Anki
-versions use has been abandoned at this point, so it is no longer an
-option for future releases.</p>
+<p>Even if you enable hardware acceleration as mentioned above, you may find Anki
+takes longer to start and show new windows than Anki 2.0.x - especially if your
+computer is not the fastest. This is caused by the use of a newer web toolkit,
+which brings new features and security improvements, but is unfortunately more
+resource intensive. The web toolkit older Anki versions use has been abandoned
+at this point, so it is no longer an option for future releases.</p>
 <h2 id="blank-screens-and-egpus-on-macs"><a class="header" href="#blank-screens-and-egpus-on-macs">Blank screens and eGPUs on Macs</a></h2>
-<p>If you experience blank screens when using an external graphics card on
-a Mac, You can either use the -alternate version from the download site,
-or ctrl+click on the Anki app, click &quot;Get Info&quot;, and enable the &quot;prefer
+<p>If you experience blank screens when using an external graphics card on a Mac,
+You can ctrl+click on the Anki app, click &quot;Get Info&quot;, and enable the &quot;prefer
 eGPU&quot; option.</p>
 <p>When switching between monitors of different resolutions, you may
 also run into problems that can be <a href="https://forums.ankiweb.net/t/mac-known-issues-wording-suggestion/7331">worked around</a>.</p>
-<h2 id="shortcuts"><a class="header" href="#shortcuts">Shortcuts</a></h2>
-<p>The undo shortcut is different in the alternate version due to an issue
-with the toolkit. You can discover the alternate shortcut by looking at
-the Edit menu of the main screen.</p>
-<p>On macOS, the alternate build does not support some shortcuts like
-cmd+left/right when editing cards. Fn+left/right does work instead. You
-can also use a third party tool like BetterTouchTool or Karabiner to
-intercept the cmd+left/right keystroke when you type it into Anki, and
-have it automatically be rewritten to use the function key instead.</p>
 <h2 id="copy--paste-problems-on-windows"><a class="header" href="#copy--paste-problems-on-windows">Copy &amp; paste problems on Windows</a></h2>
 <p>If you are experiencing problems with copying and pasting on Windows,
 please check if you are running other programs on your computer that
 monitor the clipboard, such as dictionary programs, clipboard managers
 or clipping tools. The toolkit Anki uses can have trouble when such
 programs are running.</p>
+<h2 id="wayland-on-linux"><a class="header" href="#wayland-on-linux">Wayland on Linux</a></h2>
+<p>From Anki 2.1.48, you can force Anki to use Wayland by defining ANKI_WAYLAND=1
+before starting Anki. Wayland may give you better rendering across multiple
+displays, but it is currently off by default, due to the following issues:</p>
+<ul>
+<li>On some distros, Windows are rendered without borders.</li>
+<li>Bringing windows to the front is not possible, so for example, clicking on Add
+to reveal an existing Add Cards window will not work.</li>
+</ul>
 <h2 id="fcitx-on-linux"><a class="header" href="#fcitx-on-linux">Fcitx on Linux</a></h2>
 <p>The standard Anki build includes fcitx support, but it may not work on
 all distributions. If you are unable to use fcitx, you may want to run
