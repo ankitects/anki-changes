@@ -27,35 +27,21 @@ software mode.
 
 ## Interface speed
 
-Even if you enable hardware acceleration as mentioned above, you may
-find Anki takes longer to start and show new windows - especially if
-your computer is not the fastest. This is caused by the use of a newer
-web toolkit, which brings new features and security improvements, but is
-unfortunately more resource intensive. The web toolkit older Anki
-versions use has been abandoned at this point, so it is no longer an
-option for future releases.
+Even if you enable hardware acceleration as mentioned above, you may find Anki
+takes longer to start and show new windows than Anki 2.0.x - especially if your
+computer is not the fastest. This is caused by the use of a newer web toolkit,
+which brings new features and security improvements, but is unfortunately more
+resource intensive. The web toolkit older Anki versions use has been abandoned
+at this point, so it is no longer an option for future releases.
 
 ## Blank screens and eGPUs on Macs
 
-If you experience blank screens when using an external graphics card on
-a Mac, You can either use the -alternate version from the download site,
-or ctrl+click on the Anki app, click "Get Info", and enable the "prefer
+If you experience blank screens when using an external graphics card on a Mac,
+You can ctrl+click on the Anki app, click "Get Info", and enable the "prefer
 eGPU" option.
 
 When switching between monitors of different resolutions, you may
 also run into problems that can be [worked around](https://forums.ankiweb.net/t/mac-known-issues-wording-suggestion/7331).
-
-## Shortcuts
-
-The undo shortcut is different in the alternate version due to an issue
-with the toolkit. You can discover the alternate shortcut by looking at
-the Edit menu of the main screen.
-
-On macOS, the alternate build does not support some shortcuts like
-cmd+left/right when editing cards. Fn+left/right does work instead. You
-can also use a third party tool like BetterTouchTool or Karabiner to
-intercept the cmd+left/right keystroke when you type it into Anki, and
-have it automatically be rewritten to use the function key instead.
 
 ## Copy & paste problems on Windows
 
@@ -64,6 +50,16 @@ please check if you are running other programs on your computer that
 monitor the clipboard, such as dictionary programs, clipboard managers
 or clipping tools. The toolkit Anki uses can have trouble when such
 programs are running.
+
+## Wayland on Linux
+
+From Anki 2.1.48, you can force Anki to use Wayland by defining ANKI_WAYLAND=1
+before starting Anki. Wayland may give you better rendering across multiple
+displays, but it is currently off by default, due to the following issues:
+
+- On some distros, Windows are rendered without borders.
+- Bringing windows to the front is not possible, so for example, clicking on Add
+to reveal an existing Add Cards window will not work.
 
 ## Fcitx on Linux
 
