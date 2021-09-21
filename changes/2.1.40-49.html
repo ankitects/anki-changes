@@ -142,6 +142,7 @@
                     <main>
                         <h1 id="changes-in-2140-to-49"><a class="header" href="#changes-in-2140-to-49">Changes in 2.1.40 to 49</a></h1>
 <ul>
+<li><a href="#changes-in-2148">Changes in 2.1.48</a></li>
 <li><a href="#changes-in-2147">Changes in 2.1.47</a></li>
 <li><a href="#changes-in-2146">Changes in 2.1.46</a></li>
 <li><a href="#changes-in-2145">Changes in 2.1.45</a></li>
@@ -150,6 +151,25 @@
 <li><a href="#changes-in-2142">Changes in 2.1.42</a></li>
 <li><a href="#changes-in-2141">Changes in 2.1.41</a></li>
 <li><a href="#changes-in-2140">Changes in 2.1.40</a></li>
+</ul>
+<h2 id="changes-in-2148"><a class="header" href="#changes-in-2148">Changes in 2.1.48</a></h2>
+<p>Released 2021-09-21.</p>
+<ul>
+<li>Add &quot;Previous Card Info&quot; action to review screen (thanks to Evandro).</li>
+<li>Fix flag names not updating on profile switch (thanks to Rumo).</li>
+<li>Hide &quot;Rename with Parents&quot; for top-level items (thanks to Rumo).</li>
+<li>&quot;Add Field&quot; action now correctly handles multi-word font names.</li>
+<li>Fix newline being added when coloring text (thanks to Henrik).</li>
+<li>Fix incorrect system font when running Anki in some non-English languages.</li>
+<li>Fix learning count sometimes jumping to a large number in the v3 scheduler.</li>
+<li>Another fix for Reposition command not working on buried/suspended cards.</li>
+<li>Preserve focus when changing notetype in the Add screen.</li>
+<li>Wayland can now be optionally enabled with an env var in the packaged builds,
+but remains off by default due to a number of bugs.</li>
+<li>Fix an error message that could appear when deleting notes (thanks to Rumo).</li>
+<li>The card templates screen no longer defaults to filling empty fields when
+opened from the Add screen (thanks to BlueGreenMagick).</li>
+<li>Miscellaneous other fixes.</li>
 </ul>
 <h2 id="changes-in-2147"><a class="header" href="#changes-in-2147">Changes in 2.1.47</a></h2>
 <p>Released 2021-08-29.</p>
