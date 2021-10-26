@@ -149,6 +149,7 @@ opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2140-to-49"><a class="header" href="#changes-in-2140-to-49">Changes in 2.1.40 to 49</a></h1>
 <ul>
+<li><a href="changes/2.1.40-49.html#changes-in-2149">Changes in 2.1.49</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2148">Changes in 2.1.48</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2147">Changes in 2.1.47</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2146">Changes in 2.1.46</a></li>
@@ -158,6 +159,26 @@ this version, downgrade, then try again.</p>
 <li><a href="changes/2.1.40-49.html#changes-in-2142">Changes in 2.1.42</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2141">Changes in 2.1.41</a></li>
 <li><a href="changes/2.1.40-49.html#changes-in-2140">Changes in 2.1.40</a></li>
+</ul>
+<h2 id="changes-in-2149"><a class="header" href="#changes-in-2149">Changes in 2.1.49</a></h2>
+<p>Released 2021-10-26.</p>
+<ul>
+<li>Fixed cards not being automatically unburied when v3 scheduler enabled.</li>
+<li>Fixed incorrect learning count in v3 scheduler when interday learning cards
+were queued (thanks to Rumo).</li>
+<li>Work around an AnkiDroid inconsistency causing deck config to be reset if options
+edited on AnkiDroid.</li>
+<li>Fixed a memory leak in the Preview screen (thanks to Hikaru).</li>
+<li>Fixed an issue copying filenames from the Check Media screen (thanks to Abdo).</li>
+<li>Fixed deck changing when toggling sticky fields (thanks to Abdo).</li>
+<li>Fixed invalid default column in notes mode in the Browse screen (thanks to Abdo).</li>
+<li>The bury command ignores suspended cards now (thanks to Rumo).</li>
+<li>Anki no longer migrates any files from the old ~/Documents/Anki and ~/Anki folders.</li>
+<li>Increased number of card templates shown in card templates screen dropdown (thanks to Evando).</li>
+<li>Added a new example Dockerfile (thanks to Jakub).</li>
+<li>Handle spaces in Linux install location (thanks to lolilo).</li>
+<li>Work around a PyQt error on Python 3.10.</li>
+<li>Other minor changes.</li>
 </ul>
 <h2 id="changes-in-2148"><a class="header" href="#changes-in-2148">Changes in 2.1.48</a></h2>
 <p>Released 2021-09-21.</p>
