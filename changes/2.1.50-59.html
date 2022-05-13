@@ -142,6 +142,14 @@
                     <main>
                         <h1 id="changes-in-2150-to-59"><a class="header" href="#changes-in-2150-to-59">Changes in 2.1.50 to 59</a></h1>
 <ul>
+<li><a href="#changes-in-2152">Changes in 2.1.52</a>
+<ul>
+<li><a href="#editor-improvements">Editor Improvements</a></li>
+<li><a href="#other-improvements">Other Improvements</a></li>
+<li><a href="#for-developers">For Developers</a></li>
+<li><a href="#new-apkg-importexport">New Apkg Import/Export</a></li>
+</ul>
+</li>
 <li><a href="#changes-in-2151">Changes in 2.1.51</a></li>
 <li><a href="#changes-in-2150">Changes in 2.1.50</a>
 <ul>
@@ -150,14 +158,73 @@
 <li><a href="#scheduler-changes">Scheduler Changes</a></li>
 <li><a href="#editor-changes">Editor Changes</a></li>
 <li><a href="#new-features">New Features</a></li>
-<li><a href="#other-improvements">Other Improvements</a></li>
-<li><a href="#for-developers">For Developers</a></li>
+<li><a href="#other-improvements-1">Other Improvements</a></li>
+<li><a href="#for-developers-1">For Developers</a></li>
 </ul>
 </li>
 </ul>
+<h2 id="changes-in-2152"><a class="header" href="#changes-in-2152">Changes in 2.1.52</a></h2>
+<p>Released 2022-05-13.</p>
+<p>If updating from Anki 2.1.49 or below, please see the <a href="https://github.com/ankitects/anki/releases/tag/2.1.50">2.1.50 change notes</a> first.</p>
+<h3 id="editor-improvements"><a class="header" href="#editor-improvements">Editor Improvements</a></h3>
+<ul>
+<li>Ctrl/Cmd+A in tag editing area now selects all tags (thanks to BlueGreenMagick).</li>
+<li>Fixed backspace sometimes removing multiple images at once (thanks to Henrik).</li>
+<li>Fixed copying and pasting MathJax on Windows (Qt6).</li>
+<li>Fixed handling of <code>&lt;</code> and <code>&gt;</code> symbols in MathJax (thanks to Henrik).</li>
+<li>Fixed intermittent editor loading failures when add-ons have injected a large amount of code.</li>
+<li>Fixed pasting of local files of unsupported types that contain spaces (thanks to Abdo).</li>
+<li>Fixed some formatting being lost when copying between fields on Windows (Qt6).</li>
+<li>Fixed various issues with tag editing (thanks to BlueGreenMagick and Henrik).</li>
+<li>Pressing tab on the last field now moves focus to tag area (thanks to Henrik).</li>
+<li>Reduce size of editor buttons on Windows/Linux (thanks to Henrik).</li>
+<li>Tags copied from the tag editor are no longer joined together when pasted into the add tags/remove tags dialogs (thanks to Henrik).</li>
+<li>The Qt5 Mac build now caps tag autocomplete matches to 10, as showing more is extremely slow in the old toolkit version.</li>
+</ul>
+<h3 id="other-improvements"><a class="header" href="#other-improvements">Other Improvements</a></h3>
+<ul>
+<li>Update Qt to 6.3.0, which fixes slow loading of large images, and inertial scrolling on macOS.</li>
+<li>Fixed an error when previewing cards and selecting multiple cards (thanks to Rumo).</li>
+<li>Fixed Anki needing to close when invalid modification times encountered by the browser on Windows.</li>
+<li>Fixed colpkg imports not being cancellable (thanks to Rumo).</li>
+<li>Fixed current working directory changing on apkg export.</li>
+<li>Fixed custom browser font not being honored (Qt6).</li>
+<li>Fixed custom study applying the previously-input limit, instead of the current one.</li>
+<li>Fixed due graph showing wrong date for review cards in a filtered deck with rescheduling disabled.</li>
+<li>Fixed grey background in type answer text + dark mode (thanks to Matthias).</li>
+<li>Fixed v3 scheduler allowing one extra card when review limit reached (thanks to Rumo).</li>
+<li>Lists on cards are now aligned to the left by default (thanks to Matthias).</li>
+<li>Removed the highlight on the Show Answer and Good buttons.</li>
+<li>Reset page zoom when moving between different screens.</li>
+<li>The Qt6 Linux build now defaults to X11/XWayland instead of Wayland due to some <a href="https://github.com/ankitects/anki/issues/1767">remaining issues</a>; you can force-enable Wayland with ANKI_WAYLAND=1.</li>
+</ul>
+<h3 id="for-developers"><a class="header" href="#for-developers">For Developers</a></h3>
+<ul>
+<li>The <code>field_filter</code> hook can now check if it's running for the question or answer side (thanks to Abdo).</li>
+<li>Added a <code>av_player_will_play_tags</code> hook (thanks to Abdo).</li>
+<li>Make it easier to search in fields programmatically (thanks to Abdo).</li>
+</ul>
+<h3 id="new-apkg-importexport"><a class="header" href="#new-apkg-importexport">New Apkg Import/Export</a></h3>
+<p>This build also includes a new implementation of apkg importing and exporting, thanks to Rumo. Some advantages:</p>
+<ul>
+<li>Undo/redo is now supported.</li>
+<li>Faster imports (especially for decks with a lot of note content).</li>
+<li>Support for older clients can be optionally disabled, which results in smaller
+apkg files, and faster imports.</li>
+<li>Flags are removed when scheduling is excluded.</li>
+</ul>
+<p>The new functionality is hidden behind a feature flag, and <strong>not active by default</strong>.
+You can try it out by using <code>mw.pm.set_new_import_export(True)</code> in the <a href="https://docs.ankiweb.net/misc.html#debug-console">debug console</a>.
+To revert to the old behaviour, replace True with False.</p>
+<p>Things to note:</p>
+<ul>
+<li>This is new code that has received limited testing so far, so please use <code>File&gt;Create Backup</code> before trying it out.
+Any testing/feedback you can provide would be appreciated.</li>
+<li>While active, it is not currently possible to import/export files other than apkg/colpkg.</li>
+<li>The Special Fields add-on will not work while this functionality is enabled.</li>
+</ul>
 <h2 id="changes-in-2151"><a class="header" href="#changes-in-2151">Changes in 2.1.51</a></h2>
 <p>Released 2022-04-25.</p>
-<p>If updating from Anki 2.1.49 or below, please see the <a href="https://github.com/ankitects/anki/releases/tag/2.1.50">2.1.50 change notes</a> first.</p>
 <p>Changes:</p>
 <ul>
 <li>Reviews in the V3 scheduler can now optionally be sorted by relative overdueness (thanks to Abdo).</li>
@@ -324,7 +391,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>Added a silent option (/s) for the Windows uninstaller (thanks to Patric).</li>
 <li>Added tooltips to some browser columns (thanks to Rumo).</li>
 </ul>
-<h3 id="other-improvements"><a class="header" href="#other-improvements">Other Improvements</a></h3>
+<h3 id="other-improvements-1"><a class="header" href="#other-improvements-1">Other Improvements</a></h3>
 <ul>
 <li>Added a &quot;Learn&quot; label to the learning counts in the deck list.</li>
 <li>Added shortcut keys for creating lists and indentation (thanks to Rumo).</li>
@@ -395,7 +462,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 Evandro, Arthur, Soren, BlueGreenMagick, Yoshi, Jakub, Gesa, blue-putty,
 stopendy, TheFeelTrain and zjosua.</li>
 </ul>
-<h3 id="for-developers"><a class="header" href="#for-developers">For Developers</a></h3>
+<h3 id="for-developers-1"><a class="header" href="#for-developers-1">For Developers</a></h3>
 <ul>
 <li>Anki now requires Python 3.9.</li>
 <li>Anki contains some compatibility shims that should allow many add-ons written
