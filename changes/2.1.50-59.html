@@ -147,6 +147,7 @@
                     <main>
                         <h1 id="changes-in-2150-to-59"><a class="header" href="#changes-in-2150-to-59">Changes in 2.1.50 to 59</a></h1>
 <ul>
+<li><a href="#changes-in-2157">Changes in 2.1.57</a></li>
 <li><a href="#changes-in-2156">Changes in 2.1.56</a></li>
 <li><a href="#changes-in-2155">Changes in 2.1.55</a></li>
 <li><a href="#changes-in-2154">Changes in 2.1.54</a></li>
@@ -176,6 +177,58 @@
 <li><a href="#for-developers-1">For Developers</a></li>
 </ul>
 </li>
+</ul>
+<h2 id="changes-in-2157"><a class="header" href="#changes-in-2157">Changes in 2.1.57</a></h2>
+<p>More UI improvements/fixes thanks to Matthias, including:</p>
+<ul>
+<li>The top toolbar area can now take on the color/background of the main window.</li>
+<li>The top toolbar appears more subtle during review.</li>
+<li>A new option in the preferences to automatically hide the top and bottom bar
+during review.</li>
+<li>A new option in the preferences to enable a &quot;minimalist&quot; mode that makes the
+UI more compact/less fancy.</li>
+<li>A new option in the preferences to switch between native styling and the Anki
+theme (on Mac/Linux).</li>
+<li>The preferences screen has been redesigned to be easier to navigate.</li>
+</ul>
+<p>Syncing has also been updated:</p>
+<ul>
+<li>Tweaks to the sync protocol that should be transparent when syncing with
+AnkiWeb, but that will break syncing with third-party servers that haven't
+been updated yet.</li>
+<li>The sync server bundled with Anki has been updated, and now supports syncing
+media as well. More information is available on
+<a href="https://docs.ankiweb.net/sync-server.html">https://docs.ankiweb.net/sync-server.html</a>.</li>
+</ul>
+<p>Other changes:</p>
+<ul>
+<li>Switch to a different library for handling type-in-the-answer comparisons,
+which should give more reliable results, and not crash with certain inputs
+(thanks to Rumo).</li>
+<li>Fix <code>introduced:x</code> not working correctly when negated (thanks to Rumo).</li>
+<li>Fix ctrl+enter not working when importing screen first opened.</li>
+<li>Fix image dimensions not being correctly constrained (thanks to Hikaru).</li>
+<li>Fix incorrect total/average in added graph.</li>
+<li>Fix newlines not appearing when importing a csv file with HTML disabled.</li>
+<li>Fix quotes preventing field descriptions from showing.</li>
+<li>Fix spaces not handled properly when entering text around MathJax (thanks to
+Hikaru).</li>
+<li>Fix toolbar add-on breakages and introduce toolbar tray layout &amp; API (thanks
+to Aristotelis).</li>
+<li>Fix type-in-the-answer not supported nested cloze deletions.</li>
+<li>Increase delay when adjusting clipboard, which may improve compatibility on
+some systems.</li>
+<li>Update Windows/Linux builds to Qt 6.4.2.</li>
+<li>Fix non-Latin text wrapping in deck options dropdown (thanks to Fabricio).</li>
+<li>Fix outer whitespace not being trimmed in type answer.</li>
+<li>Fix the future due graph counting learning cards on the wrong day.</li>
+<li>Fix deck options screen allowing invalid/blank input.</li>
+<li>HTML is now escaped in the deck list.</li>
+</ul>
+<p>Dev related:</p>
+<ul>
+<li>Make it easier to override node/protoc binaries during a build (thanks to
+Mani)</li>
 </ul>
 <h2 id="changes-in-2156"><a class="header" href="#changes-in-2156">Changes in 2.1.56</a></h2>
 <p>Released 2023-01-09.</p>
