@@ -154,7 +154,15 @@ opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2150-to-59"><a class="header" href="#changes-in-2150-to-59">Changes in 2.1.50 to 59</a></h1>
 <ul>
-<li><a href="changes/2.1.50-59.html#changes-in-2158">Changes in 2.1.58</a></li>
+<li><a href="changes/2.1.50-59.html#changes-in-2158">Changes in 2.1.58</a>
+<ul>
+<li><a href="changes/2.1.50-59.html#custom-sync-server">Custom sync server</a></li>
+<li><a href="changes/2.1.50-59.html#type-in-the-answer">Type in the answer</a></li>
+<li><a href="changes/2.1.50-59.html#importing">Importing</a></li>
+<li><a href="changes/2.1.50-59.html#scheduling">Scheduling</a></li>
+<li><a href="changes/2.1.50-59.html#fixes">Fixes</a></li>
+</ul>
+</li>
 <li><a href="changes/2.1.50-59.html#changes-in-2157">Changes in 2.1.57</a></li>
 <li><a href="changes/2.1.50-59.html#changes-in-2156">Changes in 2.1.56</a></li>
 <li><a href="changes/2.1.50-59.html#changes-in-2155">Changes in 2.1.55</a></li>
@@ -207,25 +215,25 @@ print(&quot;updated&quot;, updated)
 <p>It will print the number of updated cards.</p>
 <p><a href="https://docs.ankiweb.net/misc.html#debug-console">https://docs.ankiweb.net/misc.html#debug-console</a></p>
 <p>Other changes in this update:</p>
-<p>Custom syncing:</p>
+<h3 id="custom-sync-server"><a class="header" href="#custom-sync-server">Custom sync server</a></h3>
 <ul>
 <li>You can now customize the network timeout in the sync settings, which may be required
 if you have a large collection and/or a slower device.</li>
 <li>Maximum sizes are no longer enforced when downloading from custom sync servers.</li>
 </ul>
-<p>Type in the answer:</p>
+<h3 id="type-in-the-answer"><a class="header" href="#type-in-the-answer">Type in the answer</a></h3>
 <ul>
 <li>Fix type answer comparison being collapsed when extra characters in input.</li>
 <li>Revert to blanking out missed chars in provided text, like older releases.</li>
 <li>Wrap expected text in code block when no answer provided.</li>
 </ul>
-<p>Importing:</p>
+<h3 id="importing"><a class="header" href="#importing">Importing</a></h3>
 <ul>
 <li>When importing csv files, you can now limit duplicate matching to the deck cards are in (thanks to Rumo).</li>
 <li>Support UTF-8-BOM when importing CSV (thanks to Rumo).</li>
 <li>Duplicate handling policy can be specified in the csv file header (thanks to Rumo).</li>
 </ul>
-<p>Scheduling:</p>
+<h3 id="scheduling"><a class="header" href="#scheduling">Scheduling</a></h3>
 <ul>
 <li>It is no longer possible to enable burying of reviews without also burying new cards,
 as Anki excludes buried cards up front, and needs to do so in a particular order
@@ -234,7 +242,7 @@ to avoid errors during review.</li>
 <li>Show custom data from third-party schedulers in stats screen.</li>
 <li>Allow burying cards in the browser (thanks to Kaben).</li>
 </ul>
-<p>Fixes:</p>
+<h3 id="fixes"><a class="header" href="#fixes">Fixes</a></h3>
 <ul>
 <li>Switch to a new Windows TTS implementation, which unblocks future upgrades,
 and should perform better (thanks to Rumo).</li>
