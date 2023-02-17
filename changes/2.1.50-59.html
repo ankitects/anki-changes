@@ -186,7 +186,8 @@ with older clients enabled, or used the downgrade and quit option, then opened
 the collection again. For the former issue, this occurred to the collection you
 were exporting from, and not just the .colpkg file. If you were affected by this,
 running the following in the debug console after updating should restore your
-cards to the ease they were at when you last reviewed them.</p>
+cards to the ease they were at when you last reviewed them, if they were not
+reviewed after the problem occurred. Please make a backup before proceeding.</p>
 <pre><code>updated = 0
 for cid, old, new in mw.col.db.all(&quot;select id, factor, (select factor from revlog where cid=cards.id order by id desc limit 1) as factor2 from cards where type=2&quot;):
   if new and old != new:
@@ -196,6 +197,7 @@ for cid, old, new in mw.col.db.all(&quot;select id, factor, (select factor from 
     updated += 1
 print(&quot;updated&quot;, updated)
 </code></pre>
+<p>It will print the number of updated cards.</p>
 <p><a href="https://docs.ankiweb.net/misc.html#debug-console">https://docs.ankiweb.net/misc.html#debug-console</a></p>
 <p>Other changes in this update:</p>
 <p>Custom syncing:</p>
@@ -214,7 +216,7 @@ if you have a large collection and/or a slower device.</li>
 <ul>
 <li>When importing csv files, you can now limit duplicate matching to the deck cards are in (thanks to Rumo).</li>
 <li>Support UTF-8-BOM when importing CSV (thanks to Rumo).</li>
-<li>Duplicate handling policy can be specified in the csv file header.</li>
+<li>Duplicate handling policy can be specified in the csv file header (thanks to Rumo).</li>
 </ul>
 <p>Scheduling:</p>
 <ul>
