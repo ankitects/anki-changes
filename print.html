@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="changes/2.1.50-59.html">Changes in 2.1.50 to 59</a></li><li class="chapter-item expanded "><a href="changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="known-issues.html">Known Issues</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="changes/2.1.60-69.html">Changes in 2.1.60 to 69</a></li><li class="chapter-item expanded "><a href="changes/2.1.50-59.html">Changes in 2.1.50 to 59</a></li><li class="chapter-item expanded "><a href="changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="known-issues.html">Known Issues</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,9 +152,98 @@ earlier Anki release, please go to the File&gt;Switch Profile menu item, and cli
 on &quot;Downgrade &amp; Quit&quot;. If you skip this step, you may get an error message when
 opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2160-to-69"><a class="header" href="#changes-in-2160-to-69">Changes in 2.1.60 to 69</a></h1>
+<ul>
+<li><a href="changes/2.1.60-69.html#changes-in-2161">Changes in 2.1.61</a></li>
+<li><a href="changes/2.1.60-69.html#changes-in-2160">Changes in 2.1.60</a></li>
+</ul>
+<h2 id="changes-in-2161"><a class="header" href="#changes-in-2161">Changes in 2.1.61</a></h2>
+<p>Improvements to the V3 scheduler:</p>
+<ul>
+<li>Added a global option to stop the review limit from limiting new cards (thanks
+to Rumo).</li>
+<li>You can now enable review burying without new burying again (thanks to Rumo).
+There are some caveats - please see the bury tooltips in the deck options.</li>
+<li>Ensure good is at least previous+1 even if low hard factor set.</li>
+</ul>
+<p>Other features/improvements:</p>
+<ul>
+<li>You can now exclude certain fields from unqualified searches via the Fields
+screen (thanks to Abdo).</li>
+<li>The tag area in the editor is now shown with a dropdown instead of a splitter
+(thanks to Matthias).</li>
+<li>You can now adjust the current deck in the stats screen (thanks to yellowjello).</li>
+<li>Add a button in the preferences to reset window sizes (thanks to Abdo).</li>
+<li>Passing an invalid profile name on the commandline will now show profile
+picker instead of an error.</li>
+<li>You can shift-click on a deck to select it as the current deck (thanks to
+Tobias).</li>
+<li>You can now import decks with broken timestamps - they'll automatically be
+fixed on import (thanks to Rumo).</li>
+<li>A DB check will now fix broken timestamps (thanks to Rumo).</li>
+<li>Add time of date to browser date.</li>
+<li>Allow Shift+Tab to move focus from tag area to last field (thanks to Hikaru).</li>
+<li>Custom schedulers now have the deck name and random seed passed in to them, so
+they don't need to extract the info from the DOM (thanks to Rumo).</li>
+<li>Improve debug console (thanks to Rumo).</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Fix stats calendar incorrect due to daylight savings time (thanks to Kieran).</li>
+<li>Prevent the top bar from hiding in the stats page as you scroll down (thanks
+to Fabricio).</li>
+<li>Reduce motion is now on by default, as it fixes an issue with the bottom bar
+failing to appear for some users.</li>
+<li>Fix new limit in v3 decreasing more than it should (thanks to Rumo).</li>
+<li>Fix current tag text not being saved when changing note via shortcut key
+(thanks to Hikaru).</li>
+<li>Fix tags popover becoming separated from the tags field (thanks to Fabricio).</li>
+<li>Ensure the bottom buttons aren't displayed until the custom scheduling code
+has finished running (thanks to Rumo).</li>
+<li>Refresh study screen if the user toggles the v3 scheduler (thanks to Rumo).</li>
+<li>Fix notetypes screen not being closable after adding a notetype on Mac.</li>
+<li>Check for division by zero when calculating browser aspect ratio, which fixes
+an issue with i3 (thanks to Ben).</li>
+<li>Fallback to Wayland if X11 is not available (thanks to Ingemar).</li>
+<li>Tweaks to the build scripts to make packaging in distros easier (thanks to
+Euan).</li>
+<li>Fix silent file save failures and bad default save path in Flatpak (thanks to
+Jack).</li>
+<li>Fix HTML editor sometimes not properly sized when opening editor (thanks to
+Hikaru).</li>
+<li>Fix error showing if user clicks in sidebar before it's rendered.</li>
+<li>Fix backup creation for collections &gt; 1 GiB (thanks to Rumo).</li>
+<li>Fix black on grey minimalist buttons in Qt5 (thanks to Daniel).</li>
+<li>Fix black on grey deck options on Qt5 (thanks to Daniel).</li>
+<li>Export static references from sound tags (thanks to Rumo).</li>
+<li>Fix packaged audio tools path on Windows (thanks to Abdo).</li>
+<li>Fix a case where 'reduce motion' and 'minimalist mode' were switched (thanks
+to Daniel).</li>
+<li>Fix panic with invalid sync server URL with port (thanks to Daniel).</li>
+<li>Fix double scrollbars in deck options (thanks to Fabricio).</li>
+<li>Fix images with non-Latin text and commas failing to display.</li>
+<li>Fix editor text possibly being transfer to different notetypes (thanks to
+Fabricio).</li>
+<li>Improve hover appearance of buttons (thanks to Matthias).</li>
+<li>Fix inability to activate search in graphs screen on Android (thanks to
+yellowjello).</li>
+<li>Fix an issue building on Windows (thanks to Kieran).</li>
+</ul>
+<h2 id="changes-in-2160"><a class="header" href="#changes-in-2160">Changes in 2.1.60</a></h2>
+<p>If updating from 2.1.57 or earlier, please see the important note in the 2.1.58 change notes.</p>
+<ul>
+<li>Add button to tag notes with missing media (thanks to Rumo).</li>
+<li>Fix slow editor startup for users with lots of fields (thanks to Hikaru).</li>
+<li>Fix a regression in 2.1.58 that broke TTS add-ons (thanks to Rumo).</li>
+<li>Fix HTML editor hiding when shown by default (thanks to Fabricio).</li>
+<li>Fix some widgets not indicating they're disabled (thanks to Matthias).</li>
+<li>Fix deck options selector not updating the current entry sometimes (thanks to Fabricio).</li>
+<li>Fix type box losing focus when switching IMEs (thanks to Hikaru).</li>
+<li>Fix 'toggle bury' not updating for automatically-buried cards.</li>
+<li>Improvements to lifecycle handling for add-ons accessing Svelte components (thanks to Matthias).</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2150-to-59"><a class="header" href="#changes-in-2150-to-59">Changes in 2.1.50 to 59</a></h1>
 <ul>
-<li><a href="changes/2.1.50-59.html#changes-in-2160">Changes in 2.1.60</a></li>
 <li><a href="changes/2.1.50-59.html#changes-in-2159">Changes in 2.1.59</a></li>
 <li><a href="changes/2.1.50-59.html#changes-in-2158">Changes in 2.1.58</a>
 <ul>
@@ -195,19 +284,6 @@ this version, downgrade, then try again.</p>
 <li><a href="changes/2.1.50-59.html#for-developers-1">For Developers</a></li>
 </ul>
 </li>
-</ul>
-<h2 id="changes-in-2160"><a class="header" href="#changes-in-2160">Changes in 2.1.60</a></h2>
-<p>If updating from 2.1.57 or earlier, please see the important note in the 2.1.58 change notes.</p>
-<ul>
-<li>Add button to tag notes with missing media (thanks to Rumo).</li>
-<li>Fix slow editor startup for users with lots of fields (thanks to Hikaru).</li>
-<li>Fix a regression in 2.1.58 that broke TTS add-ons (thanks to Rumo).</li>
-<li>Fix HTML editor hiding when shown by default (thanks to Fabricio).</li>
-<li>Fix some widgets not indicating they're disabled (thanks to Matthias).</li>
-<li>Fix deck options selector not updating the current entry sometimes (thanks to Fabricio).</li>
-<li>Fix type box losing focus when switching IMEs (thanks to Hikaru).</li>
-<li>Fix 'toggle bury' not updating for automatically-buried cards.</li>
-<li>Improvements to lifecycle handling for add-ons accessing Svelte components (thanks to Matthias).</li>
 </ul>
 <h2 id="changes-in-2159"><a class="header" href="#changes-in-2159">Changes in 2.1.59</a></h2>
 <p>Due to a packaging problem, this release was yanked.</p>
