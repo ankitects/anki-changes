@@ -154,8 +154,56 @@ opening your collection in an older Anki version, and you will need to return to
 this version, downgrade, then try again.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes-in-2160-to-69"><a class="header" href="#changes-in-2160-to-69">Changes in 2.1.60 to 69</a></h1>
 <ul>
+<li><a href="changes/2.1.60-69.html#changes-in-2162">Changes in 2.1.62</a></li>
 <li><a href="changes/2.1.60-69.html#changes-in-2161">Changes in 2.1.61</a></li>
 <li><a href="changes/2.1.60-69.html#changes-in-2160">Changes in 2.1.60</a></li>
+</ul>
+<h2 id="changes-in-2162"><a class="header" href="#changes-in-2162">Changes in 2.1.62</a></h2>
+<ul>
+<li>
+<p>Update macOS/Linux builds to Qt 6.5, and update Windows build to Qt 6.4.3.</p>
+<ul>
+<li>
+<p>The minimum macOS version for the Qt6 build is now macOS 11.</p>
+</li>
+<li>
+<p>If you are on Linux and don't have ANKI_WAYLAND set, you may need to install
+libxcb-cursor or Anki will fail to start. Eg on Debian/Ubuntu:</p>
+<p>sudo apt install libxcb-cursor0</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Add an option to fully randomize reviews in the V3 scheduler.</p>
+</li>
+<li>
+<p>Add a new option to the card templates screen to restore a notetype to the
+default fields/templates/styling.</p>
+</li>
+<li>
+<p>Add clearer tooltip to hourly breakdown graph (thanks to Rumo).</p>
+</li>
+<li>
+<p>Fix focus loss when closing HTML editor (thanks to Hikaru).</p>
+</li>
+<li>
+<p>Prevent MathJax editor from closing when you selected text with the mouse and
+released the mouse button outside the window (thanks to Hikaru).</p>
+</li>
+<li>
+<p>Pass original deck name to custom scheduling code, instead of filtered deck
+name.</p>
+</li>
+<li>
+<p>When importing an .apkg where notetypes have changed, display a clearer
+message, and only if the notes in the incoming collection are newer.</p>
+</li>
+<li>
+<p>Fix MathJax editor not being sized correctly (thanks to Hikaru).</p>
+</li>
+<li>
+<p>Fix a flicker when dropdowns shown with reduce motion on (thanks to Hikaru).</p>
+</li>
 </ul>
 <h2 id="changes-in-2161"><a class="header" href="#changes-in-2161">Changes in 2.1.61</a></h2>
 <p>Improvements to the V3 scheduler:</p>
