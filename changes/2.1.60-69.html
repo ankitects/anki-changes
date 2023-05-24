@@ -147,10 +147,41 @@
                     <main>
                         <h1 id="changes-in-2160-to-69"><a class="header" href="#changes-in-2160-to-69">Changes in 2.1.60 to 69</a></h1>
 <ul>
+<li><a href="#changes-in-2164">Changes in 2.1.64</a></li>
 <li><a href="#changes-in-2163">Changes in 2.1.63</a></li>
 <li><a href="#changes-in-2162">Changes in 2.1.62</a></li>
 <li><a href="#changes-in-2161">Changes in 2.1.61</a></li>
 <li><a href="#changes-in-2160">Changes in 2.1.60</a></li>
+</ul>
+<h2 id="changes-in-2164"><a class="header" href="#changes-in-2164">Changes in 2.1.64</a></h2>
+<p>Functional changes:</p>
+<ul>
+<li>The Windows installer no longer requires admin access (thanks to Martin). The first time you
+update, you'll need to run the installer again after uninstall completes.</li>
+<li>Allow the user to configure answer keys in the preferences, fixing conflicts (thanks to Ren).</li>
+<li>Preload embedded fonts to prevent flicker, and tweak wait time for image preloading (thanks to Hikaru).</li>
+<li>Add the ability to search for FSRS scheduling properties, eg. <code>prop:cdn:d&gt;0.5</code> to search
+for the difficulty &gt; 0.5.</li>
+<li>Window positions, state and browser headers are now reset each time the Qt version changes,
+which should fix a number of crashes that users were reporting.</li>
+<li>Add-on shortcuts will now override Anki defaults (thanks to Ren).</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Fix media files being imported incorrectly when importing an .apkg file exported without support for older
+Anki versions.</li>
+<li>Increase the number of supported fields in the editor (thanks to Hikaru).</li>
+<li>Attempt to work around intermittent color setting failures in Qt6.5 on macOS.</li>
+<li>Fix ugly text rendering on Wayland when using fractional scaling.</li>
+<li>Fix inability to import csv when path contains single quote.</li>
+<li>Show an error pop-up when csv import screen fails to load.</li>
+<li>Don't disable animations on card templates when reduce motion is on.</li>
+<li>Fix an error in the console when resizing windows (thanks to Austin)</li>
+<li>Fix a panic when user sets a huge learning step.</li>
+<li>Fix page scrolling when input box loses focus (thanks to Hikaru).</li>
+<li>Fix failure to start on Windows when path contains non-Latin text.</li>
+<li>Fix due/ivl prop queries not working in filtered decks.</li>
+<li>Make some collection methods public in the Rust API (thanks to Joel).</li>
 </ul>
 <h2 id="changes-in-2163"><a class="header" href="#changes-in-2163">Changes in 2.1.63</a></h2>
 <ul>
