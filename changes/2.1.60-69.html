@@ -147,12 +147,57 @@
                     <main>
                         <h1 id="changes-in-2160-to-69"><a class="header" href="#changes-in-2160-to-69">Changes in 2.1.60 to 69</a></h1>
 <ul>
+<li><a href="#changes-in-2166">Changes in 2.1.66</a></li>
 <li><a href="#changes-in-2165">Changes in 2.1.65</a></li>
 <li><a href="#changes-in-2164">Changes in 2.1.64</a></li>
 <li><a href="#changes-in-2163">Changes in 2.1.63</a></li>
 <li><a href="#changes-in-2162">Changes in 2.1.62</a></li>
 <li><a href="#changes-in-2161">Changes in 2.1.61</a></li>
 <li><a href="#changes-in-2160">Changes in 2.1.60</a></li>
+</ul>
+<h2 id="changes-in-2166"><a class="header" href="#changes-in-2166">Changes in 2.1.66</a></h2>
+<ul>
+<li>Windows and Mac builds have been updated to the latest toolkit version,
+which will hopefully fix some crashes/bugs.</li>
+<li>The v3 scheduler is now the default for new users.</li>
+<li>When imports complete, a summary window is now shown (thanks to Abdo).</li>
+<li>Use a different approach for detecting copy+paste from Anki fields, which may fix some crashes.</li>
+<li>The minimalist/reduce motion toggles should no longer affect card content.</li>
+<li>Media check now automatically extracts images that have been embedded in fields.</li>
+<li>Handle importing of legacy AnkiDroid backups.</li>
+<li>The built-in sync server can now be built without Python if you prefer.</li>
+<li>Add keyboard shortcut for legacy stats (thanks to Luc).</li>
+<li>Accessibility improvements (thanks to Derek and Kenny).</li>
+<li>Fix addon update dialog showing twice (thanks to Rumo).</li>
+<li>Fix bold toggle not working in certain circumstances (thanks to mmjang).</li>
+<li>Align code blocks to left (thanks to shunlog).</li>
+<li>Make weekday font smaller for Chinese locale (thanks to mmjang).</li>
+<li>Improve performance of invalid ID fix in DB check.</li>
+<li>Fix main window geometry/state not being restored in some cases (thanks to Abdo).</li>
+<li>Handle invalid float mtimes in DB check.</li>
+<li>Fix total note count not being logged in apkg import.</li>
+<li>Report actual error when DbError occurs.</li>
+<li>Fix two issues with MathJax editor (thanks to Hikaru).</li>
+<li>Don't fail silently when an empty csv is imported.</li>
+<li>Fix two issues that can cause editor fields to behave incorrectly (thanks to Hikaru).</li>
+<li>When cards are in intraday learning queue, don't use original due.</li>
+<li>Fix &quot;Add-ons possibly involved&quot; message never appearing on Windows (thanks to Abdo).</li>
+<li>Add partial support for Hangul keyboard shortcuts during review (thanks to Christopher).</li>
+<li>Disable add-on buttons when no field is focused by default (thanks to Abdo).</li>
+<li>Fix toggleable editor button styles (thanks to Abdo).</li>
+<li>Fixed a sporadic error in the review screen (thanks to mjuhanne).</li>
+<li>Fixed an error that could occur when syncing between newer and older clients.</li>
+<li>Fixed tab order in find&amp;replace screen (thanks to Gabriel).</li>
+<li>Various other minor fixes and behind-the-scenes changes.</li>
+</ul>
+<p>Dev related:</p>
+<ul>
+<li>Fix incorrect handling of locals in debug console (thanks to Rumo).</li>
+<li>Add did-add-field-hook analogous to did-delete-field (thanks to 3ter).</li>
+<li>Fix run-qt5.15.bat (thanks to Hikaru).</li>
+<li>Support more mime types for add_extension_based_on_mime (thanks to BenYip).</li>
+<li>Make set_config_help_action work with submodules (thanks to Abdo).</li>
+<li>Exclude Fabric's large canvas dependency (thanks to Kavel).</li>
 </ul>
 <h2 id="changes-in-2165"><a class="header" href="#changes-in-2165">Changes in 2.1.65</a></h2>
 <ul>
