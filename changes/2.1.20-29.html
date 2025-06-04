@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,11 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -25,25 +24,40 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -56,56 +70,66 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/github.html">Changes in 23.12+</a></li><li class="chapter-item expanded "><a href="../changes/23.10.html">Changes in 23.10</a></li><li class="chapter-item expanded "><a href="../changes/2.1.60-66.html">Changes in 2.1.60 to 66</a></li><li class="chapter-item expanded "><a href="../changes/2.1.50-59.html">Changes in 2.1.50 to 59</a></li><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html" class="active">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -135,7 +159,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -255,7 +279,7 @@ set on the parent.</li>
 <p>Unicode normalization:</p>
 <p>If you are studying rare CJK characters and wish to prevent them from being converted into
 modern equivalents, the following in the debug console will stop Anki from normalizing note text.</p>
-<pre><code class="language-py">mw.col.conf[&quot;normalize_note_text&quot;] = False
+<pre><code class="language-py">mw.col.conf["normalize_note_text"] = False
 </code></pre>
 </li>
 <li>
@@ -290,7 +314,7 @@ issues you have playing audio files/videos.</li>
 <li>Code improvements (thanks to BlueGreenMagick, Thomas and Andrew).</li>
 <li>Fixed '&amp;' being changed in image filenames in HTML editor.</li>
 <li>Fixed exports getting broken by Windows carriage returns in note fields.</li>
-<li>Fixed deck deletion, and allow &quot;deleting&quot; the default deck (it comes back empty).</li>
+<li>Fixed deck deletion, and allow "deleting" the default deck (it comes back empty).</li>
 <li>Card layout screen divider can now be adjusted (thanks to Evandro).</li>
 <li>Fixed duplicate rendering in card layout screen (thanks to Evandro).</li>
 <li>Fixed off-by-one in field drag&amp;drop (thanks to BlueGreenMagick)</li>
@@ -334,31 +358,31 @@ and kenden.</li>
 <li>You can use <code>w:something</code> to search on word boundaries, eg:
 <ul>
 <li><code>w:dog</code><br />
-search for &quot;dog&quot; on a word boundary - will match &quot;dog&quot;, but not &quot;doggy&quot;
-or &quot;underdog&quot;.</li>
+search for "dog" on a word boundary - will match "dog", but not "doggy"
+or "underdog".</li>
 <li><code>w:dog*</code><br />
-will match &quot;dog&quot; and &quot;doggy&quot;, but not &quot;underdog&quot;.</li>
+will match "dog" and "doggy", but not "underdog".</li>
 <li><code>w:*dog</code><br />
-will match &quot;dog&quot; and &quot;underdog&quot;, but not &quot;doggy&quot;.</li>
+will match "dog" and "underdog", but not "doggy".</li>
 </ul>
 </li>
 <li>You can now use <code>re:something</code> to search via regular expression, eg:
 <ul>
-<li><code>&quot;re:(some|another).*thing&quot;</code><br />
-find notes that have &quot;some&quot; or &quot;another&quot; on them, followed by 0 or more characters, and then &quot;thing&quot;</li>
+<li><code>"re:(some|another).*thing"</code><br />
+find notes that have "some" or "another" on them, followed by 0 or more characters, and then "thing"</li>
 <li><code>re:\d{3}</code><br />
 find notes that have 3 digits in a row</li>
 <li>When searching by regex, unicode case folding is used, so searching for <code>re:über</code> will
-show a card that has &quot;Über&quot; on it.</li>
+show a card that has "Über" on it.</li>
 </ul>
 </li>
-<li><code>nc:something</code> (short for &quot;no combining (characters)&quot;) can be used to search while
-ignoring accents, eg <code>nc:uber</code> will match both &quot;über&quot; and &quot;Über&quot;. This behaves the same way as the &quot;Ignore Accents&quot; add-on, but is about 16x faster.</li>
+<li><code>nc:something</code> (short for "no combining (characters)") can be used to search while
+ignoring accents, eg <code>nc:uber</code> will match both "über" and "Über". This behaves the same way as the "Ignore Accents" add-on, but is about 16x faster.</li>
 <li>You can now sort on the deck, card template, note type and tags columns.</li>
 <li>You can now use wildcards when limiting the search to a field, eg <code>field*:something</code>.</li>
 <li>You can now use wildcards when searching for a card template or note type by name.</li>
 <li><code>rated:x</code> searches are now capped to a year instead of a month.</li>
-<li>You can now escaped double-quotes in a search - eg <code>&quot;foo\&quot;bar&quot;</code></li>
+<li>You can now escaped double-quotes in a search - eg <code>"foo\"bar"</code></li>
 <li>Single-quote searches are no longer supported.</li>
 <li>Because the searching code has been rewritten, add-ons that modify the search
 code will need to be updated to support 2.1.24. It is no longer possible to
@@ -388,7 +412,7 @@ If you switch between dark and light mode, the interface will render incorrectly
 <pre><code class="language-shell">defaults write net.ankiweb.dtop NSRequiresAquaSystemAppearance -bool no
 </code></pre>
 <p>And the following in the debug console:</p>
-<pre><code class="language-py">mw.pm.meta[&quot;dark_mode_widgets&quot;] = True
+<pre><code class="language-py">mw.pm.meta["dark_mode_widgets"] = True
 </code></pre>
 </li>
 </ul>
@@ -396,7 +420,7 @@ If you switch between dark and light mode, the interface will render incorrectly
 <ul>
 <li>Anki now uses Rust's sqlite libraries instead of Python's.</li>
 <li>The 'db' object on the collection retains most of the same API as before, minimizing the amount of immediate code changes that are required.</li>
-<li>Custom sql functions are no longer supported, and named DB arguments (eg &quot;where id = :id&quot;) are deprecated.</li>
+<li>Custom sql functions are no longer supported, and named DB arguments (eg "where id = :id") are deprecated.</li>
 <li>The old database code remains in db.py, and add-ons can continue to use it for accessing
 their own databases.</li>
 <li>The database is now behind a mutex, and can be safely accessed from a background thread.</li>
@@ -490,7 +514,7 @@ the deleted files back to your media folder.</p>
 <p>Other changes:</p>
 <ul>
 <li>You can now export .apkg files with the V2 scheduler enabled.</li>
-<li>Add &quot;New #&quot; prefix to the due column for new cards.</li>
+<li>Add "New #" prefix to the due column for new cards.</li>
 <li>Fixed audio getting stuck on Windows.</li>
 <li>Clear the audio queue when moving between cards with autoplay off.</li>
 <li>Fixed play icons not appearing in browser preview when autoplay off.</li>
@@ -704,7 +728,7 @@ created (thanks to Arthur)</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../changes/2.1.10-19.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../changes/2.1.10-19.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -718,7 +742,7 @@ created (thanks to Arthur)</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../changes/2.1.10-19.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../changes/2.1.10-19.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -728,21 +752,22 @@ created (thanks to Arthur)</p>
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>

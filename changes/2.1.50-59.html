@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,11 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -25,25 +24,40 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -56,56 +70,66 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../changes/intro.html">Changes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../changes/github.html">Changes in 23.12+</a></li><li class="chapter-item expanded "><a href="../changes/23.10.html">Changes in 23.10</a></li><li class="chapter-item expanded "><a href="../changes/2.1.60-66.html">Changes in 2.1.60 to 66</a></li><li class="chapter-item expanded "><a href="../changes/2.1.50-59.html" class="active">Changes in 2.1.50 to 59</a></li><li class="chapter-item expanded "><a href="../changes/2.1.40-49.html">Changes in 2.1.40 to 49</a></li><li class="chapter-item expanded "><a href="../changes/2.1.30-39.html">Changes in 2.1.30 to 39</a></li><li class="chapter-item expanded "><a href="../changes/2.1.20-29.html">Changes in 2.1.20 to 29</a></li><li class="chapter-item expanded "><a href="../changes/2.1.10-19.html">Changes in 2.1.10 to 19</a></li><li class="chapter-item expanded "><a href="../changes/2.1.0-9.html">Changes in 2.1.0 to 9</a></li><li class="chapter-item expanded "><a href="../changes/2.1.html">Changes in Anki 2.1</a></li></ol></li><li class="chapter-item expanded "><a href="../known-issues.html">Known Issues</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -135,7 +159,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -200,13 +224,13 @@ running the following in the debug console after updating should restore your
 cards to the ease they were at when you last reviewed them, if they were not
 reviewed after the problem occurred. Please make a backup before proceeding.</p>
 <pre><code>updated = 0
-for cid, old, new in mw.col.db.all(&quot;select id, factor, (select factor from revlog where cid=cards.id order by id desc limit 1) as factor2 from cards where type=2&quot;):
+for cid, old, new in mw.col.db.all("select id, factor, (select factor from revlog where cid=cards.id order by id desc limit 1) as factor2 from cards where type=2"):
   if new and old != new:
     card = mw.col.get_card(cid)
     card.factor = new
     mw.col.update_card(card)
     updated += 1
-print(&quot;updated&quot;, updated)
+print("updated", updated)
 </code></pre>
 <p>It will print the number of updated cards.</p>
 <p><a href="https://docs.ankiweb.net/misc.html#debug-console">https://docs.ankiweb.net/misc.html#debug-console</a></p>
@@ -253,7 +277,7 @@ and should perform better (thanks to Rumo).</li>
 <li>The top toolbar appears more subtle during review.</li>
 <li>A new option in the preferences to automatically hide the top and bottom bar
 during review.</li>
-<li>A new option in the preferences to enable a &quot;minimalist&quot; mode that makes the
+<li>A new option in the preferences to enable a "minimalist" mode that makes the
 UI more compact/less fancy.</li>
 <li>A new option in the preferences to switch between native styling and the Anki
 theme (on Mac/Linux).</li>
@@ -423,7 +447,7 @@ override, or one that will reset when the next day comes around.</li>
 <li>Possible fix for error when copying text in editor</li>
 <li>Preserve background color when copy+pasting between fields.</li>
 <li>Preserve background-color when pasting external content in light mode.</li>
-<li>Suppress the &quot;Unknown error&quot; message that the web toolkit can output on Windows.</li>
+<li>Suppress the "Unknown error" message that the web toolkit can output on Windows.</li>
 <li>Various other fixes.</li>
 </ul>
 <h2 id="changes-in-2154"><a class="header" href="#changes-in-2154">Changes in 2.1.54</a></h2>
@@ -657,7 +681,7 @@ limits of the selected deck are no longer adjusted.</li>
 <li>Images can be resized within the editor.</li>
 <li>Fields can now have an optional description/tooltip assigned to them (thanks
 to Matthias, Henrik &amp; Rumo).</li>
-<li>The &quot;remove formatting&quot; button now offers a choice of what to remove.</li>
+<li>The "remove formatting" button now offers a choice of what to remove.</li>
 <li>Adjust color picker shortcut, and apply color when different color selected.</li>
 <li>Reduced editor button size on Windows/Linux (thanks to Matthias).</li>
 <li>Fixed IME input after pressing tab.</li>
@@ -706,26 +730,26 @@ old TTS syntax - either can be used.</li>
 <li>Added an option to add/remove sidebar tag to selected notes (thanks to Rumo).</li>
 <li>Be smarter about mapping existing text to new fields when switching notetypes in the Add screen (thanks to Abdo).</li>
 <li>Apkg files can now be dragged on the main window to import them (thanks to Abdo).</li>
-<li>Added a &quot;Create Copy&quot; option in the browse screen and review screen, to copy
+<li>Added a "Create Copy" option in the browse screen and review screen, to copy
 selected note's contents into the Add window (thanks to Rumo).</li>
 <li>You can now search for tags by regular expression (thanks to Rumo). One use
 for this is locating notes that are tagged with a <code>parent</code> tag, while not matching
 ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>When switching Anki versions, an add-on update check is run on startup (thanks to Rumo).</li>
 <li>Make links with <code>target=_blank</code> work (thanks to Danish).</li>
-<li>Added &quot;Forget Card&quot; action to review screen (thanks to Araceli).</li>
+<li>Added "Forget Card" action to review screen (thanks to Araceli).</li>
 <li>Added Belarusian and Odia to available languages in the preferences.</li>
 <li>Added a silent option (/s) for the Windows uninstaller (thanks to Patric).</li>
 <li>Added tooltips to some browser columns (thanks to Rumo).</li>
 </ul>
 <h3 id="other-improvements-2"><a class="header" href="#other-improvements-2">Other Improvements</a></h3>
 <ul>
-<li>Added a &quot;Learn&quot; label to the learning counts in the deck list.</li>
+<li>Added a "Learn" label to the learning counts in the deck list.</li>
 <li>Added shortcut keys for creating lists and indentation (thanks to Rumo).</li>
 <li>Allow longer maximum answer times in the deck settings (thanks to Bruce).</li>
 <li>Behind-the-scenes improvements to the deck and notetype selectors (thanks to Sam).</li>
 <li>Change cards/notes toggle to Ctrl/Cmd+Alt+T to avoid conflict on macOS.</li>
-<li>Changed the &quot;Previous Card Info&quot; shortcut to avoid a conflict with language input.</li>
+<li>Changed the "Previous Card Info" shortcut to avoid a conflict with language input.</li>
 <li>Colpkg imports now always require a full sync.</li>
 <li>Deck creation in the custom study screen has been reworked, and now supports undo properly (thanks to Rumo).</li>
 <li>Don't show error when gsettings exists but does not have a GNOME theme set (thanks to Spooghetti420).</li>
@@ -733,7 +757,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>Fall back on regular file deletion when no recycling bin/trash folder is available on Linux.</li>
 <li>Filtered decks in 'order added' now sort by card template.</li>
 <li>Fix deck name not updating after deck/notetype renamed (thanks to Hikaru).</li>
-<li>Fixed &quot;tag duplicates&quot; possibly operating on stale data (thanks to Ren).</li>
+<li>Fixed "tag duplicates" possibly operating on stale data (thanks to Ren).</li>
 <li>Fixed a number of issues with the preview window (thanks to Hikaru).</li>
 <li>Fixed AltGr triggering Ctrl+Alt shortcuts on Windows (thanks to Rumo)</li>
 <li>Fixed an error loading the old deck options screen when using Python 3.10.</li>
@@ -750,7 +774,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>Fixed incorrect card count in timebox after undo (thanks to Abdo).</li>
 <li>Fixed new card position appearing as a date when cards were in preview (thanks to Abdo).</li>
 <li>Fixed newly-added deck not being selected in the Add screen (thanks to Hikaru).</li>
-<li>Fixed quotation of &quot;and&quot; and &quot;or&quot; in search (thanks to Rumo).</li>
+<li>Fixed quotation of "and" and "or" in search (thanks to Rumo).</li>
 <li>Fixed some parts of the media handling code matching more HTML tags than it should have (thanks to Brayan).</li>
 <li>Fixed sound failing to play after exporting a collection (thanks to Rumo and Kelciour).</li>
 <li>Fixed the deck list showing up blank in collections with many expanded decks.</li>
@@ -758,7 +782,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>Fixed unwanted <code>&lt;div&gt;</code> being left behind when deleting field contents (thanks to Hikaru).</li>
 <li>Fixed various memory leaks (thanks to Rumo and Hikaru).</li>
 <li>Flip sidebar location in RTL mode (thanks to Abdo).</li>
-<li>Hide &quot;open new window&quot; action in GNOME (thanks to Fusion future &amp; Felipe)</li>
+<li>Hide "open new window" action in GNOME (thanks to Fusion future &amp; Felipe)</li>
 <li>Improve search highlight color in templates screen (thanks to Abdo).</li>
 <li>Improved display of the card info screen (thanks to Rumo).</li>
 <li>Improved localization of large numbers in the graphs, and various layout tweaks (thanks to Vova).</li>
@@ -768,7 +792,7 @@ ones tagged with <code>parent::child</code>: <code>tag:re:^parent$</code>.</li>
 <li>Randomized card positions now start at 1, which avoids a corner case in filtered deck scheduling.</li>
 <li>Reduced flicker when opening browser in night mode (thanks to Rumo).</li>
 <li>Report correct count in timebox screen with v2 scheduler (thanks to Abdo).</li>
-<li>Rows with database inconsistencies in the browse screen now prompt you to use &quot;check database&quot; instead of saying they were deleted (thanks to Rumo).</li>
+<li>Rows with database inconsistencies in the browse screen now prompt you to use "check database" instead of saying they were deleted (thanks to Rumo).</li>
 <li>Some behind-the-scenes code improvements (thanks to Sam).</li>
 <li>Support autoplay in audio tags again (thanks to Andreas).</li>
 <li>Support Markdown inside HTML tags in config.md (thanks to Abdo).</li>
@@ -830,7 +854,7 @@ are no longer active. If you want a permanent timer, pass <code>mw</code> in as 
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../changes/2.1.40-49.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../changes/2.1.40-49.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -844,7 +868,7 @@ are no longer active. If you want a permanent timer, pass <code>mw</code> in as 
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../changes/2.1.40-49.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../changes/2.1.40-49.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -854,21 +878,22 @@ are no longer active. If you want a permanent timer, pass <code>mw</code> in as 
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>
